@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>张彪｜内容增长与 AI 运营作品集</title>
-  <meta name="description" content="张彪个人主页，整理内容增长、创作者协作、账号矩阵、自然流获客与 AI 运营工具实践作品。">
-  <meta property="og:title" content="张彪｜内容增长与 AI 运营作品集">
-  <meta property="og:description" content="近4年内容增长与创作者运营经验，结合可运行 AI 工具，覆盖选题、审核、社群答疑、复盘和增长验证。">
+  <title>张彪｜内容增长、创作者生态与 AI 运营作品集</title>
+  <meta name="description" content="张彪个人主页，整理教培行业内容增长、直播获客、账号矩阵、创作者协作、UGC供给与 AI 运营工具实践作品。">
+  <meta property="og:title" content="张彪｜内容增长、创作者生态与 AI 运营作品集">
+  <meta property="og:description" content="近4年教培行业一线运营经验，结合可运行 AI 工具，覆盖内容判断、供给组织、增长承接和复盘提效。">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -521,6 +521,7 @@
     /* 每张卡片绝对定位，用 transform 控制位置和缩放 */
     .stage-track .project-card,
     .stage-track .proto,
+    .stage-track .flagship-card,
     .stage-track .career-card{
       position:absolute;
       /* 只 composite 属性，GPU 加速，无 layout reflow */
@@ -532,10 +533,12 @@
       background:#0e0e1a !important;
     }
     .stage-track .proto{background:var(--dark-2) !important}
+    .stage-track .flagship-card{background:linear-gradient(145deg,rgba(22,22,38,.98),rgba(11,12,24,.98)) !important}
     .stage-track .career-card{background:#0e0e1a !important}
     /* 非激活卡全部 pointer-events:none，只留激活卡可交互 */
     .stage-track .project-card:not(.s-active),
     .stage-track .proto:not(.s-active),
+    .stage-track .flagship-card:not(.s-active),
     .stage-track .career-card:not(.s-active){
       pointer-events:none;
     }
@@ -603,10 +606,12 @@
     body.warm .stage-track .project-card,
     body.warm .stage-track .career-card{background:#f5f0ea}
     body.warm .stage-track .proto{background:#f0eae0}
+    body.warm .stage-track .flagship-card{background:linear-gradient(145deg,rgba(255,255,255,.86),rgba(240,234,224,.92)) !important}
 
     /* project-card / proto / career-card 宽度定义（stage 模式下生效） */
     .stage-track .project-card{width:520px}
     .stage-track .proto{width:480px}
+    .stage-track .flagship-card{width:590px}
     .stage-track .career-card{width:560px}
 
     /* 业务项目 & 工作经历的 stage-track 给更多空间 */
@@ -619,7 +624,15 @@
     #stage-career .stage-track .s-far-prev{ transform:translateX(-800px) scale(0.55) !important }
     #stage-career .stage-track .s-far-next{ transform:translateX(800px) scale(0.55) !important }
 
-    /* proto 卡宽度大，预览卡偏移同步扩大 */
+    /* 旗舰 AI 作品区：三张重点作品并排展示，不使用舞台叠卡，避免遮挡 */
+    #flagship-stage{margin-top:26px;padding:26px 0 10px;overflow:visible}
+    #flagship-stage::before{content:"";position:absolute;inset:0;border:1px solid rgba(255,255,255,.08);border-radius:26px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.016));box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 24px 80px rgba(0,0,0,.15);pointer-events:none}
+    #flagship-stage::after{content:"";position:absolute;left:50%;top:-24px;width:min(760px,76vw);height:260px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(232,69,10,.13),rgba(59,130,246,.05) 42%,transparent 72%);filter:blur(2px);pointer-events:none}
+    #flagship-stage .stage-track{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;justify-content:stretch;gap:18px;min-height:0;padding:22px;z-index:1}
+    #flagship-stage .stage-track .flagship-card{position:relative!important;width:auto!important;min-width:0;min-height:365px;padding:30px 28px 28px;transform:none!important;opacity:1!important;pointer-events:auto!important;z-index:1!important}
+    #flagship-stage .stage-track .flagship-card:hover{transform:translateY(-8px)!important;border-color:rgba(232,69,10,.55)!important;box-shadow:0 0 0 1px rgba(232,69,10,.22),0 24px 68px rgba(232,69,10,.18)!important}
+    #flagship-stage .stage-track .flagship-card:first-child{border-color:rgba(232,69,10,.5)!important;box-shadow:0 0 0 1px rgba(232,69,10,.18),0 22px 60px rgba(232,69,10,.16)!important}
+    #flagship-stage .stage-track .flagship-card:first-child::after{content:"Latest";position:absolute;right:18px;top:18px;padding:3px 8px;border-radius:999px;background:rgba(232,69,10,.14);border:1px solid rgba(232,69,10,.26);color:#ffb494;font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
     #stage-protos .stage-track .s-prev{ transform:translateX(-420px) scale(0.75) !important }
     #stage-protos .stage-track .s-next{ transform:translateX(420px) scale(0.75) !important }
     #stage-protos .stage-track .s-far-prev{ transform:translateX(-720px) scale(0.58) !important }
@@ -632,9 +645,11 @@
     #stage-biz .stage-track .s-far-next{ transform:translateX(780px) scale(0.55) !important }
 
     /* 激活卡按卡片类型单独放大 */
+    #flagship-stage .stage-track .s-active{ transform:none !important }
     #stage-protos  .stage-track .s-active{ transform:translateX(0) scale(1.08) !important }
     #stage-biz     .stage-track .s-active{ transform:translateX(0) scale(1.08) !important }
     #stage-career  .stage-track .s-active{ transform:translateX(0) scale(1.12) !important }
+    #flagship-stage .stage-track .s-active-tap{ transform:none !important }
     #stage-protos  .stage-track .s-active-tap{ transform:translateX(0) scale(1.11) !important }
     #stage-biz     .stage-track .s-active-tap{ transform:translateX(0) scale(1.12) !important }
     #stage-career  .stage-track .s-active-tap{ transform:translateX(0) scale(1.16) !important }
@@ -850,6 +865,22 @@
       .section{padding:78px 0}
       .caps{grid-template-columns:1fr}
       .proto{flex:0 0 260px}
+      .stage-wrap{padding:42px 0 18px}
+      #flagship-stage{margin-top:18px;padding:18px 0 10px;overflow:hidden}
+      #flagship-stage::before{border-radius:22px}
+      #flagship-stage::after{width:82vw;height:220px}
+      #flagship-stage .stage-track{display:flex;justify-content:flex-start;gap:14px;min-height:0;padding:18px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+      #flagship-stage .stage-track .flagship-card{width:min(82vw,420px)!important;min-width:min(82vw,420px);min-height:405px;padding:26px 24px;scroll-snap-align:center}
+      .flagship-card h3{font-size:24px}
+      .flagship-card p{font-size:14.5px;line-height:1.72}
+      .flagship-points li{font-size:13.5px;line-height:1.55}
+      .flagship-actions .proto-link-btn.live{width:100%;justify-content:center}
+      .flagship-note{margin-top:4px}
+      .flagship-note span{font-size:11px;padding:7px 12px}
+      #flagship-stage .stage-track .s-prev,
+      #flagship-stage .stage-track .s-next,
+      #flagship-stage .stage-track .s-far-prev,
+      #flagship-stage .stage-track .s-far-next{transform:none!important;opacity:1!important}
       .project-card{flex:0 0 280px}
       .biz-grid{grid-template-columns:1fr}
       .biz-grid .project-card{min-height:auto;padding:26px 24px}
@@ -1064,26 +1095,33 @@
     .proto:hover .proto-cover img{transform:scale(1.04)}
     .proto-tech{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 0}
     .proto-tech-tag{font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:4px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.42);background:rgba(255,255,255,.03);letter-spacing:.02em}
-    /* === Flagship AI Works === */
-    .flagship-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:0 0 42px}
-    .flagship-card{position:relative;min-height:360px;padding:30px;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:linear-gradient(135deg,rgba(255,255,255,.075),rgba(255,255,255,.025));overflow:hidden;box-shadow:0 24px 68px rgba(0,0,0,.18);display:flex;flex-direction:column;justify-content:space-between;gap:24px}
-    .flagship-card::before{content:"";position:absolute;inset:-1px;background:radial-gradient(420px circle at 80% 5%,rgba(232,69,10,.24),transparent 58%),radial-gradient(320px circle at 0% 90%,rgba(59,130,246,.16),transparent 60%);opacity:.85;pointer-events:none}
-    .flagship-card:nth-child(2)::before{background:radial-gradient(420px circle at 80% 5%,rgba(74,222,128,.18),transparent 58%),radial-gradient(320px circle at 0% 90%,rgba(232,69,10,.18),transparent 60%)}
+    /* === Flagship AI Works: follows the same stage/card language as proto cards === */
+    .flagship-card{position:relative;min-height:410px;padding:36px 38px 34px;overflow:hidden;border:1px solid rgba(255,255,255,.14);border-radius:18px;color:#fff;background:linear-gradient(145deg,rgba(22,22,38,.98),rgba(11,12,24,.98));display:flex;flex-direction:column;justify-content:space-between;gap:24px;will-change:transform,opacity;cursor:pointer}
+    .flagship-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(232,69,10,.1) 0%,transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none}
+    .flagship-card:hover::before{opacity:1}
     .flagship-card>*{position:relative;z-index:1}
-    .flagship-label{display:inline-flex;margin-bottom:16px;padding:5px 10px;border:1px solid rgba(255,255,255,.14);border-radius:999px;color:rgba(255,255,255,.55);font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;background:rgba(0,0,0,.12)}
-    .flagship-card h3{margin:0 0 12px;color:#fff;font-size:28px;font-weight:900;letter-spacing:-.02em;line-height:1.22}
-    .flagship-card p{margin:0;color:rgba(255,255,255,.68);font-size:14.5px;line-height:1.8}
-    .flagship-points{display:grid;gap:8px;margin:18px 0 0;padding:0;list-style:none}
-    .flagship-points li{color:rgba(255,255,255,.72);font-size:13px;line-height:1.6;padding-left:16px;position:relative}
-    .flagship-points li::before{content:"→";position:absolute;left:0;color:var(--accent);font-weight:900}
-    .flagship-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-    .flagship-meta{display:inline-flex;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.48);font-size:11px;font-weight:800}
-    .flagship-card:hover{border-color:rgba(232,69,10,.45);box-shadow:0 30px 84px rgba(232,69,10,.14),0 24px 68px rgba(0,0,0,.22);transform:translateY(-3px)}
-    body.warm .flagship-card{background:rgba(255,255,255,.65);border-color:rgba(0,0,0,.08)}
+    .flagship-label{display:inline-flex;margin-bottom:18px;padding:4px 10px;border-radius:6px;color:var(--blue);background:rgba(59,130,246,.12);font-size:11px;font-weight:800;letter-spacing:.06em}
+    .flagship-card:nth-child(2) .flagship-label{color:var(--green);background:rgba(74,222,128,.12)}
+    .flagship-card:nth-child(3) .flagship-label{color:var(--purple);background:rgba(167,139,250,.12)}
+    .flagship-card h3{margin:0 0 16px;color:#fff;font-size:28px;font-weight:900;letter-spacing:-.025em;line-height:1.22}
+    .flagship-card p{max-width:490px;margin:0;color:rgba(255,255,255,.72);font-size:15.5px;line-height:1.82}
+    .flagship-points{display:grid;gap:10px;margin:22px 0 0;padding:0;list-style:none}
+    .flagship-points li{position:relative;padding-left:18px;color:rgba(255,255,255,.68);font-size:14px;line-height:1.62}
+    .flagship-points li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px rgba(232,69,10,.42)}
+    .flagship-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:auto}
+    .flagship-actions .proto-link-btn.live{padding:8px 18px;font-size:13.5px;border-radius:9px;box-shadow:0 8px 26px rgba(232,69,10,.32)}
+    .flagship-meta{display:inline-flex;align-items:center;justify-content:center;padding:4px 9px;border-radius:5px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:rgba(255,255,255,.5);font-size:11px;font-weight:700;letter-spacing:.02em}
+    #flagship-arrows{display:none;position:relative;z-index:2;margin-top:-8px;margin-bottom:52px}
+    #flagship-arrows .stage-arrow{width:48px;height:48px;border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.055)}
+    #flagship-arrows .stage-dot{height:9px;width:9px}
+    #flagship-arrows .stage-dot.active{width:30px}
+    .flagship-note{display:flex;justify-content:center;margin:8px 0 -6px}
+    .flagship-note span{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid rgba(232,69,10,.18);border-radius:999px;background:rgba(232,69,10,.06);color:rgba(255,255,255,.62);font-size:12px;font-weight:700;letter-spacing:.03em}
+    body.warm .flagship-card{border-color:rgba(0,0,0,.08);color:#1a1a1a}
     body.warm .flagship-card h3{color:#1a1a1a}
-    body.warm .flagship-card p,body.warm .flagship-points li{color:rgba(0,0,0,.62)}
-    body.warm .flagship-label,body.warm .flagship-meta{border-color:rgba(0,0,0,.1);background:rgba(0,0,0,.035);color:rgba(0,0,0,.45)}
-    @media(max-width:760px){.flagship-grid{grid-template-columns:1fr}.flagship-card{min-height:auto}}
+    body.warm .flagship-card p,body.warm .flagship-points li{color:rgba(0,0,0,.56)}
+    body.warm .flagship-meta{border-color:rgba(0,0,0,.1);background:rgba(0,0,0,.02);color:rgba(0,0,0,.45)}
+    body.warm .flagship-note span{border-color:rgba(232,69,10,.22);background:rgba(232,69,10,.05);color:rgba(0,0,0,.58)}
     /* === Proto Summary Bar === */
 
     .proto-summary-bar b{color:#fff;font-weight:700}
@@ -1181,7 +1219,7 @@
   <div class="scroll-progress" id="scrollProgress"></div>
 
   <header class="nav">
-    <a class="brand" href="#top"><b>张彪</b><span>内容增长与 AI 运营实践</span></a>
+    <a class="brand" href="#top"><b>张彪</b><span>内容增长 · 创作者生态 · AI 运营</span></a>
     <nav class="nav-links">
       <a href="#about" data-sec="about" data-zh="关于我" data-en="About"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>关于我</a>
       <a href="#works" data-sec="works" data-zh="AI 工具" data-en="Tools"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>AI 工具</a>
@@ -1212,7 +1250,7 @@
         <div>
           <span class="hero-tag"><span class="status-dot"></span>张彪 | 内容增长 · 创作者协作 · AI 工具实践</span>
           <h1><span class="h1-line1">content growth · creator ecosystem · ai ops</span><span class="h1-line2">从内容增长结果<br><span class="highlight-text">到创作者机制<br>再到 AI 工具化</span></span></h1>
-          <p class="lead">近 4 年教培行业内容增长与创作者运营经验，做过账号矩阵、内容供给、自然流获客和 AI 提效。我更擅长把跑通过的运营方法沉淀成机制，再做成可复用的工具。</p>
+          <p class="lead">近 4 年深耕教培行业一线运营，经历过短视频冷启动、直播获客、账号矩阵、主播与素人协作，也在把选题、审核、复盘等高频动作做成 AI 工具。</p>
           <div class="hero-ctas">
             <a class="btn-primary" href="#works">查看 AI 作品 →</a>
             <a class="btn-secondary" href="#career-section">查看工作经历 →</a>
@@ -1231,15 +1269,15 @@
             <div class="chain-flow">
               <div class="chain-step"><div class="chain-icon i1">💡</div><div class="chain-info"><b>内容判断</b><span>平台语感、用户需求、选题机会</span></div></div>
               <div class="chain-arrow">↓</div>
-              <div class="chain-step"><div class="chain-icon i2">✍️</div><div class="chain-info"><b>供给组织</b><span>账号矩阵、UGC 供给、创作者协作</span></div></div>
+              <div class="chain-step"><div class="chain-icon i2">✍️</div><div class="chain-info"><b>供给组织</b><span>账号矩阵、主播协作、素人种草</span></div></div>
               <div class="chain-arrow">↓</div>
-              <div class="chain-step"><div class="chain-icon i3">📊</div><div class="chain-info"><b>增长转化</b><span>自然流获客、线索承接、数据复盘</span></div></div>
+              <div class="chain-step"><div class="chain-icon i3">📊</div><div class="chain-info"><b>增长承接</b><span>直播预约、线索承接、转化复盘</span></div></div>
               <div class="chain-arrow">↓</div>
               <div class="chain-step"><div class="chain-icon i5">🚀</div><div class="chain-info"><b>AI 工具化</b><span>把高频运营动作做成可体验工具</span></div></div>
             </div>
             <div class="hero-proof-grid">
-              <div class="hero-proof"><b>5100W+</b><span>单项目播放</span></div>
-              <div class="hero-proof"><b>100+</b><span>创作者协作</span></div>
+              <div class="hero-proof"><b>6500W+</b><span>单项目播放</span></div>
+              <div class="hero-proof"><b>50+</b><span>主播与素人协作</span></div>
               <div class="hero-proof"><b>8 个</b><span>公开 AI 工具</span></div>
             </div>
           </div>
@@ -1250,17 +1288,17 @@
     <!-- Hero 正下方：跑马灯 + 数据带，第一屏即可见 -->
     <div class="marquee marquee-accent">
       <div class="marquee-inner">
-        <span>内容增长作品集 ✦</span><span>AI 运营工具实践 ✦</span><span>创作者协作 ✦</span><span>账号矩阵 ✦</span><span>自然流获客 ✦</span><span>50+ 账号矩阵 ✦</span><span>100+ 创作者协作 ✦</span><span>8 个公开 AI 工具入口 ✦</span>
-        <span>内容增长作品集 ✦</span><span>AI 运营工具实践 ✦</span><span>创作者协作 ✦</span><span>账号矩阵 ✦</span><span>自然流获客 ✦</span><span>50+ 账号矩阵 ✦</span><span>100+ 创作者协作 ✦</span><span>8 个公开 AI 工具入口 ✦</span>
+        <span>内容增长作品集 ✦</span><span>AI 运营工具实践 ✦</span><span>主播与创作者协作 ✦</span><span>账号矩阵 ✦</span><span>直播获客 ✦</span><span>50+ 账号矩阵 ✦</span><span>3W+ 累计线索 ✦</span><span>8 个公开 AI 工具入口 ✦</span>
+        <span>内容增长作品集 ✦</span><span>AI 运营工具实践 ✦</span><span>主播与创作者协作 ✦</span><span>账号矩阵 ✦</span><span>直播获客 ✦</span><span>50+ 账号矩阵 ✦</span><span>3W+ 累计线索 ✦</span><span>8 个公开 AI 工具入口 ✦</span>
       </div>
     </div>
 
     <div class="stat-strip">
       <div class="stat-cell"><div class="stat-num" data-count="4" data-prefix="近" data-suffix="年">近<em>4</em>年</div><div class="stat-lbl">高途单公司深耕</div></div>
       <div class="stat-cell"><div class="stat-num" data-count="50" data-suffix="+"><em>50</em>+</div><div class="stat-lbl">从 0 搭建账号矩阵</div></div>
-      <div class="stat-cell"><div class="stat-num" data-count="5100" data-suffix="W+"><em>5100</em>W+</div><div class="stat-lbl">单项目矩阵总播放量</div></div>
-      <div class="stat-cell"><div class="stat-num" data-count="4000" data-suffix="+"><em>4000</em>+</div><div class="stat-lbl">自然流获客线索</div></div>
-      <div class="stat-cell"><div class="stat-num" data-count="100" data-suffix="+"><em>100</em>+</div><div class="stat-lbl">创作者协作经验</div></div>
+      <div class="stat-cell"><div class="stat-num" data-count="6500" data-suffix="W+"><em>6500</em>W+</div><div class="stat-lbl">单项目矩阵总播放量</div></div>
+      <div class="stat-cell"><div class="stat-num" data-count="3" data-suffix="W+"><em>3</em>W+</div><div class="stat-lbl">累计获客线索</div></div>
+      <div class="stat-cell"><div class="stat-num" data-count="50" data-suffix="+"><em>50</em>+</div><div class="stat-lbl">主播与素人协作</div></div>
       <div class="stat-cell"><div class="stat-num" data-count="8" data-suffix="个"><em>8</em>个</div><div class="stat-lbl">公开 AI 工具入口</div></div>
     </div>
 
@@ -1270,7 +1308,7 @@
         <div class="head reveal">
           <span class="kicker">About</span>
           <h2 class="title">关于我</h2>
-          <p class="sub">新闻学背景让我更重视内容判断。近 4 年教培行业内容增长与创作者运营经历，让我理解内容如何变成稳定供给、自然流量和转化结果。</p>
+          <p class="sub">新闻学背景训练了我的内容判断，近 4 年教培行业一线运营经历，让我持续理解内容如何变成供给、流量、线索和转化结果。</p>
         </div>
         <div class="about-grid">
           <div class="about-left reveal-left">
@@ -1303,9 +1341,9 @@
               </div>
             </div>
             <p class="about-body">
-              过去近 4 年，我主要在教培内容业务中做内容增长和创作者运营，参与过账号冷启动、矩阵放大、素人种草、创作者协作、线索承接和转化复盘。<br><br>
-              <strong>我更关注的不是单次爆款，而是把选题判断、供给组织、承接路径和复盘标准，沉淀成可以被复制的方法。</strong><br><br>
-              AI 工具对我来说，是这套方法的延伸：把真实业务里的高频动作工具化，让选题、审核、社群、复盘这些经验可以被打开、被验证、被复用。
+              过去近 4 年，我主要在教培行业做内容增长、直播获客和创作者协作，经历过短视频冷启动、账号矩阵放大、素人种草、主播孵化、线索承接和转化复盘。<br><br>
+              <strong>我更关注一套运营方法能不能跑通：先判断内容机会，再组织稳定供给，最后用数据验证承接和转化结果。</strong><br><br>
+              AI 工具对我来说，是把这些方法继续往前推一步：把选题、审核、社群、复盘等高频动作做成可复用的工作流。
             </p>
             <div class="about-skills-grid">
               <div class="about-skill-block">
@@ -1335,7 +1373,7 @@
           <div class="skill-card">
             <h4><span>🎯</span> 运营技能</h4>
             <div class="skill-tags">
-              <span class="skill-tag hot">内容增长</span><span class="skill-tag">UGC 供给</span><span class="skill-tag">矩阵搭建</span><span class="skill-tag hot">SOP 设计</span><span class="skill-tag">创作者协作</span><span class="skill-tag">数据复盘</span>
+              <span class="skill-tag hot">内容增长</span><span class="skill-tag">直播获客</span><span class="skill-tag">矩阵搭建</span><span class="skill-tag hot">SOP 设计</span><span class="skill-tag">主播协作</span><span class="skill-tag">转化复盘</span>
             </div>
           </div>
           <div class="skill-card">
@@ -1347,13 +1385,13 @@
           <div class="skill-card">
             <h4><span>📐</span> 产品 & 设计</h4>
             <div class="skill-tags">
-              <span class="skill-tag hot">AI 工作流</span><span class="skill-tag">需求拆解</span><span class="skill-tag hot">指标体系</span><span class="skill-tag">用户反馈</span><span class="skill-tag">A/B 测试</span>
+              <span class="skill-tag hot">AI 工作流</span><span class="skill-tag">需求拆解</span><span class="skill-tag hot">指标体系</span><span class="skill-tag">用户反馈</span><span class="skill-tag">原型验证</span>
             </div>
           </div>
           <div class="skill-card">
             <h4><span>📊</span> 数据 & 平台</h4>
             <div class="skill-tags">
-              <span class="skill-tag hot">抖音 / 小红书</span><span class="skill-tag">短视频平台</span><span class="skill-tag hot">数据看板搭建</span><span class="skill-tag">飞书多维表格</span><span class="skill-tag">HTML/CSS/JS</span>
+              <span class="skill-tag hot">视频号 / 小红书</span><span class="skill-tag">抖音</span><span class="skill-tag hot">数据看板搭建</span><span class="skill-tag">飞书多维表格</span><span class="skill-tag">HTML/CSS/JS</span>
             </div>
           </div>
         </div>
@@ -1366,41 +1404,67 @@
         <div class="head head-full reveal">
           <span class="kicker">AI Works</span>
           <h2 class="title"><span class="works-title-line1">AI 工具作品</span><span class="works-title-line2">从真实业务问题到可体验工具</span></h2>
-          <p class="sub">这些工具不是孤立展示，而是从真实运营动作里拆出来的：选题、审核、社群、复盘、增长计划。先发现高频问题，再沉淀 SOP，最后做成可体验的 AI 工作流。</p>
+          <p class="sub">这些工具都来自真实业务场景，覆盖内容增长、社群运营和复盘提效。先把高频动作拆出来，再做成可直接体验的作品。</p>
         </div>
-        <div class="flagship-grid reveal">
-          <article class="flagship-card">
-            <div>
-              <span class="flagship-label">Flagship 01 · Community Ops Assistant</span>
-              <h3>创作者社群助手</h3>
-              <p>一个面向创作者社群的 AI 助手，把日常答疑、选题启发、激励文案和反馈分析做成可复用的运营组件。</p>
-              <ul class="flagship-points">
-                <li>把高频社群动作沉淀为工具能力</li>
-                <li>覆盖答疑、激励、反馈、内容启发</li>
-                <li>适合作为运营提效场景的主作品</li>
-              </ul>
-            </div>
-            <div class="flagship-actions">
-              <a class="proto-link-btn live" href="https://tools.013689.xyz" target="_blank" rel="noreferrer">在线体验</a>
-              <span class="flagship-meta">社群运营</span><span class="flagship-meta">UGC 供给</span><span class="flagship-meta">智能答疑</span>
-            </div>
-          </article>
-          <article class="flagship-card">
-            <div>
-              <span class="flagship-label">Flagship 02 · Content Supply Workspace</span>
-              <h3>AI 短剧创作者运营平台</h3>
-              <p>一个面向内容团队的运营工作台，把创作者协作、内容供给、选题规划和复盘建议集中到同一个可体验工具里。</p>
-              <ul class="flagship-points">
-                <li>完整工作台：从内容供给到复盘建议</li>
-                <li>体现创作者协作、内容策略和 AI 辅助判断</li>
-                <li>可直接打开体验，不只是静态展示</li>
-              </ul>
-            </div>
-            <div class="flagship-actions">
-              <a class="proto-link-btn live" href="https://assistant.013689.xyz" target="_blank" rel="noreferrer">在线体验</a>
-              <span class="flagship-meta">短剧内容</span><span class="flagship-meta">创作者运营</span><span class="flagship-meta">AI 工作台</span>
-            </div>
-          </article>
+        <div class="flagship-note reveal">
+          <span>重点 AI Agent 作品 · 可直接打开体验</span>
+        </div>
+        <div class="stage-wrap" id="flagship-stage">
+          <div class="stage-track">
+            <article class="flagship-card">
+              <div>
+                <span class="flagship-label">旗舰 01 · Content Growth Console</span>
+                <h3>内容增长工作台</h3>
+                <p>一个面向内容增长场景的 AI 工具，把选题判断、账号组织、数据复盘和方法沉淀整理成可复用的运营能力。</p>
+                <ul class="flagship-points">
+                  <li>把内容增长动作做成工具能力</li>
+                  <li>覆盖选题、供给、复盘、优化</li>
+                  <li>适合作为内容增长场景的主作品</li>
+                </ul>
+              </div>
+              <div class="flagship-actions">
+                <a class="proto-link-btn live" href="https://agent.marioya.cc.cd/" target="_blank" rel="noreferrer">在线体验</a>
+                <span class="flagship-meta">内容增长</span><span class="flagship-meta">数据复盘</span><span class="flagship-meta">AI 提效</span>
+              </div>
+            </article>
+            <article class="flagship-card">
+              <div>
+                <span class="flagship-label">旗舰 02 · Creator Ops Platform</span>
+                <h3>AI 短剧创作者运营平台</h3>
+                <p>一个面向内容团队的运营工作台，把创作者协作、内容供给、选题规划和复盘建议集中到同一个可体验工具里。</p>
+                <ul class="flagship-points">
+                  <li>完整工作台：从内容供给到复盘建议</li>
+                  <li>体现创作者协作、内容策略和 AI 辅助判断</li>
+                  <li>可直接打开体验，不只是静态展示</li>
+                </ul>
+              </div>
+              <div class="flagship-actions">
+                <a class="proto-link-btn live" href="https://assistant.013689.xyz" target="_blank" rel="noreferrer">在线体验</a>
+                <span class="flagship-meta">短剧内容</span><span class="flagship-meta">创作者运营</span><span class="flagship-meta">AI 工作台</span>
+              </div>
+            </article>
+            <article class="flagship-card">
+              <div>
+                <span class="flagship-label">旗舰 03 · Community Assistant</span>
+                <h3>创作者社群助手</h3>
+                <p>一个面向创作者社群的 AI 助手，把日常答疑、选题启发、激励文案和反馈分析做成可复用的运营组件。</p>
+                <ul class="flagship-points">
+                  <li>把高频社群动作沉淀为工具能力</li>
+                  <li>覆盖答疑、激励、反馈、内容启发</li>
+                  <li>适合作为运营提效场景的补充作品</li>
+                </ul>
+              </div>
+              <div class="flagship-actions">
+                <a class="proto-link-btn live" href="https://tools.013689.xyz" target="_blank" rel="noreferrer">在线体验</a>
+                <span class="flagship-meta">社群运营</span><span class="flagship-meta">UGC 供给</span><span class="flagship-meta">智能答疑</span>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="stage-arrows" id="flagship-arrows">
+          <button class="stage-arrow" id="flagship-prev">←</button>
+          <div class="stage-dots" id="flagship-dots"></div>
+          <button class="stage-arrow" id="flagship-next">→</button>
         </div>
         <!-- AI 原型工具 -->
         <div class="proj-tab-panel active" id="tab-protos">
@@ -1490,7 +1554,7 @@
         <div class="head reveal">
           <span class="kicker">Career & Projects</span>
           <h2 class="title">工作经历 & 业务项目</h2>
-          <p class="sub">这一部分把时间线和项目结果放在一起：工作经历用于快速理解业务背景，业务项目用于展开具体动作、数据结果和方法沉淀。</p>
+	          <p class="sub">这里分成两层：工作经历呈现我在一线业务中形成的能力路径，业务项目展开关键结果。点开业务项目，可以查看具体背景、核心动作、数据结果和方法沉淀。</p>
         </div>
 
         <!-- 工作经历 卡片轮播 -->
@@ -1503,49 +1567,49 @@
             <div class="exp-logo"><span style="color:#fff;font-size:18px;font-weight:900;letter-spacing:-.02em;font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif">高途</span></div>
             <div class="exp-header-info">
               <h3 style="margin:0;font-size:20px;font-weight:800">高途集团 Gaotu</h3>
-              <span style="font-size:14px">2022.07 – 2026.04 · 近 4 年 ｜ 内容运营 / 创作者协作 / AI 工具实践</span>
+	              <span style="font-size:14px">2022.07 – 2026.04 · 近 4 年 ｜ 内容增长 / 直播获客 / 创作者协作 / AI 工具实践</span>
             </div>
           </div>
           <div class="stage-wrap" id="stage-career">
             <div class="stage-track">
               <div class="career-card" data-idx="0">
                 <div class="career-card-head"><span class="career-year-badge">2023</span><span class="career-role">内容获客链路验证</span></div>
-                <h4>从内容冷启动，跑通「内容 → 承接 → 转化」</h4>
-                <p>以教育垂类账号为切入口，验证选题、人设、引流话术和私域承接的完整链路。这个阶段让我从内容发布走向内容获客和转化复盘。</p>
+	                <h4>从短视频冷启动，跑通内容获客的基本闭环</h4>
+	                <p>以教育垂类账号为切入口，验证选题、人设、直播预约、私域承接和后续转化。这个阶段让我从内容发布走向获客链路和转化复盘。</p>
                 <div class="career-kpis">
-                  <div class="career-kpi-tag"><b>20W+</b><span>全平台涨粉</span></div>
+	                  <div class="career-kpi-tag"><b>6500W+</b><span>单项目播放</span></div>
                   <div class="career-kpi-tag"><b>闭环</b><span>引流→转化</span></div>
                   <div class="career-kpi-tag"><b>自然流</b><span>获客验证</span></div>
                 </div>
               </div>
               <div class="career-card" data-idx="1">
-                <div class="career-card-head"><span class="career-year-badge">2024</span><span class="career-role">账号矩阵与创作者分层</span></div>
-                <h4>把单账号经验复制成矩阵，提升内容供给稳定性</h4>
-                <p>按账号阶段、内容风格和转化目标制定差异化策略，协同产品、设计、电商和销售团队，持续复盘线索质量与转化效率。</p>
+	                <div class="career-card-head"><span class="career-year-badge">2024</span><span class="career-role">账号矩阵与直播承接</span></div>
+	                <h4>把单账号经验复制成矩阵，集中放大季节性需求</h4>
+	                <p>围绕高中志愿强周期项目，搭建账号与主播矩阵，用短视频引流直播，再通过试听课和顾问承接完成转化复盘。</p>
                 <div class="career-kpis">
-                  <div class="career-kpi-tag"><b>26W+</b><span>单月 GMV</span></div>
-                  <div class="career-kpi-tag"><b>50+</b><span>账号矩阵</span></div>
+	                  <div class="career-kpi-tag"><b>25W</b><span>单月峰值 GMV</span></div>
+	                  <div class="career-kpi-tag"><b>4000+</b><span>直播线索</span></div>
                   <div class="career-kpi-tag"><b>分层</b><span>运营策略</span></div>
                 </div>
               </div>
               <div class="career-card" data-idx="2">
-                <div class="career-card-head"><span class="career-year-badge">2025</span><span class="career-role">创作者生态运营</span></div>
-                <h4>把创作者供给从“人盯人”改成标准化成长机制</h4>
-                <p>建立从招募、培训、试播、内容反馈到成长复盘的流程，把个体经验沉淀为 checklist 和阶段标准，帮助内容供给更稳定、质量更可控。</p>
+	                <div class="career-card-head"><span class="career-year-badge">2025</span><span class="career-role">主播矩阵与多平台增长</span></div>
+	                <h4>把主播和素人供给做成可管理的增长资源</h4>
+	                <p>围绕成人英语直播和小红书素人种草，建立招聘、培训、排期、内容反馈和复盘机制，让供给扩量后仍能保持线索质量。</p>
                 <div class="career-kpis">
-                  <div class="career-kpi-tag"><b>4 天</b><span>起号周期</span></div>
-                  <div class="career-kpi-tag"><b>100+</b><span>创作者协作</span></div>
-                  <div class="career-kpi-tag"><b>机制</b><span>供给稳定</span></div>
+	                  <div class="career-kpi-tag"><b>50+</b><span>兼职主播池</span></div>
+	                  <div class="career-kpi-tag"><b>9000</b><span>成人英语线索</span></div>
+	                  <div class="career-kpi-tag"><b>40-50</b><span>素人账号</span></div>
                 </div>
               </div>
               <div class="career-card" data-idx="3">
                 <div class="career-card-head"><span class="career-year-badge">2026</span><span class="career-role">AI 工具实践</span></div>
-                <h4>把内容增长 SOP 整理成可运行 AI 工具</h4>
-                <p>围绕选题、初稿、审核、复盘和社群答疑搭建 AI 工作流，让内容运营从“靠经验执行”变成“流程可复用、工具可体验、结果可复盘”。</p>
+	                <h4>把内容增长 SOP 整理成可运行 AI 工具</h4>
+	                <p>围绕选题、审核、社群答疑、数据复盘和增长计划搭建 AI 工作流，让运营经验从个人执行变成可体验、可复用的工具作品。</p>
                 <div class="career-kpis">
-                  <div class="career-kpi-tag"><b>4000+</b><span>获客线索</span></div>
+	                  <div class="career-kpi-tag"><b>8 个</b><span>公开 AI 工具</span></div>
                   <div class="career-kpi-tag"><b>3×</b><span>日更产能</span></div>
-                  <div class="career-kpi-tag"><b>Vibe</b><span>AI 工具自研</span></div>
+	                  <div class="career-kpi-tag"><b>Agent</b><span>工作台原型</span></div>
                 </div>
               </div>
             </div>
@@ -1569,20 +1633,20 @@
                 <h3>高中志愿矩阵内容获客验证</h3>
                 <div class="project-card-tags"><span class="project-card-tag">内容增长</span><span class="project-card-tag">自然流获客</span><span class="project-card-tag">跨团队协同</span></div>
                 <ul class="project-card-list">
-                  <li>从 0 搭建垂类矩阵，建立热点选题与内容 SOP</li>
-                  <li>粉丝 16W+，播放 5100W+，线索 3600+</li>
-                  <li>沉淀选题、承接、转化、复盘链路</li>
+	                  <li>从 0 搭建垂类矩阵，提前布局高考节点内容</li>
+	                  <li>播放 6000W，直播线索 4000+，总 GMV 70W+</li>
+	                  <li>沉淀短视频引流、直播承接和转化复盘链路</li>
                 </ul>
                 <span class="project-card-link">查看详情</span>
               </div>
               <div class="project-card" data-idx="1">
                 <div class="project-card-dot"></div>
-                <h3>成人英语账号矩阵规模化</h3>
-                <div class="project-card-tags"><span class="project-card-tag">矩阵复制</span><span class="project-card-tag">内容供给</span><span class="project-card-tag">AI 提效</span></div>
+	                <h3>成人英语直播获客与主播矩阵</h3>
+	                <div class="project-card-tags"><span class="project-card-tag">直播获客</span><span class="project-card-tag">主播矩阵</span><span class="project-card-tag">转化漏斗</span></div>
                 <ul class="project-card-list">
-                  <li>设计 AI 内容生产链路，单条生产时间降 6 倍</li>
-                  <li>百万爆款 44 条，单条最高 1800W+</li>
-                  <li>沉淀内容供给规模化与 AI 提效方法</li>
+	                  <li>从 1 个账号 MVP 验证，扩展到 10 个运营账号</li>
+	                  <li>短视频预约 32W，进直播间 14W，线索 9000</li>
+	                  <li>沉淀主播排期、直播节奏和漏斗复盘方法</li>
                 </ul>
                 <span class="project-card-link">查看详情</span>
               </div>
@@ -1591,16 +1655,16 @@
                 <h3>小红书素人种草与 AI 提效</h3>
                 <div class="project-card-tags"><span class="project-card-tag">合规前置</span><span class="project-card-tag">AI 批量产出</span><span class="project-card-tag">获客效率</span></div>
                 <ul class="project-card-list">
-                  <li>合规前置 + AI 批量生产，违规率降 80%+</li>
-                  <li>日更 3→10 篇，人效提升 3 倍，线索 4000+</li>
-                  <li>沉淀合规前置、批量生产与获客效率模型</li>
+	                  <li>用 3-5 个账号先跑通内容获客最小闭环</li>
+	                  <li>扩展到 40-50 个素人账号，带来 4000+ 有效线索</li>
+	                  <li>沉淀人设分层、触点矩阵和标准化复制方法</li>
                 </ul>
                 <span class="project-card-link">查看详情</span>
               </div>
               <div class="project-card" data-idx="3">
                 <div class="project-card-dot"></div>
-                <h3>创作者供给与成长机制</h3>
-                <div class="project-card-tags"><span class="project-card-tag">UGC 供给</span><span class="project-card-tag">成长路径</span><span class="project-card-tag">社群赋能</span></div>
+	                <h3>创作者供给与成长机制</h3>
+	                <div class="project-card-tags"><span class="project-card-tag">UGC 供给</span><span class="project-card-tag">成长路径</span><span class="project-card-tag">标准化赋能</span></div>
                 <ul class="project-card-list">
                   <li>设计五阶孵化流程，起号培养期从 14 天压至 4 天</li>
                   <li>按风格定制脚本框架，孵化成功率 100%</li>
@@ -1906,7 +1970,6 @@
       cards.forEach((c, i) => {
         c.addEventListener('click', e => {
           if (e.target.tagName === 'A') return;
-          // 让 .project-card-link 的点击穿透到下面的 openModal 绑定
           if (e.target.closest('.project-card-link')) return;
           if (i !== cur) {
             e.preventDefault();
@@ -1929,6 +1992,7 @@
       render();
     }
 
+    // 旗舰 AI 作品区改为并排重点展示，不参与舞台轮播，避免卡片遮挡。
     initStage('stage-protos',  '.proto-card',  'protos-prev',  'protos-next',  'protos-dots');
     initStage('stage-career',  '.career-card', 'career-prev',  'career-next',  'career-dots-new');
 
@@ -1963,18 +2027,18 @@
       zh:{
         heroTag:'张彪 | 内容增长 · 创作者协作 · AI 工具实践',
         heroH1:'<span class="h1-line1">content growth · creator ecosystem · ai ops</span><span class="h1-line2">从内容增长结果<br><span class="highlight-text">到创作者机制<br>再到 AI 工具化</span></span>',
-        heroLead:'近 4 年教培行业内容增长与创作者运营经验，做过账号矩阵、内容供给、自然流获客和 AI 提效。我更擅长把跑通过的运营方法沉淀成机制，再做成可复用的工具。',
+        heroLead:'近 4 年深耕教培行业一线运营，经历过短视频冷启动、直播获客、账号矩阵、主播与素人协作，也在把选题、审核、复盘等高频动作做成 AI 工具。',
         btnProto:'查看 AI 作品 →',
         btnCareer:'查看工作经历 →',
         btnContact:'联系方式',
         brandName:'张彪',
-        brandSub:'内容增长与 AI 运营实践',
+        brandSub:'内容增长 · 创作者生态 · AI 运营',
         aboutTitle:'关于我',
-        aboutSub:'新闻学背景让我更重视内容判断。近 4 年教培行业内容增长与创作者运营经历，让我理解内容如何变成稳定供给、自然流量和转化结果。',
+        aboutSub:'新闻学背景训练了我的内容判断，近 4 年教培行业一线运营经历，让我持续理解内容如何变成供给、流量、线索和转化结果。',
         worksTitle:'<span class="works-title-line1">AI 工具作品</span><span class="works-title-line2">从真实业务问题到可体验工具</span>',
         worksSub:'这些工具不是孤立展示，而是从真实运营动作里拆出来的：选题、审核、社群、复盘、增长计划。先发现高频问题，再沉淀 SOP，最后做成可体验的 AI 工作流。',
         expProjTitle:'工作经历 & 业务项目',
-        expProjSub:'这一部分把时间线和项目结果放在一起：工作经历用于快速理解业务背景，业务项目用于展开具体动作、数据结果和方法沉淀。',
+        expProjSub:'这里分成两层：工作经历呈现我在一线业务中形成的能力路径，业务项目展开关键结果。点开业务项目，可以查看具体背景、核心动作、数据结果和方法沉淀。',
         insightTitle:'行业思考',
         insightSub:'这些判断来自一线项目：内容要先被判断，再被稳定生产，最后才值得被 AI 放大。',
         contactSub:'',
@@ -2055,53 +2119,53 @@
           title: '高中志愿矩阵内容获客验证',
           subtitle: '内容增长 · 自然流获客 · 跨团队协同',
           tags: ['内容增长', '自然流获客', '跨团队协同'],
-          challenge: '团队没有高中志愿垂类的内容经验，账号从零开始，需要在竞争激烈的高考赛道快速跑通从选题到转化的完整链路。',
+          challenge: '高中志愿项目季节性强、窗口期短，需要在高考节点前快速完成账号矩阵、主播供给、短视频引流和直播承接的完整验证。',
           actions: [
-            { label: '选题机制', desc: '建立热点日历机制，提前锁定高考节点（报名/出分/录取）对应爆款选题，同步沉淀混剪 SOP，让非专业内容账号也能稳定产出' },
-            { label: '账号矩阵', desc: '同时运营 3 个差异化账号（升学干货 / IP 主讲 / 素人种草），避免相互竞争，覆盖不同决策阶段用户' },
-            { label: '跨团队推动', desc: '协调产品、设计、内容出镜、教研多角色，制定周度内容排期与审核节奏，减少协同摩擦' },
+            { label: '选题机制', desc: '提前 1-2 个月布局高考志愿内容，围绕政策解读、院校专业推荐、分数段策略沉淀热点日历和内容 SOP' },
+            { label: '账号与主播矩阵', desc: '运营 3 个账号，协同 3 位主播覆盖直播需求，通过短视频预约、直播答疑和试听课承接用户' },
+            { label: '转化复盘', desc: '围绕直播线索、试听课转化和顾问承接持续复盘，让短视频播放不只停留在曝光层' },
           ],
           insight: '项目沉淀：内容增长不是只追爆款，而是把选题、账号矩阵、线索承接和转化复盘做成稳定链路。',
-          kpis: [{ val: '16W+', lbl: '矩阵粉丝' }, { val: '5100W+', lbl: '总播放量' }, { val: '3600+', lbl: '获客线索' }, { val: '55W+', lbl: 'GMV 贡献' }],
+          kpis: [{ val: '18W', lbl: '矩阵粉丝' }, { val: '6000W', lbl: '总播放量' }, { val: '4000+', lbl: '直播线索' }, { val: '70W+', lbl: '总 GMV' }],
         },
         {
-          title: '成人英语账号矩阵规模化',
-          subtitle: '矩阵复制 · 内容供给 · AI 提效',
-          tags: ['矩阵复制', '内容供给', 'AI 提效'],
-          challenge: '成人英语赛道账号数量多但质量参差，人工生产封面和文案效率极低，账号冷启动成功率不稳定，难以规模化复制。',
+          title: '成人英语直播获客与主播矩阵',
+          subtitle: '直播获客 · 主播矩阵 · 转化漏斗',
+          tags: ['直播获客', '主播矩阵', '转化漏斗'],
+          challenge: '银发用户有口语学习需求，但决策慢、信任建立周期长，需要先验证短视频预约、直播到场、低价书课包留资和正价转化是否连续健康。',
           actions: [
-            { label: 'AI 生产链路', desc: '用 AI 工具辅助封面素材与差异化文案钩子生成，将单条内容生产时间从 2 小时压缩至 20 分钟' },
-            { label: '冷启动 SOP', desc: '提炼出"前 7 天发布节奏 + 评论区引导话术 + 首场转化脚本"三件套，单人从 0 起号 11 个账号，成功率 100%' },
-            { label: '创作者分层', desc: '按粉丝量、内容能力和转化能力将创作者分为素人 / 腰部 / IP 主讲三层，针对性制定赋能策略和考核标准' },
+            { label: 'MVP 验证', desc: '先用 1 个账号跑 2 周验证，再扩展到 10 个运营账号，把自然流预约和直播承接作为核心判断指标' },
+            { label: '主播矩阵', desc: '搭建 50+ 兼职主播池，建立招聘、培训、排期、试播、复盘流程，并用课时费、线索和 GMV 三维激励' },
+            { label: '直播节奏', desc: '每小时一轮循环：前 40-50 分钟干货跟读与互动，后 10 分钟转化低价书课包，再由后端团队承接正价转化' },
           ],
-          insight: '项目沉淀：内容供给要做大，不能只靠个人灵感，而要靠 SOP、分层机制和 AI 提效一起支撑。',
-          kpis: [{ val: '11个', lbl: '单人起号' }, { val: '44条', lbl: '百万爆款' }, { val: '1800W+', lbl: '单条最高播放' }, { val: '300W', lbl: '全年 GMV' }],
+          insight: '项目沉淀：直播获客不是单点起量，而是短视频预约、直播到场、低价留资和正价转化的连续漏斗。',
+          kpis: [{ val: '32W', lbl: '短视频预约' }, { val: '14W', lbl: '进直播间' }, { val: '9000', lbl: '总线索' }, { val: '180W', lbl: '总 GMV' }],
         },
         {
           title: '小红书素人种草与 AI 提效',
           subtitle: '合规前置 · AI 批量产出 · 获客效率',
           tags: ['合规前置', 'AI 批量产出', '获客效率'],
-          challenge: '平台合规政策收紧，大量笔记因违规被限流，同时人工产出瓶颈导致日更数量不足，线索获取效率低。',
+          challenge: '小红书平台更依赖搜索、种草和私信承接，需要从视频号直播逻辑切换到图文种草逻辑，并用素人账号跑通前端内容获客和后端销售转化闭环。',
           actions: [
-            { label: '合规前置', desc: '梳理平台敏感词库与内容红线，形成《素人种草合规手册》，在文案生产前置审查，违规率下降 80%+' },
-            { label: 'AI 批量生产', desc: '用 AI 工作流接入选题模板，批量生成 10 类差异化留资内容，日更从 3 篇提升至 10 篇，人效比提升 3 倍' },
-            { label: '内容模型沉淀', desc: '研发"痛点场景型 / 对比反转型 / 数据背书型"等 10+ 类高留资内容模型，按用户决策阶段匹配投放' },
+            { label: 'MVP 三步法', desc: '先用 3-5 个账号验证内容获客闭环，再扩展到 40-50 个账号，最后沉淀全流程 SOP 复制' },
+            { label: '人设分层', desc: '围绕一线鸡娃妈、二三线焦虑妈、佛系妈等不同人设，匹配内容风格、痛点表达和产品推荐策略' },
+            { label: '触点矩阵', desc: '通过账号简介、召唤文案、评论区和群聊入口多触点引导，降低单一入口失效风险' },
           ],
-          insight: '项目沉淀：AIGC 内容实践要同时考虑效率、平台规则和获客质量，AI 不是炫技，而是降低规模化风险。',
-          kpis: [{ val: '4000+', lbl: '获客线索' }, { val: '80W+', lbl: 'GMV' }, { val: '300%', lbl: '线索效率提升' }, { val: '10+', lbl: '内容模型' }],
+          insight: '项目沉淀：平台迁移时，重点不是照搬旧打法，而是重新理解分发逻辑、用户触点和后端承接方式。',
+          kpis: [{ val: '40-50', lbl: '账号矩阵' }, { val: '4000+', lbl: '有效线索' }, { val: '80W', lbl: '总 GMV' }, { val: '12W', lbl: '新增粉丝' }],
         },
         {
           title: '创作者供给与成长机制',
           subtitle: 'UGC 供给 · 成长路径 · 社群赋能',
           tags: ['UGC 供给', '成长路径', '社群赋能'],
-          challenge: '创作者供给流程标准化程度低，新账号起号周期长（两周以上），中途流失率高，且项目结束时面临团队过渡风险。',
+          challenge: '主播和素人供给扩量后，最大问题不是招到人，而是如何让新人快速理解内容标准、直播节奏和转化目标，并保持稳定产出。',
           actions: [
-            { label: '全生命周期机制', desc: '设计「招募→培训→试播→成长→复盘」五阶流程，每阶段配置明确 checklist 和 Pass 标准，将起号培养期从两周压至 4 天' },
-            { label: '个性化赋能', desc: '根据创作者风格（知识型 / 情感型 / 转化型）定制脚本框架和互动话术，避免千人一面的内容同质化' },
-            { label: '留存关怀机制', desc: '建立成长积分体系 + 定期 1v1 复盘，项目收官期零资产流失，平稳完成交接' },
+            { label: '流程标准化', desc: '把招募、培训、试播、正式上播和复盘拆成明确节点，每个节点配置脚本、话术和检查标准' },
+            { label: '分层赋能', desc: '根据新人、稳定产出者、头部主播或素人账号的不同阶段，匹配不同反馈频率和激励方式' },
+            { label: '数据复盘', desc: '用预约、到场、留资、互动、GMV 等指标判断供给质量，及时调整排期和内容方向' },
           ],
-          insight: '项目沉淀：创作者成长的关键，是稳定路径和及时反馈，而不是临时给资源。',
-          kpis: [{ val: '100%', lbl: '孵化成功率' }, { val: '4天', lbl: '起号培养期' }, { val: '0', lbl: '资产流失' }],
+          insight: '项目沉淀：供给组织的价值，是把个体能力变成稳定机制，让账号、主播和内容生产都可以持续复用。',
+          kpis: [{ val: '50+', lbl: '兼职主播池' }, { val: '40-50', lbl: '素人账号' }, { val: '3维', lbl: '激励机制' }],
         },
       ],
       protos: [
