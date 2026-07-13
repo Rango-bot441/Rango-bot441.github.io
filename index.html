@@ -75,7 +75,6 @@
     body.warm .section.dark{background:rgba(30,25,20,.04);color:#1a1a1a}
     body.warm .kicker{color:#999}
     body.warm .sub{color:#666}
-    body.warm .about-quote{color:#1a1a1a}
     body.warm .about-body{color:#555}
     body.warm .about-body strong{color:#1a1a1a}
     body.warm .about-tag{background:rgba(0,0,0,.03);border-color:rgba(0,0,0,.1);color:#555}
@@ -251,7 +250,7 @@
     .stat-num em{color:var(--accent);font-style:normal}
     .stat-lbl{font-size:12px;color:rgba(255,255,255,.45);line-height:1.45}
 
-    .section{padding:104px 0;background:rgba(255,255,255,.025);border-top:1px solid rgba(255,255,255,.07);position:relative;z-index:2}
+    .section{padding:104px 0;background:rgba(255,255,255,.025);border-top:1px solid rgba(255,255,255,.07);position:relative;z-index:2;overflow-x:clip}
     .section.alt{background:rgba(255,255,255,.045)}
     .section.dark{color:#fff;background:rgba(255,255,255,.01);border-top-color:rgba(255,255,255,.07)}
     .section:first-of-type{border-top:none}
@@ -319,58 +318,6 @@
     body.warm .about-info-age{color:rgba(0,0,0,.4)}
     body.warm .about-info-row{color:rgba(0,0,0,.5)}
     body.warm .school-logo{background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
-    .about-quote{margin-bottom:32px}
-    .aq-flow{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-    .aq-node{
-      padding:16px 22px;border:2px solid rgba(255,255,255,.08);border-radius:14px;
-      background:rgba(255,255,255,.02);min-width:130px;cursor:default;
-      transition:border-color .25s ease,background .25s ease,box-shadow .25s ease,transform .25s ease,opacity .25s ease;
-      transform:translateY(0);opacity:.38;
-    }
-    .aq-node.aq-active{
-      border-color:var(--accent);
-      background:rgba(232,69,10,.18);
-      box-shadow:0 0 0 4px rgba(232,69,10,.12),0 0 32px rgba(232,69,10,.35),0 6px 24px rgba(0,0,0,.4);
-      transform:translateY(-4px) scale(1.04);
-      opacity:1;
-    }
-    /* 第三个节点（AI产品运营）active 时适度突出，比前两个更明显但不过分 */
-    #aqNode2.aq-active{
-      transform:translateY(-6px) scale(1.08) !important;
-      border-color:var(--accent) !important;
-      background:rgba(232,69,10,.2) !important;
-      box-shadow:0 0 0 3px rgba(232,69,10,.15), 0 0 28px rgba(232,69,10,.35), 0 8px 24px rgba(0,0,0,.4) !important;
-    }
-    #aqNode2.aq-active .aq-label{
-      font-size:clamp(16px,1.8vw,20px) !important;
-      color:#fff !important;
-      text-shadow:0 0 16px rgba(232,69,10,.5) !important;
-    }
-    #aqNode2.aq-active .aq-sub{
-      color:rgba(255,255,255,.75) !important;
-    }
-    .aq-node:hover{opacity:.7;border-color:rgba(255,255,255,.2)}
-    .aq-node.aq-active:hover{opacity:1}
-    .aq-label{font-size:clamp(14px,1.4vw,17px);font-weight:800;color:rgba(255,255,255,.6);line-height:1.2;margin-bottom:5px;letter-spacing:-.01em;transition:color .25s ease,font-size .25s ease}
-    .aq-node.aq-active .aq-label{color:#fff;font-size:clamp(16px,1.7vw,21px);text-shadow:0 0 20px rgba(255,255,255,.4)}
-    .aq-sub{font-size:11px;color:rgba(255,255,255,.22);font-weight:500;letter-spacing:.02em;transition:color .25s ease,font-size .25s ease}
-    .aq-node.aq-active .aq-sub{color:rgba(255,255,255,.65)}
-    .aq-arrow{font-size:18px;color:rgba(255,255,255,.12);flex-shrink:0;line-height:1;transition:color .35s ease}
-    /* 静态高亮（兜底，JS 未启动时的默认态）*/
-    .aq-node-highlight{border-color:rgba(232,69,10,.45)!important;background:rgba(232,69,10,.1)!important;opacity:.8!important}
-    .aq-node-highlight .aq-label{color:#fff!important}
-    .aq-node-highlight .aq-sub{color:rgba(255,255,255,.55)!important}
-    body.warm .aq-node{border-color:rgba(0,0,0,.08);background:rgba(0,0,0,.02);opacity:.35}
-    body.warm .aq-label{color:rgba(0,0,0,.4)}
-    body.warm .aq-sub{color:rgba(0,0,0,.25)}
-    body.warm .aq-arrow{color:rgba(0,0,0,.12)}
-    body.warm .aq-node:hover{opacity:.65}
-    body.warm .aq-node.aq-active{border-color:var(--accent)!important;background:rgba(232,69,10,.1)!important;box-shadow:0 0 0 3px rgba(232,69,10,.1),0 0 20px rgba(232,69,10,.2);opacity:1!important}
-    body.warm .aq-node.aq-active .aq-label{color:#1a1a1a!important}
-    body.warm .aq-node.aq-active .aq-sub{color:rgba(0,0,0,.55)!important}
-    body.warm .aq-node-highlight{border-color:rgba(232,69,10,.35)!important;background:rgba(232,69,10,.07)!important;opacity:.75!important}
-    body.warm .aq-node-highlight .aq-label{color:#1a1a1a!important}
-    body.warm .aq-node-highlight .aq-sub{color:rgba(0,0,0,.5)!important}
     .about-body{font-size:16px;color:rgba(255,255,255,.68);line-height:1.9;margin-bottom:24px}
     .about-body strong{color:#e6edf3;font-weight:700}
     .about-body .ab-key{display:block;font-size:17px;font-weight:700;color:#e6edf3;margin:14px 0 4px;letter-spacing:-.01em}
@@ -713,7 +660,7 @@
     .insight p{margin:0;color:var(--t3);font-size:16px;line-height:1.8}
     .divider{height:1px;background:linear-gradient(90deg,var(--accent),transparent);border:none;margin:48px 0 0}
 
-    .contact{padding:64px 0 60px;color:#e6edf3;background:linear-gradient(180deg,rgba(14,12,26,.6) 0%,rgba(7,7,26,.9) 100%);border-top:1px solid rgba(255,255,255,.07);position:relative;z-index:2}
+    .contact{padding:64px 0 60px;color:#e6edf3;background:linear-gradient(180deg,rgba(14,12,26,.6) 0%,rgba(7,7,26,.9) 100%);border-top:1px solid rgba(255,255,255,.07);position:relative;z-index:2;overflow-x:clip}
     .contact .kicker{color:var(--accent)}
     .contact .title{color:#e6edf3}
     .contact .sub{color:rgba(255,255,255,.65);font-size:15px;margin-top:6px}
@@ -857,6 +804,9 @@
       .method-step{flex:0 0 auto;width:120px}
     }
     @media(max-width:760px){
+      .desktop-break{display:none}
+      .about-skills-grid{grid-template-columns:1fr;gap:12px}
+      .about-skill-block{padding:18px 20px}
       .wrap{width:min(100% - 28px,1200px)}
       .nav{height:64px;padding:0 16px}
       .nav-links{display:none}
@@ -999,12 +949,6 @@
     body.warm .method-step-v2.active{background:radial-gradient(ellipse at 50% 28%,rgba(232,69,10,.07) 0%,transparent 68%)}
 
     /* === About Quote Typewriter === */
-    .about-quote-cursor{display:inline-block;width:2.5px;height:.85em;background:var(--accent);margin-left:3px;vertical-align:middle;border-radius:1px;animation:cursorBlink .65s step-end infinite}
-    @keyframes cursorBlink{0%,100%{opacity:1}50%{opacity:0}}
-    .about-quote-line{display:block}
-    .about-quote-highlight{display:block;color:var(--accent);font-style:normal;text-shadow:0 0 20px rgba(232,69,10,.5),0 0 44px rgba(232,69,10,.2);animation:quoteGlow 2.8s ease-in-out infinite alternate}
-    @keyframes quoteGlow{0%{text-shadow:0 0 14px rgba(232,69,10,.4),0 0 30px rgba(232,69,10,.12)}100%{text-shadow:0 0 30px rgba(232,69,10,.75),0 0 60px rgba(232,69,10,.35)}}
-    body.warm .about-quote-highlight{text-shadow:0 0 16px rgba(232,69,10,.35),0 0 32px rgba(232,69,10,.15)}
 
     /* === Card click effect === */
     .card-spotlight-bg{position:fixed;inset:0;z-index:100;background:rgba(5,5,16,.8);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .35s ease}
@@ -1280,7 +1224,7 @@
         <div>
           <span class="hero-tag"><span class="status-dot"></span>张彪 | 内容与增长 · 创作者生态 · AI 工具实践</span>
           <h1><span class="h1-line1">content · creator ecosystem · growth · ai</span><span class="h1-line2">理解内容，组织供给<br><span class="highlight-text">推动增长，沉淀方法<br>让经验变成 AI 工具</span></span></h1>
-          <p class="lead">近 4 年教培行业一线经验，从短视频编导走向直播操盘、多平台增长与创作者协作；现在也用 AI 把选题、审核、社群和复盘做成可运行工具。</p>
+          <p class="lead">近 4 年教培行业一线经验，持续围绕内容策略、供给组织和增长转化解决业务问题；现在也用 AI 把选题、审核、社群和复盘做成可运行工具。</p>
           <div class="hero-ctas">
             <a class="btn-primary" href="#works">查看 AI 作品 →</a>
             <a class="btn-secondary" href="#career-section">查看工作经历 →</a>
@@ -1338,7 +1282,7 @@
         <div class="head reveal">
           <span class="kicker">About</span>
           <h2 class="title">关于我</h2>
-          <p class="sub">新闻学背景训练内容判断，近 4 年一线业务经历则让我理解内容、供给、流量和转化如何在同一条增长链路中发生作用。</p>
+          <p class="sub">新闻学背景训练内容判断，近 4 年业务经历让我理解内容、供给与增长转化如何协同。</p>
         </div>
         <div class="about-grid">
           <div class="about-left reveal-left">
@@ -1352,28 +1296,13 @@
             </div>
           </div>
           <div class="reveal-right">
-            <div class="about-quote">
-              <div class="aq-flow">
-                <div class="aq-node" id="aqNode0">
-                  <div class="aq-label">运营执行者</div>
-                  <div class="aq-sub">内容生产 · IP 孵化</div>
-                </div>
-                <div class="aq-arrow">→</div>
-                <div class="aq-node" id="aqNode1">
-                  <div class="aq-label">业务操盘手</div>
-                  <div class="aq-sub">直播获客 · 矩阵增长</div>
-                </div>
-                <div class="aq-arrow">→</div>
-                <div class="aq-node aq-node-highlight" id="aqNode2">
-                  <div class="aq-label">AI 工具实践者</div>
-                  <div class="aq-sub">工作流搭建 · 原型验证</div>
-                </div>
-              </div>
-            </div>
             <p class="about-body">
-              2022 年校招进入高途集团，从短视频编导起步，逐步扩展到直播运营、账号与主播矩阵、多平台自然流获客，近 4 年操盘 8 个业务项目。<br><br>
-              <strong>我的工作重点，是先判断内容机会，再组织账号、主播和素人形成稳定供给，最后用预约、线索和转化数据验证结果。</strong><br><br>
-              在业务实践之外，我也用 Codex、Claude Code 和模型 API，把选题、审核、社群、复盘等高频动作做成可运行的 AI 工具。
+              2022 年进入高途集团，近 4 年参与 8 个业务项目，工作范围覆盖<br class="desktop-break">
+              内容策略、账号运营、创作者协作、多平台增长与转化复盘。<br><br>
+              <strong>我更关注一套方法能否真正跑通：先判断内容机会，<br class="desktop-break">
+              再组织稳定供给，并用预约、线索和转化数据验证结果。</strong><br><br>
+              在业务实践之外，我也用 Codex、Claude Code 和模型 API，<br class="desktop-break">
+              把选题、审核、社群和复盘等高频动作做成可运行的 AI 工具。
             </p>
             <div class="about-skills-grid">
               <div class="about-skill-block">
@@ -1584,7 +1513,7 @@
         <div class="head reveal">
           <span class="kicker">Career & Projects</span>
           <h2 class="title">工作经历 & 业务项目</h2>
-          <p class="sub">近 4 年，我的能力从内容生产延伸到 IP 与直播操盘，再到多平台增长和 AI 提效。四个代表项目呈现从 0 到 1 验证、规模化放大与方法沉淀。</p>
+          <p class="sub">近 4 年，我的能力从内容生产延伸到 IP 孵化与供给组织，再到多平台增长和 AI 提效。四个代表项目呈现从 0 到 1 验证、规模化放大与方法沉淀。</p>
         </div>
 
         <!-- 工作经历 卡片轮播 -->
@@ -1613,8 +1542,8 @@
                 </div>
               </div>
               <div class="career-card" data-idx="1">
-	                <div class="career-card-head"><span class="career-year-badge">2023-24</span><span class="career-role">IP 孵化与直播操盘</span></div>
-	                <h4>从单个 IP 延伸到讲师与主播矩阵</h4>
+	                <div class="career-card-head"><span class="career-year-badge">2023-24</span><span class="career-role">IP 孵化与创作者协作</span></div>
+	                <h4>从单个 IP 延伸到讲师与创作者供给</h4>
 	                <p>主导素人 IP 定位、内容策划、拍摄发布和直播变现，并逐步扩展到讲师协作、账号矩阵和直播获客。</p>
                 <div class="career-kpis">
 	                  <div class="career-kpi-tag"><b>5</b><span>内容平台</span></div>
@@ -2354,49 +2283,6 @@
         if (target) switchTab(target);
       });
     });
-
-    // === Role Card Sequential Highlight ===
-    (function(){
-      const nodes = [
-        document.getElementById('aqNode0'),
-        document.getElementById('aqNode1'),
-        document.getElementById('aqNode2'),
-      ];
-      if (!nodes[0]) return;
-
-      // 节奏：依次高亮，1-1.5s 间隔，第三个停留更长，然后循环
-      const HOLD_NORMAL = 1200;  // 前两个停留时长
-      const HOLD_LAST   = 2800;  // 第三个停留时长
-      const GAP         = 400;   // 切换间隔
-
-      function activateNode(idx) {
-        nodes.forEach((n, i) => {
-          if (!n) return;
-          n.classList.toggle('aq-active', i === idx);
-        });
-      }
-
-      function startLoop() {
-        let step = 0;
-        function next() {
-          activateNode(step % nodes.length);
-          const isLast = (step % nodes.length === nodes.length - 1);
-          const hold = isLast ? HOLD_LAST : HOLD_NORMAL;
-          step++;
-          setTimeout(next, hold + GAP);
-        }
-        next();
-      }
-
-      const aboutEl = document.getElementById('about');
-      if (aboutEl) {
-        const obs2 = new IntersectionObserver(entries => {
-          if (entries[0].isIntersecting) { startLoop(); obs2.disconnect(); }
-        }, { threshold: 0.25 });
-        obs2.observe(aboutEl);
-      }
-    })();
-
 
   </script>
 </body>
