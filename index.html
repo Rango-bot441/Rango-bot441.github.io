@@ -662,6 +662,7 @@
     .stage-track .project-card:nth-child(3) .project-card-dot{background:var(--green)}
     .stage-track .project-card:nth-child(4) .project-card-dot{background:var(--purple)}
     .project-card h3{margin:0 0 16px;font-size:21px;font-weight:800;color:#e6edf3;line-height:1.32}
+    .project-card-meta{margin:-6px 0 14px;font-size:12px;font-weight:600;color:rgba(255,255,255,.38);line-height:1.5}
     .project-card-list{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:10px;flex:1}
     .project-card-list li{font-size:14px;color:rgba(255,255,255,.62);line-height:1.68;padding-left:14px;position:relative}
     .project-card-list li::before{content:"";position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.25)}
@@ -684,6 +685,7 @@
     .biz-grid .project-card:nth-child(4) .project-card-dot{background:var(--purple)}
     .biz-grid .project-card-link{margin-top:auto;opacity:1}
     body.warm .biz-grid .project-card{background:rgba(255,255,255,.72);border-color:rgba(0,0,0,.08);box-shadow:0 12px 34px rgba(0,0,0,.06)}
+    body.warm .project-card-meta{color:rgba(0,0,0,.45)}
 
     .proto{position:relative;padding:28px;overflow:hidden;border:1px solid var(--border-dark);border-radius:16px;color:#fff;background:var(--dark-2);transition:transform .25s ease,opacity .25s ease,border-color .2s ease,box-shadow .2s ease;display:flex;flex-direction:column;will-change:transform,opacity;cursor:pointer}
     .proto::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mouse-x,50%) var(--mouse-y,50%),rgba(232,69,10,.1) 0%,transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none}
@@ -897,6 +899,7 @@
       .method-desc-v2{max-width:none}
       .insights-grid{grid-template-columns:1fr}
       .footer-inner{flex-direction:column;text-align:center}
+      .back-top{display:none}
     }
 
     /* === Hamburger Menu === */
@@ -1218,6 +1221,7 @@
       .career-kpi-tag b{font-size:21px}
       .career-kpi-tag span{font-size:11px}
       .card-modal{padding:28px 22px;border-radius:16px}
+      .card-modal-title{font-size:19px;line-height:1.35;padding-right:38px}
       .modal-action-item{grid-template-columns:1fr;gap:6px;padding:14px}
       .modal-action-label{padding-top:0}
       .card-modal-kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
@@ -1580,7 +1584,7 @@
         <div class="head reveal">
           <span class="kicker">Career & Projects</span>
           <h2 class="title">工作经历 & 业务项目</h2>
-          <p class="sub">近 4 年，我从内容生产走向直播获客、矩阵增长和创作者供给。业务项目展开具体背景、关键动作、结果数据与复盘方法。</p>
+          <p class="sub">近 4 年，我的能力从内容生产延伸到 IP 与直播操盘，再到多平台增长和 AI 提效。四个代表项目呈现从 0 到 1 验证、规模化放大与方法沉淀。</p>
         </div>
 
         <!-- 工作经历 卡片轮播 -->
@@ -1599,42 +1603,32 @@
           <div class="stage-wrap" id="stage-career">
             <div class="stage-track">
               <div class="career-card" data-idx="0">
-                <div class="career-card-head"><span class="career-year-badge">2022</span><span class="career-role">短视频编导</span></div>
-	                <h4>从内容生产起步，建立内容到转化的基础认知</h4>
-	                <p>校招进入集团市场部，独立策划知识付费内容和账号矩阵，覆盖选题、制作、分发、私域承接与低价产品转化。</p>
+                <div class="career-card-head"><span class="career-year-badge">2022</span><span class="career-role">内容生产与转化探索</span></div>
+	                <h4>从内容执行走向完整转化链路</h4>
+	                <p>校招进入集团市场部，从 0 到 1 搭建知识付费账号矩阵，逐步跑通选题、制作、分发、私域承接和低价产品转化。</p>
                 <div class="career-kpis">
 	                  <div class="career-kpi-tag"><b>3</b><span>覆盖平台</span></div>
                   <div class="career-kpi-tag"><b>4</b><span>从 0 搭建账号</span></div>
-                  <div class="career-kpi-tag"><b>闭环</b><span>内容到转化</span></div>
+	                  <div class="career-kpi-tag"><b>944</b><span>自然流成单</span></div>
                 </div>
               </div>
               <div class="career-card" data-idx="1">
-	                <div class="career-card-head"><span class="career-year-badge">2023</span><span class="career-role">IP 孵化与直播操盘</span></div>
-	                <h4>从单条内容走向 IP 增长与直播转化</h4>
-	                <p>主导素人 IP 定位、内容策划、拍摄发布和直播变现，并扩展到家庭教育讲师矩阵与连麦诊断场景。</p>
+	                <div class="career-card-head"><span class="career-year-badge">2023-24</span><span class="career-role">IP 孵化与直播操盘</span></div>
+	                <h4>从单个 IP 延伸到讲师与主播矩阵</h4>
+	                <p>主导素人 IP 定位、内容策划、拍摄发布和直播变现，并逐步扩展到讲师协作、账号矩阵和直播获客。</p>
                 <div class="career-kpis">
 	                  <div class="career-kpi-tag"><b>5</b><span>内容平台</span></div>
-	                  <div class="career-kpi-tag"><b>IP</b><span>从 0 孵化</span></div>
-                  <div class="career-kpi-tag"><b>全流程</b><span>内容与直播</span></div>
+	                  <div class="career-kpi-tag"><b>2</b><span>账号矩阵</span></div>
+	                  <div class="career-kpi-tag"><b>6</b><span>独立负责账号</span></div>
                 </div>
               </div>
               <div class="career-card" data-idx="2">
-	                <div class="career-card-head"><span class="career-year-badge">2024</span><span class="career-role">矩阵增长与直播获客</span></div>
-	                <h4>组织账号与主播供给，跑通季节性增长项目</h4>
-	                <p>围绕高中志愿项目搭建账号和主播矩阵，将短视频种草、直播预约、试听课与顾问承接串成完整漏斗。</p>
+	                <div class="career-card-head"><span class="career-year-badge">2024-26</span><span class="career-role">多平台增长与 AI 提效</span></div>
+	                <h4>用 MVP 验证增长链路，再将有效方法规模化</h4>
+	                <p>从视频号扩展到小红书和抖音，从自然流延伸到投放测试，并将即梦 AI、Coze 工作流和自动化剪辑用于内容生产。</p>
                 <div class="career-kpis">
-	                  <div class="career-kpi-tag"><b>3</b><span>运营账号</span></div>
-	                  <div class="career-kpi-tag"><b>3</b><span>协作主播</span></div>
-	                  <div class="career-kpi-tag"><b>漏斗</b><span>短视频到直播</span></div>
-                </div>
-              </div>
-              <div class="career-card" data-idx="3">
-                <div class="career-card-head"><span class="career-year-badge">2025-26</span><span class="career-role">多平台增长负责人</span></div>
-	                <h4>从直播矩阵扩展到素人种草与 AI 提效</h4>
-	                <p>先后操盘成人英语直播和小红书素人种草，并将即梦 AI、Coze 工作流与自动化剪辑用于内容生产和复盘流程。</p>
-                <div class="career-kpis">
-	                  <div class="career-kpi-tag"><b>50+</b><span>兼职主播池</span></div>
-                  <div class="career-kpi-tag"><b>40-50</b><span>素人账号</span></div>
+	                  <div class="career-kpi-tag"><b>50+</b><span>从 0 搭建账号</span></div>
+	                  <div class="career-kpi-tag"><b>50+</b><span>培养素人主播</span></div>
 	                  <div class="career-kpi-tag"><b>AI</b><span>内容生产 SOP</span></div>
                 </div>
               </div>
@@ -1656,30 +1650,21 @@
           <div class="biz-grid" id="biz-grid">
               <div class="project-card" data-idx="0">
                 <div class="project-card-dot"></div>
-                <h3>高中志愿账号矩阵与直播获客</h3>
-	                <div class="project-card-tags"><span class="project-card-tag">内容策略</span><span class="project-card-tag">账号矩阵</span><span class="project-card-tag">直播获客</span></div>
+	                <h3>成人英语直播获客与主播矩阵</h3>
+	                <div class="project-card-meta">2024.11–2025.06 · 独立操盘</div>
+	                <div class="project-card-tags"><span class="project-card-tag">主播分层</span><span class="project-card-tag">自然流增长</span><span class="project-card-tag">AI 内容工作流</span></div>
                 <ul class="project-card-list">
-	                  <li>3 个账号与 3 位主播协同，提前布局高考内容</li>
-	                  <li>18W 粉丝、6000W 播放、近百条 10W+ 内容</li>
-	                  <li>直播线索 4000+，总 GMV 70W+</li>
+	                  <li>1 个账号用 2 周完成 MVP 验证，最终扩展至 10 个账号</li>
+	                  <li>50+ 兼职主播分层管理，建立培训、排期、复盘与三维激励</li>
+	                  <li>AI 工作流支撑内容生产，累计 32W 预约、9000 线索、180W GMV</li>
                 </ul>
                 <span class="project-card-link">查看详情</span>
               </div>
               <div class="project-card" data-idx="1">
                 <div class="project-card-dot"></div>
-	                <h3>成人英语直播获客与主播矩阵</h3>
-	                <div class="project-card-tags"><span class="project-card-tag">主播分层</span><span class="project-card-tag">自然流获客</span><span class="project-card-tag">转化漏斗</span></div>
-                <ul class="project-card-list">
-	                  <li>2 周完成 MVP 验证，扩展至 10 个运营账号</li>
-	                  <li>搭建 50+ 兼职主播池和标准化直播节奏</li>
-	                  <li>9000 线索、180W GMV，32W 预约、14W 进房</li>
-                </ul>
-                <span class="project-card-link">查看详情</span>
-              </div>
-              <div class="project-card" data-idx="2">
-                <div class="project-card-dot"></div>
-                <h3>小红书素人种草与矩阵增长</h3>
-                <div class="project-card-tags"><span class="project-card-tag">素人矩阵</span><span class="project-card-tag">人设分层</span><span class="project-card-tag">自然流获客</span></div>
+	                <h3>小红书素人种草与矩阵增长</h3>
+	                <div class="project-card-meta">2025.07–2026.02 · 项目主导</div>
+	                <div class="project-card-tags"><span class="project-card-tag">UGC 供给</span><span class="project-card-tag">人设分层</span><span class="project-card-tag">自然流获客</span></div>
                 <ul class="project-card-list">
 	                  <li>从 3-5 个账号 MVP 扩展到 40-50 个素人账号</li>
 	                  <li>新增粉丝 12W，获得 4000+ 有效线索</li>
@@ -1687,14 +1672,27 @@
                 </ul>
                 <span class="project-card-link">查看详情</span>
               </div>
-              <div class="project-card" data-idx="3">
+              <div class="project-card" data-idx="2">
                 <div class="project-card-dot"></div>
 	                <h3>素人 IP 孵化与多平台增长</h3>
+	                <div class="project-card-meta">2023.01–07 · 全流程独立操盘</div>
 	                <div class="project-card-tags"><span class="project-card-tag">IP 孵化</span><span class="project-card-tag">内容策略</span><span class="project-card-tag">多平台分发</span></div>
                 <ul class="project-card-list">
-                  <li>从 0 孵化素人 IP，完成 5 个平台分发测试</li>
-                  <li>产出 15 条百万级内容，累计 25W 粉丝与 6500W+ 播放</li>
-                  <li>形成内容选题、多平台分发与直播双场策略</li>
+	                  <li>从 0 孵化素人 IP，完成 5 个平台分发测试</li>
+	                  <li>视频号 5W 粉丝、小红书 20W 粉丝，总播放 6500W+</li>
+	                  <li>产出 15 条百万级内容，形成多平台分发与直播双场策略</li>
+                </ul>
+                <span class="project-card-link">查看详情</span>
+              </div>
+              <div class="project-card" data-idx="3">
+                <div class="project-card-dot"></div>
+	                <h3>高中志愿账号矩阵与直播获客</h3>
+	                <div class="project-card-meta">2024.03–10 · 自主操盘为主</div>
+	                <div class="project-card-tags"><span class="project-card-tag">账号矩阵</span><span class="project-card-tag">主播供给</span><span class="project-card-tag">转化漏斗</span></div>
+                <ul class="project-card-list">
+	                  <li>3 个账号与 3 位主播协同，提前布局高考内容</li>
+	                  <li>矩阵总粉丝 18W、总播放 6000W，近百条 10W+ 内容</li>
+	                  <li>直播线索 4000+，总 GMV 70W+</li>
                 </ul>
                 <span class="project-card-link">查看详情</span>
               </div>
@@ -2117,26 +2115,14 @@
     const modalData = {
       projects: [
         {
-          title: '高中志愿账号矩阵与直播获客',
-          subtitle: '内容策略 · 账号矩阵 · 直播获客',
-          tags: ['内容策略', '账号矩阵', '直播获客'],
-          challenge: '高中志愿项目季节性强、窗口期短，需要在高考节点前快速完成账号矩阵、主播供给、短视频引流和直播承接的完整验证。',
-          actions: [
-            { label: '选题机制', desc: '提前 1-2 个月布局高考志愿内容，围绕政策解读、院校专业推荐、分数段策略沉淀热点日历和内容 SOP' },
-            { label: '账号与主播矩阵', desc: '运营 3 个账号，协同 3 位主播覆盖直播需求，通过短视频预约、直播答疑和试听课连接后端顾问承接' },
-            { label: '转化复盘', desc: '围绕直播线索、试听课转化和顾问承接持续复盘，让短视频播放不只停留在曝光层' },
-          ],
-          insight: '选题、账号矩阵、直播预约和转化复盘共同构成增长链路，单点播放量需要与后续承接一起判断。',
-          kpis: [{ val: '18W', lbl: '矩阵粉丝' }, { val: '6000W', lbl: '总播放量' }, { val: '4000+', lbl: '直播线索' }, { val: '70W+', lbl: '总 GMV' }],
-        },
-        {
           title: '成人英语直播获客与主播矩阵',
-          subtitle: '主播分层 · 自然流获客 · 转化漏斗',
-          tags: ['主播分层', '自然流获客', '转化漏斗'],
+          subtitle: '2024.11–2025.06 · 独立操盘',
+          tags: ['主播分层', '自然流增长', 'AI 内容工作流'],
           challenge: '银发用户有口语学习需求，但决策慢、信任建立周期长，需要先验证短视频预约、直播到场、低价书课包留资和正价转化是否连续健康。',
           actions: [
-            { label: 'MVP 验证', desc: '先用小规模账号完成 2 周验证，再扩展到 10 个运营账号，把自然流预约和直播承接作为核心判断指标' },
-            { label: '主播矩阵', desc: '搭建 50+ 兼职主播池，建立招聘、培训、排期、试播、复盘流程，并用课时费、线索和 GMV 三维激励' },
+            { label: 'MVP 验证', desc: '先用 1 个账号进行 2 周验证，再用 2-3 个账号交叉测试，最终扩展至 10 个运营账号' },
+            { label: 'AI 内容生产', desc: '从 Midjourney 过渡到即梦 AI，并用 Coze 串联选题、脚本、生成、审核和发布，再接入自动化剪辑' },
+            { label: '主播矩阵', desc: '搭建 50+ 兼职主播池，建立招聘、培训、排期和复盘流程，并用课时费、线索和 GMV 设计三维激励' },
             { label: '直播节奏', desc: '每小时一轮循环：前 40-50 分钟干货跟读与互动，后 10 分钟转化低价书课包，再由后端团队承接正价转化' },
           ],
           insight: '短视频预约、直播到场、低价留资和正价转化需要连续复盘，才能判断直播获客链路是否健康。',
@@ -2144,20 +2130,20 @@
         },
         {
           title: '小红书素人种草与矩阵增长',
-          subtitle: '素人矩阵 · 人设分层 · 自然流获客',
-          tags: ['素人矩阵', '人设分层', '自然流获客'],
+          subtitle: '2025.07–2026.02 · 项目主导',
+          tags: ['UGC 供给', '人设分层', '自然流获客'],
           challenge: '小红书依赖搜索、种草和私信承接，需要重新设计图文内容、人设分层和多触点转化链路，并用素人账号验证前端获客与后端销售协作。',
           actions: [
             { label: 'MVP 三步法', desc: '先用 3-5 个账号验证内容获客闭环，再扩展到 40-50 个账号，最后沉淀全流程 SOP 复制' },
             { label: '人设分层', desc: '围绕一线鸡娃妈、二三线焦虑妈、佛系妈等不同人设，匹配内容风格、痛点表达和产品推荐策略' },
-            { label: '触点矩阵', desc: '通过账号简介、召唤文案、评论区和群聊入口形成多触点引导，持续比较各入口的线索效率' },
+            { label: '触点矩阵', desc: '通过账号简介、召唤文案、评论区和群聊入口形成多触点引导，降低对单一转化入口的依赖' },
           ],
           insight: '平台迁移需要重新理解内容分发、用户触点和后端承接方式，再用小规模 MVP 验证是否值得扩量。',
           kpis: [{ val: '40-50', lbl: '账号矩阵' }, { val: '4000+', lbl: '有效线索' }, { val: '80W', lbl: '总 GMV' }, { val: '12W', lbl: '新增粉丝' }],
         },
         {
           title: '素人 IP 孵化与多平台增长',
-          subtitle: 'IP 孵化 · 内容策略 · 多平台分发',
+          subtitle: '2023.01–07 · 全流程独立操盘',
           tags: ['IP 孵化', '内容策略', '多平台分发'],
           challenge: '内部素人缺少出镜和账号运营经验，需要从身份标签、内容定位、拍摄表达和平台分发入手，逐步建立用户认知并连接直播转化。',
           actions: [
@@ -2166,7 +2152,20 @@
             { label: '多平台分发', desc: '覆盖视频号、小红书、抖音、快手和 B 站，并根据不同平台调整封面、节奏和内容侧重' },
           ],
           insight: '同一内容在不同平台的增长潜力差异明显，IP 定位需要与平台反馈一起持续校准。',
-          kpis: [{ val: '5', lbl: '覆盖平台' }, { val: '25W', lbl: '累计粉丝' }, { val: '6500W+', lbl: '总播放量' }, { val: '15', lbl: '百万级内容' }],
+          kpis: [{ val: '5W', lbl: '视频号粉丝' }, { val: '20W', lbl: '小红书粉丝' }, { val: '6500W+', lbl: '总播放量' }, { val: '15', lbl: '百万级内容' }],
+        },
+        {
+          title: '高中志愿账号矩阵与直播获客',
+          subtitle: '2024.03–10 · 自主操盘为主',
+          tags: ['账号矩阵', '主播供给', '转化漏斗'],
+          challenge: '高中志愿项目季节性强、窗口期短，需要在高考节点前快速完成账号矩阵、主播供给、短视频引流和直播承接的完整验证。',
+          actions: [
+            { label: '内容布局', desc: '提前 1-2 个月布局高考志愿内容，围绕政策解读、院校专业推荐和分数段策略持续产出' },
+            { label: '主播供给', desc: '自主孵化 1 位学部主播，招聘并培养 2 位外部兼职主播，建立招聘、培训、试播、上播和正式合作流程' },
+            { label: '转化链路', desc: '将短视频种草、直播预约、连麦答疑、1 元试听课和顾问承接串成完整漏斗' },
+          ],
+          insight: '选题、账号矩阵、主播供给、直播预约和后端转化共同构成增长链路，单点播放量需要与后续承接一起判断。',
+          kpis: [{ val: '18W', lbl: '矩阵总粉丝' }, { val: '6000W', lbl: '总播放量' }, { val: '4000+', lbl: '直播线索' }, { val: '70W+', lbl: '总 GMV' }],
         },
       ],
       protos: [
