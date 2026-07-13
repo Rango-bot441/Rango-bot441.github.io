@@ -293,7 +293,7 @@
     .reveal.visible,.reveal-left.visible,.reveal-right.visible,.reveal-pop.visible{opacity:1;transform:none}
     .d1{transition-delay:.1s!important}.d2{transition-delay:.2s!important}.d3{transition-delay:.3s!important}.d4{transition-delay:.4s!important}.d5{transition-delay:.5s!important}.d6{transition-delay:.6s!important}
 
-    .about-grid{display:grid;grid-template-columns:minmax(240px,.78fr) 1.72fr;gap:clamp(32px,5vw,72px);align-items:center}
+    .about-grid{display:grid;grid-template-columns:minmax(240px,.78fr) 1.72fr;gap:clamp(32px,5vw,72px);align-items:start}
     .about-left{display:flex;flex-direction:column;gap:28px}
     .about-photo-wrap{position:relative;width:100%;max-width:260px;aspect-ratio:3/4;border-radius:16px;overflow:hidden;border:2px solid rgba(255,255,255,.1);box-shadow:0 20px 60px rgba(0,0,0,.3),0 0 0 1px rgba(255,255,255,.05);transition:transform .5s ease, box-shadow .5s ease}
     .about-photo-wrap:hover{transform:translateY(-4px);box-shadow:0 28px 70px rgba(232,69,10,.15),0 0 0 1px rgba(232,69,10,.2)}
@@ -325,7 +325,7 @@
     .about-body .ab-sub{display:block;color:rgba(255,255,255,.55);font-size:14.5px;padding-left:18px;line-height:1.7;margin-bottom:4px}
     /* 能力三方块 */
     .about-skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
-    .about-skill-block{padding:20px 18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;display:flex;flex-direction:column;gap:8px;transition:border-color .2s,background .2s,transform .2s}
+    .about-skill-block{min-height:150px;padding:24px 22px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;display:flex;flex-direction:column;gap:9px;transition:border-color .2s,background .2s,transform .2s}
     .about-skill-block:hover{border-color:rgba(232,69,10,.35);background:rgba(232,69,10,.07);transform:translateY(-3px)}
     .about-skill-icon{font-size:22px;line-height:1}
     .about-skill-title{font-size:14px;font-weight:800;color:#fff;line-height:1.3}
@@ -806,7 +806,7 @@
     @media(max-width:760px){
       .desktop-break{display:none}
       .about-skills-grid{grid-template-columns:1fr;gap:12px}
-      .about-skill-block{padding:18px 20px}
+      .about-skill-block{min-height:0;padding:18px 20px}
       .wrap{width:min(100% - 28px,1200px)}
       .nav{height:64px;padding:0 16px}
       .nav-links{display:none}
@@ -1133,7 +1133,8 @@
 
     /* === About merged sub-section === */
     .about-sub-head{margin:36px 0 24px;padding-top:32px;border-top:1px solid rgba(255,255,255,.07);display:flex;align-items:center;gap:16px}
-    #about{padding:72px 0 80px}
+    #about{padding:60px 0 68px}
+    #about .head{margin-bottom:36px}
     body.warm .about-sub-head{border-top-color:rgba(0,0,0,.07)}
 
     .project-card.card-selected,.proto.card-selected{
@@ -1313,12 +1314,12 @@
               <div class="about-skill-block">
                 <div class="about-skill-icon">🔧</div>
                 <div class="about-skill-title">把经验做成机制</div>
-                <div class="about-skill-desc">将有效动作整理成分层规则、反馈节奏和可复用 SOP，降低重复沟通成本</div>
+                <div class="about-skill-desc">将有效动作整理成分层规则、反馈节奏和可复用 SOP，降低协作成本</div>
               </div>
               <div class="about-skill-block">
                 <div class="about-skill-icon">🤖</div>
                 <div class="about-skill-title">AI 原型验证</div>
-                <div class="about-skill-desc">用可交互原型验证 AI 介入节点，并用反馈、采纳和流程变化判断工具价值</div>
+                <div class="about-skill-desc">用可交互原型验证 AI 介入节点，并通过反馈与流程变化判断工具价值</div>
               </div>
             </div>
           </div>
@@ -1552,13 +1553,23 @@
                 </div>
               </div>
               <div class="career-card" data-idx="2">
-	                <div class="career-card-head"><span class="career-year-badge">2024-26</span><span class="career-role">多平台增长与 AI 提效</span></div>
-	                <h4>用 MVP 验证增长链路，再将有效方法规模化</h4>
-	                <p>从视频号扩展到小红书和抖音，从自然流延伸到投放测试，并将即梦 AI、Coze 工作流和自动化剪辑用于内容生产。</p>
+	                <div class="career-card-head"><span class="career-year-badge">2024-25</span><span class="career-role">矩阵增长与主播供给</span></div>
+	                <h4>从单账号验证到主播矩阵</h4>
+	                <p>围绕高中志愿与成人英语项目，先验证内容、直播与转化链路，再扩展账号矩阵、主播招培、排期复盘与激励机制。</p>
                 <div class="career-kpis">
-	                  <div class="career-kpi-tag"><b>50+</b><span>从 0 搭建账号</span></div>
-	                  <div class="career-kpi-tag"><b>50+</b><span>培养素人主播</span></div>
-	                  <div class="career-kpi-tag"><b>AI</b><span>内容生产 SOP</span></div>
+	                  <div class="career-kpi-tag"><b>10</b><span>成人英语账号</span></div>
+	                  <div class="career-kpi-tag"><b>50+</b><span>兼职主播</span></div>
+	                  <div class="career-kpi-tag"><b>9000</b><span>有效线索</span></div>
+	                </div>
+	              </div>
+              <div class="career-card" data-idx="3">
+	                <div class="career-card-head"><span class="career-year-badge">2025-26</span><span class="career-role">UGC 供给与 AI 提效</span></div>
+	                <h4>从集中运营到分布式供给</h4>
+	                <p>在小红书搭建素人种草矩阵，沉淀人设、内容与转化 SOP，并将 AI 用于选题、审核、社群和复盘等高频运营动作。</p>
+	                <div class="career-kpis">
+	                  <div class="career-kpi-tag"><b>40-50</b><span>素人账号</span></div>
+	                  <div class="career-kpi-tag"><b>12W</b><span>新增粉丝</span></div>
+	                  <div class="career-kpi-tag"><b>AI</b><span>运营工作流</span></div>
                 </div>
               </div>
             </div>
