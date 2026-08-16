@@ -1370,7 +1370,7 @@
         <div class="head head-full reveal">
           <span class="kicker">AI Works</span>
           <h2 class="title"><span class="works-title-line1">AI 工具作品</span><span class="works-title-line2">从真实业务问题到可体验工具</span></h2>
-          <p class="sub">三个重点作品分别对应创作者社群、内容增长和创作者运营场景；下面的工具链继续拆解选题、审核、复盘和需求表达等单点动作。</p>
+          <p class="sub">三个重点作品分别对应创作者社群、内容增长和创作者运营场景；下面的工具链把创作者工作流拆成「选题 → 脚本 → 合规 → 复盘 → 增长 → 实验」，PRD 则作为运营洞察产品化的延伸。</p>
         </div>
         <div class="flagship-note reveal">
           <span>重点 AI 作品 · 可直接打开体验</span>
@@ -1435,9 +1435,9 @@
         <!-- AI 原型工具 -->
         <div class="proj-tab-panel active" id="tab-protos">
           <div class="proto-summary-bar reveal">
-            <span class="proto-summary-item"><b>工具链</b>覆盖内容工作流</span>
+            <span class="proto-summary-item"><b>工具链</b>覆盖创作者增长闭环</span>
             <span class="proto-summary-sep">·</span>
-            <span class="proto-summary-item">可直接体验</span>
+            <span class="proto-summary-item">6 个核心工具 + PRD 延伸</span>
             <span class="proto-summary-sep">·</span>
             <span class="proto-summary-item"><b>Claude Code</b> 辅助开发</span>
             <span class="proto-summary-sep">·</span>
@@ -1503,10 +1503,21 @@
                 </div>
               </div>
               <div class="proto proto-card" data-idx="5">
+                <div class="proto-cover"><img src="assets/cover-ab-test-designer.png" alt="A/B 实验设计助手封面"></div>
+                <h3><a href="https://rango-bot441.github.io/douyin-creator-growth-ai-toolchain/ab-test-designer/" target="_blank" rel="noreferrer" onclick="event.stopPropagation()">A/B 实验设计助手</a></h3>
+                <ul class="proto-meta"><li><span class="proto-badge b-blue">⑥ 增长 → 实验</span></li></ul>
+                <p class="proto-desc">把复盘后的增长动作拆成单变量实验，生成对照组、实验组、成功标准和风险提示，用低样本方式验证改法是否有效。</p>
+                <div class="proto-tech"><span class="proto-tech-tag">HTML/CSS/JS</span><span class="proto-tech-tag">内容实验</span><span class="proto-tech-tag">指标设计</span><span class="proto-tech-tag">规则估算</span></div>
+                <div class="proto-links">
+                  <a class="proto-link-btn" href="https://github.com/Rango-bot441/douyin-creator-growth-ai-toolchain/tree/main/ab-test-designer" target="_blank" rel="noreferrer" onclick="event.stopPropagation()">⌥ GitHub</a>
+                  <a class="proto-link-btn live" href="https://rango-bot441.github.io/douyin-creator-growth-ai-toolchain/ab-test-designer/" target="_blank" rel="noreferrer" onclick="event.stopPropagation()">↗ 在线预览</a>
+                </div>
+              </div>
+              <div class="proto proto-card" data-idx="6">
                 <div class="proto-cover"><img src="assets/cover-prd-copilot.png" alt="PRD Copilot封面"></div>
                 <h3><a href="https://rango-bot441.github.io/douyin-creator-growth-ai-toolchain/prd-copilot/" target="_blank" rel="noreferrer" onclick="event.stopPropagation()">产品化表达助手</a></h3>
-                <ul class="proto-meta"><li><span class="proto-badge b-yellow">⑥ 需求 → PRD</span></li></ul>
-                <p class="proto-desc">把模糊运营问题转成用户故事、功能边界和验收标准，用来提升跨团队沟通和需求表达效率。</p>
+                <ul class="proto-meta"><li><span class="proto-badge b-yellow">+ 洞察 → PRD</span></li></ul>
+                <p class="proto-desc">把运营洞察、实验假设和模糊需求转成用户故事、功能边界和验收标准，用来提升跨团队沟通和需求表达效率。</p>
                 <div class="proto-tech"><span class="proto-tech-tag">HTML/CSS/JS</span><span class="proto-tech-tag">Node.js</span><span class="proto-tech-tag">GitHub</span><span class="proto-tech-tag">Render</span></div>
                 <div class="proto-links">
                   <a class="proto-link-btn" href="https://github.com/Rango-bot441/prd-copilot" target="_blank" rel="noreferrer" onclick="event.stopPropagation()">⌥ GitHub</a>
@@ -2185,8 +2196,21 @@
           kpis: [{ val: '5条', lbl: '内容多维分析' }, { val: '7天', lbl: '增长计划' }, { val: '自动化', lbl: '复盘诊断' }],
         },
         {
+          title: 'A/B 实验设计助手',
+          subtitle: '⑥ 增长 → 实验 · 内容实验验证',
+          tags: ['单变量实验', '指标设计', '验证闭环'],
+          link: 'https://rango-bot441.github.io/douyin-creator-growth-ai-toolchain/ab-test-designer/',
+          points: [
+            '承接复盘和增长规划输出的关键动作，把“下条内容怎么改”拆成可执行实验方案',
+            '生成对照组、实验组、样本周期、成功标准和风险提示，避免事后解释结果',
+            '适配短视频低样本、低频发布场景，不把个人创作者误导成高流量产品实验',
+            '把有效、无效和待复测变量沉淀为账号自己的内容实验资产',
+          ],
+          kpis: [{ val: '单变量', lbl: '实验原则' }, { val: '标准', lbl: '提前定义' }, { val: '资产', lbl: '变量沉淀' }],
+        },
+        {
           title: 'PRD Copilot',
-          subtitle: '⑥ 需求 → PRD · 产品文档助手',
+          subtitle: '+ 洞察 → PRD · 产品文档助手',
           tags: ['需求拆解', 'PRD 生成', 'AI 辅助产品'],
           link: 'https://rango-bot441.github.io/douyin-creator-growth-ai-toolchain/prd-copilot/',
           points: [
