@@ -103,3 +103,9 @@ test('legacy branch deployment also excludes development directories', () => {
     assert.ok(config.includes(`  - ${directory}`), `Legacy deployment must exclude ${directory}`);
   }
 });
+
+test('featured case styles override legacy invisible copy and undersized heading', () => {
+  const css = read('assets/portfolio-upgrade.css');
+  assert.match(css, /#works\s+\.head-full\s+\.title\s*\{[^}]*font-size:\s*clamp\(25px,2\.5vw,35px\)/);
+  assert.match(css, /#works\s+\.head-full\s+\.sub\s*\{[^}]*color:\s*var\(--muted\)/);
+});
