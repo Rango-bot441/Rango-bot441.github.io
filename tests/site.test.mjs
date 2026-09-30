@@ -96,3 +96,10 @@ test('deployment uploads only a built public directory after tests', () => {
   assert.match(workflow, /path: _site/);
   assert.doesNotMatch(workflow, /path: \.(?:\s|$)/);
 });
+
+test('legacy branch deployment also excludes development directories', () => {
+  const config = read('_config.yml');
+  for (const directory of ['docs', 'scripts', 'tests', 'output', 'node_modules']) {
+    assert.ok(config.includes(`  - ${directory}`), `Legacy deployment must exclude ${directory}`);
+  }
+});

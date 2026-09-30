@@ -52,14 +52,15 @@ Files: `assets/xhs-workbench-public.png`, `works/xhs-content-workbench/public-dr
 - [x] Approved design and publish authorization; clean latest-source baseline identified.
 - [x] Homepage and case implemented.
 - [x] Evidence, tests and browser acceptance complete.
-- [ ] Public deployment confirmed.
+- [x] Public deployment confirmed for commit 698069f; final legacy-deployment exclusion is being verified.
 
 ## Acceptance evidence (2026-09-30)
 
-- Website static tests: 8/8; inline JavaScript and case/build scripts passed syntax checks; `git diff --check` passed.
+- Website static tests: 8/8 at initial deployment; an additional regression check now protects the legacy branch deployment. Inline JavaScript and case/build scripts passed syntax checks; `git diff --check` passed.
 - Original workbench test suite was re-run with local test-server permission: 211/211. The first sandboxed run was blocked from binding local ports; no model calls were made by this verification.
 - Public build contains 22 allowlisted files; it excludes database, credentials, development notes and browser artifacts. Existing public legacy URLs are retained.
 - Browser checks: desktop 1440 and mobile 390 have no horizontal overflow; 4 historical detail dialogs match their cards and restore focus on Escape; menu opens/closes/selects and restores scrolling; theme toggle and 7-tool archive work.
 - Homepage remains readable with JavaScript disabled or all images blocked. Case renders all 3 workflow panels without JavaScript; normal tabs and arrow keys select one panel at a time.
 - Built-artifact journey: homepage → case → homepage → historical Xiaohongshu link → case → review tab → draft download. Console errors: 0; failed requests: 0. Download is byte-identical to the public unreviewed draft.
 - Public cases are static explanations. No new-case model review, platform publishing, live backend deployment or business outcome claim is implied.
+- GitHub ran both the existing branch-based Jekyll deployment and the custom Pages workflow. Both succeeded for 698069f. `_config.yml` excludes development directories from the legacy path as well; no repository settings or credentials were changed.

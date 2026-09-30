@@ -1,0 +1,12 @@
+# The repository also has GitHub's legacy branch-based Jekyll deployment.
+# Keep its public output consistent with the explicit Pages artifact build.
+exclude:
+  - docs
+  - scripts
+  - tests
+  - output
+  - node_modules
+  - package.json
+  - package-lock.json
+  - README.md
+  - AGENTS.md
