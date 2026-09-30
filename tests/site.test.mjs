@@ -9,15 +9,27 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const read = path => readFileSync(resolve(root, path), 'utf8');
 const homepage = () => read('index.html');
 const casePath = 'works/xhs-content-workbench/index.html';
+const businessPath = 'works/xhs-matrix-growth/index.html';
 
 test('homepage leads to the specific case and preserves historical navigation', () => {
   const html = homepage();
   assert.match(html, /href=["']\/?works\/xhs-content-workbench\//);
+  assert.match(html, /href=["']\/?works\/xhs-matrix-growth\//);
   for (const id of ['top', 'works', 'career-section', 'about', 'insights', 'contact']) assert.match(html, new RegExp(`id=["']${id}["']`));
   assert.ok(html.indexOf('id="works"') < html.indexOf('id="career-section"'));
   assert.ok(html.indexOf('id="career-section"') < html.indexOf('id="about"'));
   assert.match(html, /小红书素人种草与矩阵增长/);
   assert.match(html, /成人英语直播获客与主播矩阵/);
+});
+
+test('business case is a source-bounded account of the historical project', () => {
+  const html = read(businessPath);
+  assert.match(html, /小红书/);
+  assert.match(html, /历史.*自述|项目.*自述/);
+  assert.match(html, /本人|我负责|我的职责/);
+  assert.match(html, /3.?5.*40.?50|40.?50.*3.?5/);
+  assert.match(html, /AI.*独立实践|独立实践.*AI|不是.*AI/);
+  assert.doesNotMatch(html, /(?:真实|显著).*提升.*(?:ROI|获客效率)|自动.*发布/);
 });
 
 test('first paint has no full-screen page loader or blocking Google font request', () => {
@@ -33,7 +45,8 @@ test('case contains truthful status, public source and actual download', () => {
   const html = read(casePath);
   assert.match(html, /未审核|未完成.*审核|尚未.*审核/);
   assert.match(html, /模型.*配置|配置.*模型/);
-  assert.match(html, /只读/);
+  assert.match(html, /静态案例/);
+  assert.match(html, /不会提交稿件或调用 AI/);
   assert.match(html, /https:\/\/grow\.google\/ai-essentials\//);
   assert.match(html, /public-draft\.md/);
   assert.match(html, /xhs-workbench-public\.png/);
@@ -51,8 +64,8 @@ test('public practice draft explicitly discloses its unreviewed provenance', () 
   assert.doesNotMatch(text, /source_[a-f0-9-]+|draft_[a-f0-9-]+|task_[a-f0-9-]+|api[_-]?key\s*[:=]/i);
 });
 
-test('local links and anchors resolve for homepage and case', () => {
-  for (const file of ['index.html', casePath]) {
+test('local links and anchors resolve for homepage and both cases', () => {
+  for (const file of ['index.html', businessPath, casePath]) {
     const html = read(file).replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '');
     for (const [, raw] of html.matchAll(/(?:href|src)=["']([^"']+)["']/g)) {
       if (/^(?:https?:|mailto:|tel:|data:|javascript:)/.test(raw)) continue;
@@ -81,7 +94,7 @@ test('public allowlist excludes development and private workspace data', () => {
 
 test('new public files contain no workspace database, private trace or credentials', () => {
   const walk = dir => readdirSync(dir, { withFileTypes: true }).flatMap(item => item.isDirectory() ? walk(resolve(dir, item.name)) : [resolve(dir, item.name)]);
-  for (const file of walk(resolve(root, 'works/xhs-content-workbench'))) {
+  for (const file of [...walk(resolve(root, 'works/xhs-content-workbench')), ...walk(resolve(root, 'works/xhs-matrix-growth'))]) {
     assert.doesNotMatch(file, /\.(?:sqlite|db|env)$/);
     if (!/\.(html|css|js|md)$/.test(file)) continue;
     const text = readFileSync(file, 'utf8');

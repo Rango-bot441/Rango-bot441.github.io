@@ -14,6 +14,7 @@ export const publicFiles = [
   'assets/creator-inspiration-station-cover.png', 'assets/creator-postmortem-ai-cover.png',
   'assets/creatorinsight-cover.png', 'assets/xhs-workbench-public.png',
   'assets/portfolio-upgrade.css',
+  'works/xhs-matrix-growth/index.html', 'works/xhs-matrix-growth/case.css',
   'works/xhs-content-workbench/index.html', 'works/xhs-content-workbench/case.css',
   'works/xhs-content-workbench/case.js', 'works/xhs-content-workbench/public-draft.md',
 ];
@@ -27,7 +28,7 @@ export function buildSite(destination = resolve(root, '_site')) {
     if (!existsSync(resolve(root, file))) throw new Error(`Required public file missing: ${file}`);
     if (!lstatSync(resolve(root, file)).isFile()) throw new Error(`Public entry is not a regular file: ${file}`);
   }
-  for (const file of ['index.html', 'works/xhs-content-workbench/index.html', 'works/xhs-content-workbench/public-draft.md', 'assets/xhs-workbench-public.png']) {
+  for (const file of ['index.html', 'works/xhs-matrix-growth/index.html', 'works/xhs-content-workbench/index.html', 'works/xhs-content-workbench/public-draft.md', 'assets/xhs-workbench-public.png']) {
     if (!files.includes(file)) throw new Error(`Required public file missing: ${file}`);
   }
   mkdirSync(output, { recursive: true });

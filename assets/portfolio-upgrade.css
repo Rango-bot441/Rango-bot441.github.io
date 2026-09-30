@@ -33,16 +33,28 @@ body.portfolio-upgrade::after { display: none; }
 .portfolio-upgrade .nav-drawer { background: var(--paper); visibility: hidden; top: 74px; }
 .portfolio-upgrade .nav-drawer.open { visibility: visible; }
 .portfolio-upgrade .nav-drawer a { color: var(--ink); border-color: var(--rule); }
-.portfolio-upgrade .hero { min-height: 0; padding: 142px 0 66px; background: var(--paper); color: var(--ink); overflow: visible; }
+.portfolio-upgrade .hero { min-height: 0; padding: 132px 0 68px; background: var(--paper); color: var(--ink); overflow: visible; }
 .portfolio-upgrade .hero::before { display: none; }
-.portfolio-upgrade .hero-grid { grid-template-columns: minmax(0,1.08fr) minmax(0,1fr); gap: 48px; }
+.portfolio-upgrade .hero-grid { grid-template-columns: minmax(0,1.05fr) minmax(0,.95fr); gap: clamp(28px,5vw,66px); align-items: start; }
 .portfolio-upgrade .hero-tag { padding: 0; margin-bottom: 25px; border: 0; background: none; color: var(--accent); font-size: 13px; letter-spacing: .04em; }
 .portfolio-upgrade .hero h1 { opacity: 1; transform: none; animation: none; margin-bottom: 26px; }
 .portfolio-upgrade .hero h1 .h1-line1 { color: var(--quiet); letter-spacing: .11em; font-size: 10px; margin-bottom: 21px; font-family: inherit; }
 .portfolio-upgrade .hero h1 .h1-line2,.portfolio-upgrade .hero h1 .highlight-text { font-family: 'Songti SC','STSong','Noto Sans SC',serif; font-size: clamp(32px,3.5vw,49px); font-weight: 800; letter-spacing: -.035em; line-height: 1.35; color: var(--ink); }
 .portfolio-upgrade .hero h1 .highlight-text { color: var(--accent); }
 .portfolio-upgrade .hero h1 .highlight-text::after { display: none; }
-.portfolio-upgrade .hero .lead { font-size: 15px; line-height: 1.95; margin-bottom: 28px; color: var(--muted); max-width: 495px; }
+.portfolio-upgrade .hero .lead { font-size: 15px; line-height: 1.95; margin-bottom: 28px; color: var(--muted); max-width: 550px; }
+.hero-guide { max-width: 520px; margin: 18px 0 0; padding-left: 11px; border-left: 2px solid var(--rule); color: var(--quiet); font-size: 11px; line-height: 1.8; }
+.hero-decision { position: relative; padding: 26px 30px 0; border: 1px solid var(--rule); border-top: 3px solid var(--accent); border-radius: 0 0 12px 12px; background: var(--panel); box-shadow: 0 15px 38px #2428200a; }
+.decision-topline { display: flex; justify-content: space-between; gap: 14px; color: var(--muted); font-size: 11px; line-height: 1.5; }
+.hero-decision h2 { margin: 21px 0 23px; color: var(--ink); font: 700 clamp(23px,2.25vw,31px)/1.44 'Songti SC','STSong','Noto Sans SC',serif; letter-spacing: -.025em; }
+.hero-decision ol { list-style: none; margin: 0; padding: 0; counter-reset: decision; border-top: 1px solid var(--rule); }
+.hero-decision li { display: grid; grid-template-columns: 95px 1fr; gap: 13px; align-items: baseline; padding: 15px 0; border-bottom: 1px solid var(--rule); }
+.hero-decision li b { color: var(--accent); font-size: 14px; font-weight: 700; white-space: nowrap; }
+.hero-decision li b::before { counter-increment: decision; content: '0' counter(decision) ' / '; color: var(--quiet); font-size: 11px; font-weight: 500; }
+.hero-decision li span { color: var(--muted); font-size: 12px; line-height: 1.85; }
+.decision-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin: 0 -30px; padding: 15px 30px 17px; background: var(--soft); border-radius: 0 0 11px 11px; font-size: 11px; line-height: 1.7; }
+.decision-footer span { color: var(--muted); }
+.decision-footer a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
 .portfolio-upgrade .btn-primary,.portfolio-upgrade .btn-secondary { border-radius: 7px; padding: 12px 20px; box-shadow: none; backdrop-filter: none; font-size: 14px; }
 .portfolio-upgrade .btn-primary { color: white; background: var(--accent); }
 .portfolio-upgrade .btn-primary:hover { background: var(--accent-hover); box-shadow: none; transform: translateY(-1px); }
@@ -73,6 +85,14 @@ body.portfolio-upgrade::after { display: none; }
 .featured-heading>div { flex: 1; }
 .case-eyebrow { color: var(--muted); font-size: 11px; margin-bottom: 7px; }
 .featured-heading h3 { font-size: 22px; line-height: 1.45; margin: 0; font-weight: 700; color: var(--ink); }
+.business-outcomes { display: grid; grid-template-columns: 1.45fr repeat(4,minmax(0,1fr)); align-items: center; gap: 10px; margin: 0 30px 24px; padding: 16px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.business-outcomes>span { color: var(--muted); font-size: 11px; }
+.business-outcomes b { color: var(--ink); font: 500 25px/1.2 Georgia,'Noto Sans SC',serif; white-space: nowrap; }
+.business-outcomes small { display: block; margin-top: 6px; color: var(--muted); font: 400 11px/1.4 'Noto Sans SC','PingFang SC',sans-serif; }
+.business-case .case-flow { border-top: 0; }
+.ai-practice-section { background: var(--soft) !important; }
+.ai-featured-case { border-top-color: var(--quiet); }
+.ai-featured-case .case-number { color: var(--quiet); }
 .case-flow { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); list-style: none; padding: 0; margin: 0 30px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
 .case-flow li { padding: 23px 25px; border-left: 1px solid var(--rule); }
 .case-flow li:first-child { padding-left: 0; border-left: 0; }
@@ -165,6 +185,8 @@ body.portfolio-upgrade::after { display: none; }
 .portfolio-upgrade .insight-card-headline,.portfolio-upgrade .insight-card.active .insight-card-headline { color: var(--ink); font-size: 17px; text-shadow: none; }
 .portfolio-upgrade .insight-card-li,.portfolio-upgrade .insight-card.active .insight-card-li { color: var(--muted); font-size: 12px; }
 .portfolio-upgrade .insight-card-li.action,.portfolio-upgrade .insight-card.active .insight-card-li.action { color: var(--accent); }
+.portfolio-upgrade .insights-grid { gap: 0; }
+.portfolio-upgrade #insights .head { margin-bottom: 16px; }
 .portfolio-upgrade .divider { display: none; }
 .portfolio-upgrade .contact { background: var(--soft); color: var(--ink); padding: 65px 0; border-color: var(--rule); }
 .portfolio-upgrade .contact-tagline .line-muted { color: var(--muted); }
@@ -211,7 +233,7 @@ body.portfolio-upgrade::after { display: none; }
 }
 @media(max-width:760px) {
   .portfolio-upgrade .wrap { width: calc(100% - 36px); }
-  .portfolio-upgrade .hero { padding: 114px 0 37px; }
+  .portfolio-upgrade .hero { padding: 102px 0 33px; }
   .portfolio-upgrade .hero-grid { grid-template-columns: 1fr; gap: 29px; }
   .portfolio-upgrade .hero-tag { margin-bottom: 18px; }
   .portfolio-upgrade .hero h1 .h1-line2,.portfolio-upgrade .hero h1 .highlight-text { font-size: clamp(28px,7.7vw,42px); letter-spacing: -.035em; }
@@ -219,6 +241,15 @@ body.portfolio-upgrade::after { display: none; }
   .portfolio-upgrade .hero .lead { font-size: 13px; line-height: 1.95; margin-bottom: 23px; }
   .portfolio-upgrade .hero-ctas { gap: 9px; }
   .portfolio-upgrade .btn-primary,.portfolio-upgrade .btn-secondary { padding: 11px 14px; font-size: 12px; }
+  .hero-guide { font-size: 10px; margin-top: 13px; }
+  .hero-decision { padding: 19px 18px 0; }
+  .decision-topline { font-size: 10px; }
+  .hero-decision h2 { margin: 15px 0 18px; font-size: 24px; }
+  .hero-decision li { grid-template-columns: 80px 1fr; gap: 7px; padding: 12px 0; }
+  .hero-decision li b { font-size: 12px; }
+  .hero-decision li b::before { font-size: 10px; }
+  .hero-decision li span { font-size: 11px; }
+  .decision-footer { margin: 0 -18px; padding: 13px 18px; }
   .workbench-preview img { height: 226px; }
   .preview-topline { padding: 11px 13px; }
   .workbench-preview figcaption { font-size: 11px; padding: 10px 13px; }
@@ -231,6 +262,9 @@ body.portfolio-upgrade::after { display: none; }
   .case-number { font-size: 30px; }
   .featured-heading h3 { font-size: 19px; }
   .featured-heading>.case-status { margin-left: 43px; }
+  .business-outcomes { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px 12px; margin: 0 19px 14px; padding: 14px 0; }
+  .business-outcomes>span { grid-column: 1/-1; }
+  .business-outcomes b { font-size: 22px; }
   .case-flow { grid-template-columns: 1fr; margin: 0 19px; }
   .case-flow li,.case-flow li:first-child,.case-flow li:last-child { padding: 19px 0; border-left: 0; border-bottom: 1px solid var(--rule); }
   .case-flow li:last-child { border-bottom: 0; }

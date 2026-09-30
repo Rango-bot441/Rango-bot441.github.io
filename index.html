@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>张彪｜内容与增长、创作者生态及 AI 工具作品集</title>
+  <title>张彪｜内容增长与创作者运营作品集</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <meta name="description" content="张彪的内容增长作品集：近4年教培运营经历、小红书矩阵项目，以及有据内容协作与审核工作台。以真实流程、可检查产物和清晰边界展示 AI 实践。">
-  <meta property="og:title" content="张彪｜内容与增长、创作者生态及 AI 工具作品集">
-  <meta property="og:description" content="从小红书内容协作痛点到有据工作台：查看业务经历、真实界面、操作流程与验证边界。">
+  <meta name="description" content="张彪的内容增长与创作者运营作品集：小红书素人矩阵的业务判断、内容供给机制与项目复盘，以及后续独立开发的 AI 内容协作实践。">
+  <meta property="og:title" content="张彪｜内容增长与创作者运营作品集">
+  <meta property="og:description" content="先看小红书矩阵业务项目，再看从内容协作问题出发的 AI 工作台实践。">
   <meta property="og:type" content="website">
   <style>
     :root {
@@ -1184,9 +1184,10 @@
   <div class="scroll-progress" id="scrollProgress"></div>
 
   <header class="nav">
-    <a class="brand" href="#top"><b>张彪</b><span>内容与增长 · 创作者生态 · AI 工具</span></a>
+    <a class="brand" href="#top"><b>张彪</b><span>内容增长 · 创作者运营</span></a>
     <nav class="nav-links">
-      <a href="#works" data-sec="works">代表案例</a>
+      <a href="#works" data-sec="works">小红书项目</a>
+      <a href="#ai-practice" data-sec="ai-practice">AI 实践</a>
       <a href="#career-section" data-sec="career-section" data-zh="工作经历" data-en="Career"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>工作经历</a>
       <a href="#explorations" data-sec="explorations">其他探索</a>
       <a href="#about" data-sec="about">关于我</a>
@@ -1200,7 +1201,8 @@
     </button>
   </header>
   <nav class="nav-drawer" id="navDrawer" aria-label="移动导航">
-    <a href="#works" onclick="closeDrawer()">代表案例</a>
+    <a href="#works" onclick="closeDrawer()">小红书项目</a>
+    <a href="#ai-practice" onclick="closeDrawer()">AI 实践</a>
     <a href="#career-section" onclick="closeDrawer()">工作经历</a>
     <a href="#explorations" onclick="closeDrawer()">其他探索</a>
     <a href="#about" onclick="closeDrawer()">关于我</a>
@@ -1211,37 +1213,63 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <span class="hero-tag">张彪 · 内容增长运营</span>
-          <h1><span class="h1-line1">Content growth · AI practice</span><span class="h1-line2">从内容增长一线，<br>把协作问题做成<br><span class="highlight-text">可检查的 AI 工作流。</span></span></h1>
-          <p class="lead">近 4 年教培行业经历，做过小红书素人矩阵、内容获客与创作者协作。现在，把资料核对、外稿审核和修改留痕，做成能实际操作的工作台。</p>
+          <span class="hero-tag">张彪 · 内容增长 / 创作者运营</span>
+          <h1><span class="h1-line1">Content growth · Creator operations</span><span class="h1-line2">把内容供给跑通，<br>再把有效方法<br><span class="highlight-text">做成可复制的机制。</span></span></h1>
+          <p class="lead">近 4 年教培行业一线经历。主导小红书素人矩阵项目，从少量账号验证内容与承接链路，再推进人设分层、供稿标准和协作机制；也做过 IP 孵化、主播供给与转化复盘。</p>
           <div class="hero-ctas">
-            <a class="btn-primary" href="/works/xhs-content-workbench/">查看代表案例 →</a>
-            <a class="btn-secondary" href="#career-section">查看工作经历 →</a>
+            <a class="btn-primary" href="/works/xhs-matrix-growth/">看小红书业务案例 →</a>
+            <a class="btn-secondary" href="/works/xhs-content-workbench/">看 AI 工作台实践 →</a>
           </div>
+          <p class="hero-guide">面试阅读建议：先看业务判断与结果口径，再看我如何把协作问题转成工具流程。</p>
         </div>
-        <figure class="hero-card workbench-preview">
-          <div class="preview-topline"><span>有据 / 内容工作台</span><span class="case-status">本地可演示</span></div>
-          <a href="/works/xhs-content-workbench/" aria-label="查看有据工作台完整案例"><img src="/assets/xhs-workbench-public.png" alt="有据工作台真实界面：成人 AI 入门课公开资料实践，稿件尚未审核" width="1440" height="1570" fetchpriority="high" decoding="async"></a>
-          <figcaption>真实界面 · 公开资料案例<br><span>AI 服务待配置；此处是案例介绍，不是在线模型试用。</span></figcaption>
-        </figure>
+        <aside class="hero-decision" aria-label="小红书项目判断路径">
+          <div class="decision-topline"><span>业务案例 / 小红书素人矩阵</span><span>2025.07–2026.02</span></div>
+          <h2>为什么扩量，<br>如何保证供给质量？</h2>
+          <ol>
+            <li><b>先验证</b><span>用 3–5 个账号观察内容获客与后端承接是否能跑通。</span></li>
+            <li><b>再分层</b><span>区分账号人设与用户问题，沉淀选题和内容要求。</span></li>
+            <li><b>后协作</b><span>扩展素人账号供给，靠 SOP 与反馈降低交稿质量波动。</span></li>
+          </ol>
+          <div class="decision-footer"><span>历史项目自述 · 40–50 个素人账号</span><a href="/works/xhs-matrix-growth/">查看完整判断与证据边界 ↗</a></div>
+        </aside>
       </div>
     </section>
 
     <section class="section featured-section" id="works" aria-labelledby="featured-title">
       <div class="wrap">
         <div class="head head-full">
-          <span class="kicker">Selected case / 01</span>
-          <h2 class="title" id="featured-title">把一份外稿，变成有依据的交付。</h2>
-          <p class="sub">来自小红书矩阵协作中的具体问题：稿件标准不一、资料分散、改完以后容易沿用旧审核。</p>
+          <span class="kicker">Business case / 01</span>
+          <h2 class="title" id="featured-title">小红书素人矩阵：从试跑账号到稳定供给</h2>
+          <p class="sub">这段经历展示我如何判断是否扩量、组织不同人设的内容供给，并把前端内容与后端线索承接接起来。</p>
         </div>
-        <article class="featured-case">
-          <div class="featured-heading"><span class="case-number">01</span><div><p class="case-eyebrow">后续独立实践 · AI 辅助开发</p><h3>有据｜小红书内容协作与审核工作台</h3></div><span class="case-status">本地可演示 · AI 服务待配置</span></div>
+        <article class="featured-case business-case">
+          <div class="featured-heading"><span class="case-number">01</span><div><p class="case-eyebrow">高途集团 · 历史业务项目</p><h3>小红书素人种草与矩阵增长</h3></div><span class="case-status">2025.07–2026.02</span></div>
+          <div class="business-outcomes" aria-label="小红书历史项目自述结果"><span>项目历史自述</span><b>40–50<small>素人账号</small></b><b>12W<small>新增粉丝</small></b><b>4000+<small>有效线索</small></b><b>80W<small>总 GMV</small></b></div>
           <ol class="case-flow">
-            <li><span>01 / 交稿</span><h4>需求和资料放在一起</h4><p>在同一任务接收外稿、补充账号和引用资料，减少来回找背景。</p></li>
-            <li><span>02 / 核对</span><h4>问题落到原句与依据</h4><p>结合规则与 AI 检查，保留人工判断；资料变更后旧审核自动失效。</p></li>
-            <li><span>03 / 交付</span><h4>修改留痕，再确认导出</h4><p>对比版本、记录处理意见，导出文案或证据包，默认隐藏联系方式。</p></li>
+            <li><span>01 / 判断</span><h4>小规模验证获客链路</h4><p>先用 3–5 个账号试跑内容、互动和线索承接，再决定是否扩量。</p></li>
+            <li><span>02 / 组织</span><h4>按人设与问题组织供给</h4><p>区分账号表达与用户需求，将选题、交稿标准和反馈沉淀为协作规则。</p></li>
+            <li><span>03 / 复盘</span><h4>同时看内容与转化</h4><p>把粉丝、线索和销售承接放在同一项目链路内观察，避免只看单条笔记流量。</p></li>
           </ol>
-          <div class="featured-footer"><div class="featured-links"><a class="btn-primary" href="/works/xhs-content-workbench/">查看完整案例 →</a><a class="text-link" href="/works/xhs-content-workbench/#walkthrough">了解操作流程 ↗</a></div><p>公开资料练习稿尚未审核；未接入平台发布，也没有实测增长或提效结论。</p></div>
+          <div class="featured-footer"><div class="featured-links"><a class="btn-primary" href="/works/xhs-matrix-growth/">查看业务案例 →</a><a class="text-link" href="#career-section">查看其他工作经历 ↗</a></div><p>上列数字为历史项目自述；统计范围与原始后台数据尚不可公开复核，不作新工具效果归因。</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section ai-practice-section" id="ai-practice" aria-labelledby="ai-practice-title">
+      <div class="wrap">
+        <div class="head head-full">
+          <span class="kicker">Independent AI practice / 02</span>
+          <h2 class="title" id="ai-practice-title">把内容协作中的问题，转成可检查的工作流程</h2>
+          <p class="sub">「有据」是离开上述历史项目后完成的独立实践。它展示我如何定义任务输入、逐句核对、保留人工决定与版本记录。</p>
+        </div>
+        <article class="featured-case ai-featured-case">
+          <div class="featured-heading"><span class="case-number">02</span><div><p class="case-eyebrow">独立实践 · AI 辅助开发</p><h3>有据｜小红书内容协作与审核工作台</h3></div><span class="case-status">本地原型 · 公开稿未审核</span></div>
+          <ol class="case-flow">
+            <li><span>01 / 交稿</span><h4>任务与资料归到一处</h4><p>在同一任务接收外稿、补充账号与资料，先明确需要核对什么。</p></li>
+            <li><span>02 / 核对</span><h4>问题落到原句与依据</h4><p>规则与模型辅助识别问题，由人工决定是否采纳；修改后进入新版本。</p></li>
+            <li><span>03 / 交付</span><h4>保留决定与版本</h4><p>对比稿件、记录处理意见，再导出文案或证据包。</p></li>
+          </ol>
+          <div class="featured-footer"><div class="featured-links"><a class="btn-secondary" href="/works/xhs-content-workbench/">查看工作台案例 →</a><a class="text-link" href="/works/xhs-content-workbench/#walkthrough">看三步流程 ↗</a></div><p>公开资料练习稿尚未审核；本地模型服务需要配置，暂不对外提供在线试用或声称已证明提效。</p></div>
         </article>
       </div>
     </section>
@@ -1328,11 +1356,11 @@
                 <div class="project-card-dot"></div>
 	                <h3>成人英语直播获客与主播矩阵</h3>
 	                <div class="project-card-meta">2024.11–2025.06 · 独立操盘</div>
-	                <div class="project-card-tags"><span class="project-card-tag">主播分层</span><span class="project-card-tag">自然流增长</span><span class="project-card-tag">AI 内容工作流</span></div>
+	                <div class="project-card-tags"><span class="project-card-tag">主播分层</span><span class="project-card-tag">自然流增长</span><span class="project-card-tag">内容生产辅助工具</span></div>
                 <ul class="project-card-list">
 	                  <li>1 个账号用 2 周完成 MVP 验证，最终扩展至 10 个账号</li>
 	                  <li>50+ 兼职主播分层管理，建立培训、排期、复盘与三维激励</li>
-	                  <li>AI 工作流支撑内容生产，累计 32W 预约、9000 线索、180W GMV</li>
+	                  <li>内容生产曾使用 AI 辅助工具；项目历史自述累计 32W 预约、9000 线索、180W 总 GMV</li>
                 </ul>
                 <button class="project-card-link" type="button">查看详情</button>
               </div>
@@ -1346,7 +1374,8 @@
 	                  <li>新增粉丝 12W，获得 4000+ 有效线索</li>
 	                  <li>总 GMV 80W，沉淀人设、内容和转化 SOP</li>
                 </ul>
-                <button class="project-card-link" type="button">查看历史项目详情</button>
+                <button class="project-card-link" type="button">查看历史项目摘要</button>
+                <a class="related-case-link" href="/works/xhs-matrix-growth/">查看完整业务案例 →</a>
                 <a class="related-case-link" href="/works/xhs-content-workbench/">后续独立实践：有据工作台 →</a>
               </div>
               <div class="project-card" data-idx="2">
@@ -1415,7 +1444,7 @@
                 <p>探索短剧创作者协作、选题规划和内容复盘的工作台原型。本次前端可访问，曾出现访问超时；模型与内部功能未核验。</p>
                 <ul class="flagship-points">
                   <li>完整工作台：从内容供给到复盘建议</li>
-                  <li>体现创作者协作、内容策略和 AI 辅助判断</li>
+              <li>探索创作者协作、内容策略和 AI 辅助判断</li>
                   <li>把创作者运营多环节集中到同一工作台</li>
                 </ul>
               </div>
@@ -1587,7 +1616,7 @@
             <div class="about-cap-item">
               <span class="about-cap-num">03</span>
               <div>
-                <div class="about-cap-title">验证 AI 价值</div>
+                <div class="about-cap-title">检验 AI 是否有用</div>
                 <div class="about-cap-desc">先检查真实输入能否走完流程，再记录误报、返工与采纳情况。没有实测的效率和增长效果，不写成成果。</div>
               </div>
             </div>
@@ -1657,7 +1686,7 @@
             <h3 class="insight-card-headline">AI 工具的价值要落到工作流变化</h3>
             <ul>
               <li class="insight-card-li">生成能力只是起点，团队是否采用、是否信任输出、是否调整流程同样重要。</li>
-              <li class="insight-card-li action">采纳率、节省时长、发布量、线索质量和复盘效率，才能说明工具价值。</li>
+              <li class="insight-card-li action">先记录采纳与返工，再看实际耗时、线索质量等结果，才能讨论工具价值。</li>
             </ul>
           </div>
         </div>
@@ -2021,7 +2050,7 @@
         {
           title: '成人英语直播获客与主播矩阵',
           subtitle: '2024.11–2025.06 · 独立操盘',
-          tags: ['主播分层', '自然流增长', 'AI 内容工作流'],
+          tags: ['主播分层', '自然流增长', '内容生产辅助工具'],
           challenge: '银发用户有口语学习需求，但决策慢、信任建立周期长，需要先验证短视频预约、直播到场、低价书课包留资和正价转化是否连续健康。',
           actions: [
             { label: 'MVP 验证', desc: '先用 1 个账号进行 2 周验证，再用 2-3 个账号交叉测试，最终扩展至 10 个运营账号' },
@@ -2031,6 +2060,7 @@
           ],
           insight: '短视频预约、直播到场、低价留资和正价转化需要连续复盘，才能判断直播获客链路是否健康。',
           kpis: [{ val: '32W', lbl: '短视频预约' }, { val: '14W', lbl: '进直播间' }, { val: '9000', lbl: '总线索' }, { val: '180W', lbl: '总 GMV' }],
+          evidence: '项目结果为历史自述；AI 工具参与内容制作，不代表这些预约、线索或 GMV 由 AI 直接带来。',
         },
         {
           title: '小红书素人种草与矩阵增长',
@@ -2076,12 +2106,12 @@
         {
           title: '创作者灵感加油站',
           subtitle: '① 选题 → 标题 · AI 产品原型',
-          tags: ['选题链路', 'AI 标题生成', '采纳率验证'],
+          tags: ['选题链路', 'AI 标题生成', '反馈记录'],
           link: 'https://rango-bot441.github.io/douyin-creator-growth-ai-toolchain/inspiration-station/',
           points: [
             '覆盖「选题→标题」环节，解决创作者选题耗时过长、热点稍纵即逝的痛点',
-            '集成大模型 API，结合教育垂类热点与爆款公式，一键产出「反常识+悬念+数据」三维标题',
-            '支持对标文案结构化拆解，帮助创作者理解爆款逻辑',
+            '原型设计为结合教育垂类选题与标题结构生成多个备选标题；模型服务和实际采纳效果需另行核验',
+            '支持对标文案结构化拆解，帮助创作者分析标题与内容表达方式',
             '内置 👍/👎 交互反馈，记录用户偏好并用于后续选题优化',
           ],
           kpis: [{ val: '选题', lbl: '链路覆盖' }, { val: '3维', lbl: '标题生成框架' }, { val: '反馈', lbl: '偏好记录' }],
@@ -2095,7 +2125,7 @@
             '承接选题助手输出的标题，把「选题之后怎么拍」转成可直接使用的短视频创作方案',
             '生成口播脚本、标题封面短句、正文简介、评论区互动引导和话题标签',
             '支持不同账号阶段、内容垂类、脚本时长、表达风格和结尾目标的组合配置',
-            '输出发布文案包后可一键送到合规助手，减少跨工具复制和重复录入成本',
+            '原型设有文案包送检入口；是否减少重复录入仍需真实使用记录验证',
           ],
           kpis: [{ val: '脚本', lbl: '核心输出' }, { val: '文案包', lbl: '发布素材' }, { val: '送检', lbl: '链路衔接' }],
         },
@@ -2108,7 +2138,7 @@
             '将内容安全审查从「事后封控」前移至创作阶段，降低违规风险',
             '扫描脚本中的潜在风险表达，并高亮需要进一步确认的内容',
             '给出更稳妥的替换建议，在降低风险的同时尽量保持原意',
-            '直接来源于小红书合规转型的真实业务痛点，验证 AI 合规前置的产品价值',
+            '围绕发布前核对设计原型；真实风险降低幅度与团队采纳情况尚无可公开实测结论',
           ],
           kpis: [{ val: '扫描', lbl: '风险表达' }, { val: '前置', lbl: '发布前检查' }, { val: '改写', lbl: '替换建议' }],
         },
@@ -2121,7 +2151,7 @@
             '单条视频深度归因诊断台，帮创作者理解「为什么这条没爆」',
             '输入视频脚本、封面标题与数据表现，AI 拆解脚本结构',
             '结合完播/互动/转粉数据，生成带置信度的归因假设与可执行改进建议',
-            '从视频文案提取可解释证据，验证「AI 复盘需可归因、可执行」的产品标准',
+            '从视频文案提取可解释的改进依据，探索复盘建议如何被人工判断和采纳',
           ],
           kpis: [{ val: '归因', lbl: '带置信度' }, { val: '可执行', lbl: '改进建议' }, { val: '脚本级', lbl: '拆解粒度' }],
         },
@@ -2134,7 +2164,7 @@
             '面向中小创作者的数据复盘与智能成长决策助手',
             '读取近 5 条内容多维指标（播放/完播/互动等），输出「问题→归因→改进建议」',
             '配套 7 天增长计划，将人工复盘 SOP 转化为 AI 自动化诊断机制',
-            '验证创作者复盘助手的交互形态与工具价值',
+            '探索创作者复盘助手的交互形态；真实业务价值仍需使用记录与结果数据验证',
           ],
           kpis: [{ val: '5条', lbl: '内容多维分析' }, { val: '7天', lbl: '增长计划' }, { val: '自动化', lbl: '复盘诊断' }],
         },
@@ -2158,9 +2188,9 @@
           link: 'https://rango-bot441.github.io/douyin-creator-growth-ai-toolchain/prd-copilot/',
           points: [
             '输入产品需求描述，AI 自动拆解用户故事、功能边界与验收标准',
-            '辅助运营同学快速生成结构化需求文档，降低协作沟通成本',
-            '将 AI 能力产品化的思路延伸到运营协作侧，用于提升结构化表达和沟通效率',
-            '验证「AI 辅助需求拆解」的产品形态与工作流集成价值',
+            '探索把运营需求整理成结构化文档，供人工核对和跨团队讨论',
+            '将 AI 辅助需求拆解的想法延伸到运营协作，重点检查输入是否完整、边界是否清楚',
+            '原型展示工作流设计，尚无公开的团队采纳或提效结果',
           ],
           kpis: [{ val: '结构化', lbl: 'PRD 输出' }, { val: '自动化', lbl: '需求拆解' }, { val: '运营', lbl: '产品化表达' }],
         },
@@ -2193,8 +2223,8 @@
             <div class="modal-insight-text">${data.insight}</div>
           </div>
           <div class="card-modal-kpis">${kpis}</div>
-          <p class="evidence-note">以上为所列时间窗内的历史项目自述；未作独立审计，不是新工作台的业务效果。</p>
-          ${data.title === '小红书素人种草与矩阵增长' ? '<div class="modal-case-bridge"><p>基于这段经历中的协作问题，我在后续独立实践中设计了有据工作台。历史项目结果与新工具验证分开呈现。</p><a class="text-link" href="/works/xhs-content-workbench/">查看后续独立实践：有据 →</a></div>' : ''}
+          <p class="evidence-note">以上为所列时间窗内的历史项目自述；未作独立审计，不是新工作台的业务效果。${data.evidence || ''}</p>
+          ${data.title === '小红书素人种草与矩阵增长' ? '<div class="modal-case-bridge"><p>这段经历启发了我后续设计内容协作工作台。历史项目结果与新工具验证分开展示。</p><a class="text-link" href="/works/xhs-matrix-growth/">查看完整业务案例 →</a><br><a class="text-link" href="/works/xhs-content-workbench/">查看后续独立实践：有据 →</a></div>' : ''}
         `;
       }
 

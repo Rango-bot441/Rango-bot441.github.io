@@ -52,11 +52,11 @@ Files: `assets/xhs-workbench-public.png`, `works/xhs-content-workbench/public-dr
 - [x] Approved design and publish authorization; clean latest-source baseline identified.
 - [x] Homepage and case implemented.
 - [x] Evidence, tests and browser acceptance complete.
-- [x] Public deployment confirmed for commit 698069f; final legacy-deployment exclusion is being verified.
+- [x] Public deployment and legacy-deployment exclusion confirmed for c276f71.
 
 ## Acceptance evidence (2026-09-30)
 
-- Website static tests: 8/8 at initial deployment; an additional regression check now protects the legacy branch deployment. Inline JavaScript and case/build scripts passed syntax checks; `git diff --check` passed.
+- Website static tests: 10/10 at final acceptance, including legacy branch exclusions and featured-case readability. Inline JavaScript and case/build scripts passed syntax checks; `git diff --check` passed.
 - Original workbench test suite was re-run with local test-server permission: 211/211. The first sandboxed run was blocked from binding local ports; no model calls were made by this verification.
 - Public build contains 22 allowlisted files; it excludes database, credentials, development notes and browser artifacts. Existing public legacy URLs are retained.
 - Browser checks: desktop 1440 and mobile 390 have no horizontal overflow; 4 historical detail dialogs match their cards and restore focus on Escape; menu opens/closes/selects and restores scrolling; theme toggle and 7-tool archive work.
@@ -65,3 +65,20 @@ Files: `assets/xhs-workbench-public.png`, `works/xhs-content-workbench/public-dr
 - Public cases are static explanations. No new-case model review, platform publishing, live backend deployment or business outcome claim is implied.
 - GitHub ran both the existing branch-based Jekyll deployment and the custom Pages workflow. Both succeeded for 698069f. `_config.yml` excludes development directories from the legacy path as well; no repository settings or credentials were changed.
 - Live acceptance confirmed the homepage-to-case path, review tab, 390px layout and byte-identical Markdown download with no page errors. GitHub main is confirmed at 9462d36; that push produced no new visible workflow run, so the final regression-test commit also retriggers publication of the verified exclusion configuration.
+- Final release c276f71: custom Pages run 36737071071 and legacy branch run 36737070894 both completed successfully. Public case returned HTTP 200; development script and plan URLs both returned HTTP 404. This final acceptance note remains local and is not part of the published site.
+
+## Review-driven refinement accepted in this conversation
+
+**Goal:** Give a recruiter a fast, evidence-bounded path from historical Xiaohongshu operations work to a later independent AI workflow practice.
+
+**Scope and sequence:**
+
+1. Add `works/xhs-matrix-growth/index.html` and `case.css`: historical business question, accountable decisions and actions, self-reported outcomes, missing measurement definitions, and role boundary. Do not invent original backend records, thresholds, or an AI contribution to historical results.
+2. Update `index.html` and `assets/portfolio-upgrade.css`: identify the relevant role and two case entrances immediately, put the business case before the AI practice, reduce unreadable screenshot prominence, and correct archived-prototype and AI attribution wording. Keep existing career data and modal identities.
+3. Update `works/xhs-content-workbench/index.html` and its existing case assets: make current evidence and limits visible with a readable interface detail. Investigate whether a genuine public-safe model execution exists; without one, retain the unreviewed boundary and avoid a fictional success replay.
+4. Update `scripts/build-site.mjs` and `tests/site.test.mjs` for the new public case. Re-run site tests and JavaScript syntax checks; build the whitelist output, inspect all public files and complete browser journeys at desktop and 390px.
+5. Confirm the remote branch has not moved, commit only scoped files, publish through the already-authorized Pages process, then verify the live case links and both deployment runs. No private database, traces, credentials, or workplace material enter the public artifact.
+
+**Integrated acceptance (2026-09-30):** The business case, reordered homepage, and revised AI case are complete. Static website tests pass 11/11; the unchanged local workbench passes 211/211 tests when its test server may bind localhost. Inline and case JavaScript syntax checks plus `git diff --check` pass. The 24-file explicit public build has no local database, source trace, credential, development note, or browser artifact. In the built-site browser journey, homepage → business case → AI case → homepage works; at 390px there is no horizontal overflow, the AI screenshot loads at its full 1440px natural width, and the mobile menu exposes both case links. Browser errors and warnings: 0. Google’s official AI Essentials page confirms the public practice draft’s narrow “no experience required” source point. The practice draft remains unreviewed by the workbench model, which is currently unconfigured; software tests do not establish business impact.
+
+**Release gate:** Final integrated acceptance passed. Publish only the scoped site files after confirming remote main has not moved, then check both Pages workflows and public URLs.
