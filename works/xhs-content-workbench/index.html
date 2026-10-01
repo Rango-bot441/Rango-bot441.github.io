@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7f4ed">
+  <meta name="theme-color" content="#1b1d1a">
   <meta name="description" content="有据：从小红书内容协作中的真实痛点出发，用资料依据、逐条审核、版本留痕与人工确认，连接一份稿件从提交到交付的过程。独立 AI 辅助开发实践，含真实界面与公开资料案例。">
   <title>有据｜小红书内容协作与审核工作台 · Rango</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -12,14 +12,17 @@
 </head>
 <body>
   <a class="skip-link" href="#main">跳到正文</a>
-  <header class="site-header wrap">
-    <a class="wordmark" href="/" aria-label="Rango 个人网站首页">Rango<span aria-hidden="true">.</span></a>
-    <a class="back-link" href="/#works"><span aria-hidden="true">←</span> 返回作品</a>
-  </header>
+  <div class="case-masthead">
+    <header class="site-header wrap">
+      <a class="wordmark" href="/" aria-label="Rango 个人网站首页">Rango<span aria-hidden="true">.</span><small>张彪的作品集</small></a>
+      <nav class="case-nav" aria-label="作品导航"><a href="/works/xhs-matrix-growth/">业务项目</a><a class="back-link" href="/#works"><span aria-hidden="true">←</span> 返回全部作品</a></nav>
+    </header>
+  </div>
 
   <main id="main">
+    <div class="case-masthead">
     <section class="hero wrap" aria-labelledby="case-title">
-      <p class="eyebrow"><span class="index">01 / SELECTED WORK</span><span>独立 AI 工作流实践</span></p>
+      <p class="eyebrow"><span class="index">02 / 独立作品</span><span>从真实内容协作问题出发的 AI 实践</span></p>
       <div class="hero-grid">
         <div>
           <h1 id="case-title">有据<span class="title-dot" aria-hidden="true">。</span><span class="title-caption">小红书内容协作与审核工作台</span></h1>
@@ -40,9 +43,10 @@
         <div><dt>实现方式</dt><dd>AI 辅助开发 · 规则与浏览器验收</dd></div>
       </dl>
     </section>
+    </div>
 
     <section class="section wrap" aria-labelledby="why-title">
-      <div class="section-heading"><p class="eyebrow">BUSINESS CONTEXT → PRODUCT DECISION</p><h2 id="why-title">账号扩张后，怎样让外稿<br>按同一套依据交接？</h2></div>
+      <div class="section-heading"><p class="eyebrow">01 / 为什么做</p><h2 id="why-title">账号扩张后，怎样让外稿<br>按同一套依据交接？</h2></div>
       <div class="problem-list">
         <article><span class="number">01 / 历史项目自述</span><h3>从少量账号到矩阵供给</h3><p>小红书项目从 3–5 个账号验证，扩展到 40–50 个素人账号，并沉淀人设、内容和转化 SOP。规模与方法来自历史项目自述。</p></article>
         <article><span class="number">02 / 后续设计选择</span><h3>把交稿背景放在一起</h3><p>在独立原型中，将任务要求、账号信息、引用资料和外稿关联，减少审核时重新寻找上下文的成本。</p></article>
@@ -53,7 +57,7 @@
 
     <section class="section wrap" id="public-case" aria-labelledby="example-title">
       <div class="public-case-grid">
-        <div class="section-heading"><p class="eyebrow">ONE DRAFT, THREE DECISIONS</p><h2 id="example-title">拿一句公开练习稿，<br>看人机怎样分工。</h2><p class="section-description">下面引用的是可下载原稿中的真实句子。它尚未经过工作台模型审核；这里展示人工核对要点和后续要验证的 AI 节点，不展示虚构的模型结论。</p>
+        <div class="section-heading"><p class="eyebrow">02 / 一份练习稿</p><h2 id="example-title">拿一句公开练习稿，<br>看人机怎样分工。</h2><p class="section-description">下面引用的是可下载原稿中的真实句子。它尚未经过工作台模型审核；这里展示人工核对要点和后续要验证的 AI 节点，不展示虚构的模型结论。</p>
           <div class="decision-example" aria-label="公开练习稿的判断分工">
             <span class="small-label">原稿中的一句</span>
             <blockquote>“官方页面说明无需先前经验。”</blockquote>
@@ -89,7 +93,7 @@
 
     <section class="workflow-section" id="walkthrough" aria-labelledby="workflow-title">
       <div class="wrap section">
-        <div class="section-heading split-heading"><div><p class="eyebrow">DESIGNED WORKFLOW</p><h2 id="workflow-title">三步，把一份稿件交接清楚。</h2></div><p class="section-description">这里是可切换的<strong>产品流程设计</strong>，不是模型运行回放；页面切换不会提交稿件或调用 AI。</p></div>
+        <div class="section-heading split-heading"><div><p class="eyebrow">03 / 流程设计</p><h2 id="workflow-title">三步，把一份稿件交接清楚。</h2></div><p class="section-description">这里是可切换的<strong>产品流程设计</strong>，不是模型运行回放；页面切换不会提交稿件或调用 AI。</p></div>
         <nav class="flow-tabs" aria-label="工作流步骤" data-flow-tabs>
           <a href="#step-brief" data-step="step-brief"><span>01</span> 需求与资料 <span class="tab-arrow" aria-hidden="true">↗</span></a>
           <a href="#step-review" data-step="step-review"><span>02</span> 产出与审核 <span class="tab-arrow" aria-hidden="true">↗</span></a>
@@ -114,7 +118,7 @@
     </section>
 
     <section class="section wrap evidence-section" aria-labelledby="evidence-title">
-      <div class="section-heading"><p class="eyebrow">EVIDENCE &amp; LIMITS</p><h2 id="evidence-title">能展示到哪一步，就说到哪一步。</h2></div>
+      <div class="section-heading"><p class="eyebrow">04 / 证据与边界</p><h2 id="evidence-title">能展示到哪一步，就说到哪一步。</h2></div>
       <div class="evidence-summary"><div><span class="small-label">已有公开证据</span><p>可下载的公开资料练习稿、对应官方来源、真实本地界面截图，以及软件规则与页面测试。它们可核对稿件、状态和界面流程。</p></div><div><span class="small-label">尚缺关键证据</span><p>该稿的模型审核记录与人工处理结果、真实运营团队持续使用、审核耗时变化、内容或获客增长。模型接通后需记录误报、漏报和成本。</p></div></div>
       <div class="disclosures">
         <details><summary><span>工程实现与验收</span><span class="detail-plus" aria-hidden="true">＋</span></summary><div class="details-body"><p>前端为 HTML / CSS / JavaScript，后端为 Node.js，SQLite 保存任务、资料、稿件版本与处理记录。模型调用在服务端完成；本网站只发布静态案例，不公开本地数据库或模型凭据。</p><p>审核绑定对应的任务上下文与轮次；新版本重新审核，过期结果不能作为当前稿的采纳依据。局部修改以新版本保存，保留比较线索。</p><p><strong>截至 2026 年 9 月 30 日，211 项自动化测试通过。</strong>同时完成桌面与手机页面、关键交互和实际下载验收。这是软件规则和流程的验证，不是 211 份内容的真实模型评测，更不代表增长效果。</p></div></details>

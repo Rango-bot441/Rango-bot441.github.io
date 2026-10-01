@@ -12,3 +12,89 @@
 /* Keep the evidence legible beside the public draft without treating an unreviewed screenshot as a model result. */
 .problem-list .number{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.03em}.decision-example{margin-top:28px;padding:23px 25px;border-left:2px solid var(--orange);background:#eeeae0}.decision-example blockquote{margin:12px 0 18px;font-family:var(--serif);font-size:20px;line-height:1.7}.decision-example ol{list-style:none;margin:0;padding:0}.decision-example li{display:grid;grid-template-columns:78px 1fr;gap:12px;border-top:1px solid var(--line);padding:10px 0}.decision-example li strong{font-size:11px;white-space:nowrap}.decision-example li span{font-size:11px;line-height:1.8;color:var(--muted)}.screen-section{padding-top:0;padding-bottom:88px}.screen-annotations{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:16px 0 0;padding:0}.screen-annotations li{border-top:1px solid var(--ink);padding:14px 4px 0}.screen-annotations li>span{display:block;color:var(--orange);font-size:10px;font-weight:600;letter-spacing:.06em}.screen-annotations strong{display:block;font-size:16px;margin-top:5px}.screen-annotations p{font-size:11px;line-height:1.8;color:var(--muted);margin-top:5px}
 @media(max-width:720px){.decision-example{margin-top:22px;padding:18px}.decision-example blockquote{font-size:18px}.decision-example li{grid-template-columns:1fr;gap:2px;padding:9px 0}.decision-example li strong,.decision-example li span{font-size:11px}.screen-section{padding-bottom:52px}.screen-figure>a{position:relative;height:245px;overflow:hidden}.screen-figure img{position:absolute;left:-260px;top:-440px;width:1440px;height:1570px;max-width:none;aspect-ratio:auto;object-fit:contain}.screen-annotations{grid-template-columns:1fr;gap:8px;margin-top:14px}.screen-annotations li{display:grid;grid-template-columns:80px 1fr;gap:0 10px;padding:10px 0 6px}.screen-annotations li>span{grid-row:1 / 3;font-size:9px;padding-top:4px}.screen-annotations strong{font-size:13px;margin:0}.screen-annotations p{font-size:10px;margin-top:2px}}
+
+/* The case belongs to a person-first portfolio: a decisive dark masthead, then a quiet reading surface. */
+:root{--paper:#f7f5ef;--white:#fffefa;--ink:#242720;--muted:#60645c;--line:#deded4;--orange:#c54e24;--orange-dark:#a83b18;--soft-orange:#f8e8dc}
+.case-masthead{background:#1b1d1a;color:#f5f2e9}
+.site-header{height:86px;border-bottom-color:#454840}
+.wordmark{display:inline-flex;align-items:baseline;gap:11px;font-size:27px}
+.wordmark span{margin-left:-10px;color:#f17b43}
+.wordmark small{font:400 11px/1.2 var(--sans);letter-spacing:.06em;color:#bcbfb6}
+.case-nav{display:flex;align-items:center;gap:30px;font-size:12px;color:#d2d4ca}
+.case-nav a{transition:color .18s ease}
+.case-nav a:hover{color:#fff}
+.back-link{color:#f5f2e9;font-size:12px}
+.hero{position:relative;padding-top:55px}
+.hero .eyebrow{color:#bbbdb4;font-size:11px}
+.hero .index{color:#f17b43}
+.hero-grid{grid-template-columns:minmax(0,1.1fr) minmax(320px,.75fr);align-items:end;gap:clamp(50px,8vw,130px);padding:68px 0 94px}
+.hero h1{font-size:clamp(90px,10vw,148px);line-height:.95;font-weight:600;letter-spacing:-.09em}
+.title-dot{color:#f17b43}
+.title-caption{font-size:14px;line-height:1.7;margin-top:28px;letter-spacing:.1em;color:#d0d1c8}
+.hero-line{font-size:clamp(27px,2.6vw,38px);line-height:1.52;margin-top:43px;letter-spacing:-.025em}
+.hero-line em{color:#f17b43}
+.hero-note{align-self:end;padding:0 0 5px 24px;border-left:1px solid #5c6057}
+.hero-note>p:first-child{font-size:16px;line-height:2;color:#e4e5dc;max-width:410px}
+.hero-actions{margin-top:32px;gap:23px}
+.hero-actions .text-link{color:#eeeade}
+.hero-actions .text-link:hover{color:#fff}
+.hero-actions .primary{background:#f17b43;color:#1b1d1a}
+.hero-actions .primary:hover{background:#ffa070}
+.hero .status-note{max-width:410px;margin-top:30px;padding:13px 17px 13px 34px;border:1px solid #565346;background:#292a25;color:#c8cabf;font-size:11px;line-height:1.75}
+.hero .status-note strong{color:#fff4e8;font-size:12px}
+.hero .status-dot{left:17px;top:20px;background:#f17b43}
+.case-meta{border-top-color:#454840;padding:22px 0 25px}
+.case-meta dt{color:#afb1a7;font-size:10px}
+.case-meta dd{color:#f1efe7;font-size:12px}
+.section{padding-block:96px}
+.section-heading .eyebrow{color:var(--orange-dark);font-size:11px;letter-spacing:.07em}
+.section-heading h2{font-size:clamp(32px,3.2vw,44px);line-height:1.45;letter-spacing:-.035em;margin-top:21px}
+.problem-list{gap:26px;margin-top:45px}
+.problem-list article{border-top:2px solid var(--ink);padding-top:20px}
+.problem-list .number{color:var(--orange-dark)}
+.problem-list h3{font-size:19px;line-height:1.5;margin-top:17px}
+.problem-list p{font-size:13px;line-height:1.9}
+.experience-note{background:#eae7df;border-left-width:3px}
+.public-case-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(45px,6vw,86px)}
+.public-case-grid .section-description{font-size:14px;max-width:460px}
+.decision-example{background:#ebe8de;border-left-width:3px}
+.decision-example blockquote{font-size:22px}
+.example-sheet{background:#fffefa;border:1px solid #d5d0c3;box-shadow:10px 10px 0 #e9e3d7;padding:34px}
+.example-sheet h3{font-size:29px;line-height:1.55}
+.example-details dd{font-size:13px}
+.screen-section{padding-top:0;padding-bottom:96px}
+.section-topline{margin-bottom:18px}
+.section-topline h2{font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.5}
+.screen-figure{padding:18px 18px 0;background:#292a25;border-color:#292a25}
+.screen-figure>a{border-color:#44453c}
+.screen-figure figcaption{color:#e3e0d7;font-size:11px}
+.screen-annotations{gap:24px;margin-top:20px}
+.workflow-section{background:#f0eee8}
+.flow-tabs a[aria-selected=true]{background:#242720}
+.flow-footnote{color:#65645c}
+.evidence-summary{gap:42px}
+.evidence-summary>div{border-top:2px solid var(--ink)}
+.case-footer{background:#1b1d1a}
+.footer-line{font-size:36px;line-height:1.5}
+@media(max-width:1000px){.hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,.86fr);gap:42px}.hero h1{font-size:clamp(82px,10vw,108px)}.hero-line{font-size:clamp(25px,3.2vw,31px)}.hero-note>p:first-child{font-size:15px}}
+@media(max-width:720px){
+  .site-header{height:73px}.wordmark{font-size:24px;gap:8px}.wordmark span{margin-left:-8px}.wordmark small{font-size:9px}
+  .case-nav{gap:11px;font-size:11px}.case-nav a:first-child{display:none}.back-link{font-size:11px}.back-link span{margin-right:4px}
+  .hero{padding-top:28px}.hero .eyebrow{font-size:9px;gap:12px}
+  .hero-grid{grid-template-columns:1fr;gap:30px;padding:41px 0 41px}
+  .hero h1{font-size:clamp(77px,23vw,102px)}.title-caption{font-size:12px;margin-top:20px}
+  .hero-line{font-size:clamp(25px,6.9vw,31px);line-height:1.55;margin-top:27px}
+  .hero-note{border-left:0;border-top:1px solid #5c6057;padding:22px 0 0}
+  .hero-note>p:first-child{font-size:14px;line-height:1.9}
+  .hero-actions{margin-top:22px;gap:16px}
+  .hero .status-note{margin-top:24px;padding:11px 13px 11px 30px;font-size:10px}
+  .hero .status-dot{left:14px;top:18px}
+  .case-meta{padding:16px 0;gap:9px}.case-meta dd{font-size:11px}
+  .section{padding-block:64px}.section-heading h2{font-size:29px;line-height:1.5;margin-top:13px}
+  .problem-list{gap:22px;margin-top:30px}.problem-list article{border-top-width:1px}.problem-list h3{font-size:16px;margin:0}.problem-list p{font-size:12px}
+  .public-case-grid{grid-template-columns:1fr;gap:30px}.public-case-grid .section-description{font-size:12px}
+  .example-sheet{padding:24px 20px;box-shadow:5px 5px 0 #e9e3d7}.example-sheet h3{font-size:23px}.example-details dd{font-size:11px}
+  .screen-section{padding-top:0;padding-bottom:64px}.section-topline h2{font-size:15px}.screen-figure{padding:8px 8px 0}.screen-figure figcaption{font-size:9px}
+  .footer-line{font-size:27px}
+}
+@media print{.case-masthead{background:none;color:var(--ink)}.site-header,.case-nav{display:none}.hero .eyebrow,.hero .index,.hero-line em,.hero .status-note strong,.case-meta dd{color:var(--ink)}.hero-note,.case-meta{border-color:var(--line)}.hero-note>p:first-child,.hero .status-note{color:var(--ink)}.hero .status-note{background:none}.case-footer{background:none}}

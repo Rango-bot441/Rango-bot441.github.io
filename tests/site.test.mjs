@@ -22,6 +22,22 @@ test('homepage leads to the specific case and preserves historical navigation', 
   assert.match(html, /成人英语直播获客与主播矩阵/);
 });
 
+test('personal first screen has one primary route and both selected works share a clear hierarchy', () => {
+  const html = homepage();
+  const worksStart = html.indexOf('id="works"');
+  const careerStart = html.indexOf('id="career-section"');
+  const firstScreen = html.slice(0, worksStart);
+  const selectedWorks = html.slice(worksStart, careerStart);
+  assert.ok(worksStart > 0 && careerStart > worksStart);
+  assert.match(firstScreen, /assets\/profile\.jpg/, 'Hero should show the actual person before the case reports');
+  assert.doesNotMatch(firstScreen, /class="hero-decision"/, 'Hero should not duplicate the business report');
+  assert.equal((firstScreen.match(/class="[^"]*btn-primary[^"]*"/g) || []).length, 1, 'Hero should present only one primary action');
+  assert.match(selectedWorks, /href="\/works\/xhs-matrix-growth\/"/);
+  assert.match(selectedWorks, /href="\/works\/xhs-content-workbench\/"/);
+  assert.ok(selectedWorks.indexOf('/works/xhs-matrix-growth/') < selectedWorks.indexOf('/works/xhs-content-workbench/'));
+  assert.ok(html.indexOf('id="about"') < html.indexOf('id="explorations"'), 'About the person should precede the archive');
+});
+
 test('business case is a source-bounded account of the historical project', () => {
   const html = read(businessPath);
   assert.match(html, /小红书/);
@@ -117,8 +133,9 @@ test('legacy branch deployment also excludes development directories', () => {
   }
 });
 
-test('featured case styles override legacy invisible copy and undersized heading', () => {
+test('personal portrait and contrasting selected-work cards retain explicit styles', () => {
   const css = read('assets/portfolio-upgrade.css');
-  assert.match(css, /#works\s+\.head-full\s+\.title\s*\{[^}]*font-size:\s*clamp\(25px,2\.5vw,35px\)/);
-  assert.match(css, /#works\s+\.head-full\s+\.sub\s*\{[^}]*color:\s*var\(--muted\)/);
+  assert.match(css, /\.hero-portrait-frame\s*\{[^}]*aspect-ratio:/);
+  assert.match(css, /\.featured-pair\s*\{[^}]*grid-template-columns:/);
+  assert.match(css, /\.selected-case-ai\s*\{[^}]*background:/);
 });

@@ -82,3 +82,48 @@ Files: `assets/xhs-workbench-public.png`, `works/xhs-content-workbench/public-dr
 **Integrated acceptance (2026-09-30):** The business case, reordered homepage, and revised AI case are complete. Static website tests pass 11/11; the unchanged local workbench passes 211/211 tests when its test server may bind localhost. Inline and case JavaScript syntax checks plus `git diff --check` pass. The 24-file explicit public build has no local database, source trace, credential, development note, or browser artifact. In the built-site browser journey, homepage → business case → AI case → homepage works; at 390px there is no horizontal overflow, the AI screenshot loads at its full 1440px natural width, and the mobile menu exposes both case links. Browser errors and warnings: 0. Google’s official AI Essentials page confirms the public practice draft’s narrow “no experience required” source point. The practice draft remains unreviewed by the workbench model, which is currently unconfigured; software tests do not establish business impact.
 
 **Release gate:** Final integrated acceptance passed. Publish only the scoped site files after confirming remote main has not moved, then check both Pages workflows and public URLs.
+
+---
+
+# Personal-First Portfolio Reframe Implementation Plan (2026-10-01)
+
+**Goal:** Restore a memorable personal-site first impression while preserving the source-bounded business and independent AI case content.
+
+**Architecture:** Keep the existing static site, public allowlist, and case URLs. Rework the homepage hierarchy and its CSS; give both case pages the same dark masthead and warm, readable body language without changing their evidence, downloads, or workflow logic. No backend, model, framework, or new business claim.
+
+**Tech Stack:** HTML, existing CSS and vanilla JavaScript, Node static tests, browser checks at desktop and 390px.
+
+## Task 1 — Homepage (isolated owner)
+
+Files: `index.html`, `assets/portfolio-upgrade.css`.
+
+1. Replace the right-side decision report in the hero with the existing `assets/profile.jpg`, a single short historical-project proof line, and a source-bound label. Put name, role, personal headline, short relevant experience line, one primary project CTA, and a secondary text link on the left. Keep the photo alt text and meaningful focus order.
+2. Merge the current `#works` and `#ai-practice` visual presentation into one `#works` selected-projects section with two distinguishable concise cards: historical Xiaohongshu business first, later independent AI practice second. Preserve `#ai-practice` as an anchor for old links. Each card has problem, contribution, status/evidence, and one case link; avoid repeating its detailed case-page workflow.
+3. Bring `#about` before `#explorations`; keep `#career-section`, old project details/modals, contact links, and legacy anchors. Reduce navigation to selected work, experience, about, contact. Put other explorations behind the existing disclosure.
+4. Use a high-contrast charcoal hero with restrained warm orange, light content area, stronger Chinese sans hierarchy, and only CSS transitions. Respect reduced motion, keyboard access, and mobile content order; no blue-purple gradient.
+
+## Task 2 — Xiaohongshu business case (isolated owner)
+
+Files: `works/xhs-matrix-growth/index.html`, `works/xhs-matrix-growth/case.css`.
+
+1. Give the top masthead/hero the same charcoal-orange personal-site identity and direct route back to selected work; let the detailed business sections remain warm and readable.
+2. Retain every historical-project evidence boundary: self-reported account scale, leads, GMV and fans; no fabricated backend, ROI, attribution, AI effect, or team-exclusive credit.
+3. Verify 1440px and 390px visual order, link visibility, contrast, and no horizontal overflow.
+
+## Task 3 — Independent AI case (isolated owner)
+
+Files: `works/xhs-content-workbench/index.html`, `works/xhs-content-workbench/case.css`.
+
+1. Match the personal-site masthead/hero and navigation; keep the public draft, official link, screenshot, read-only workflow, and evidence disclosure legible.
+2. Keep the status explicit: local prototype, model unconfigured, public draft unreviewed, no measured efficiency/growth or platform integration. Do not imply a successful model run.
+3. Verify desktop/mobile visuals, workflow tab, public draft link, and screenshot load. Do not change backend or `case.js` unless a verified UI bug requires it.
+
+## Task 4 — Integration, verification, release (main owner; depends on Tasks 1–3)
+
+1. Update `tests/site.test.mjs` with failing assertions for a personal first screen, a single selected-work hierarchy, case separation, preserved anchors, and honest status; then rerun after implementation.
+2. Inspect all scoped diffs and compare local preview at desktop and 390px. Check first-screen identity/CTA, two case journeys, old modal, menu, keyboard, dark/light and image failure fallback, console/network errors, and public-download status.
+3. Run `node --test tests/site.test.mjs`, JavaScript syntax checks, `git diff --check`, and a fresh allowlisted build. Audit the build for private files/secrets; verify live-site publication only after local acceptance and remote-main check. Publish without force push under the already-granted authorization, then confirm both Pages runs and public URLs.
+
+**Acceptance:** A recruiter can identify person, target work, and primary project without scrolling; the two cases are adjacent and visibly different; mobile does not bury the first case behind a large decorative block; old URLs/interactions survive; no factual or AI-result boundary is weakened.
+
+**Local acceptance (2026-10-01):** Homepage now opens with Zhang Biao's name, role, existing portrait and one primary route to two adjacent cases. The historical business case comes first; the later independent AI practice is explicitly separate. Both cases use a matching charcoal-and-warm-orange masthead with readable light bodies. The final 24-file allowlisted build was served locally: homepage → business case → AI case works; at 390px both case pages have no horizontal overflow, the business case retains its back-to-work link, the AI screenshot loads, its workflow tab changes content, and the public unreviewed draft link remains present. Browser console errors: 0. Website tests pass 12/12; inline and case JavaScript syntax, `git diff --check`, and a private-path/secret scan pass. Remote main still equals local base `02df827`; publication follows this gate.
