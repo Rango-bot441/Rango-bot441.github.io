@@ -48,7 +48,7 @@
         <div class="demo-copy">
           <p class="eyebrow">面试演示入口 / LOCAL DEMO</p>
           <h2 id="demo-title">从一条公开练习任务，跑完一次可核对的交付。</h2>
-          <p>工作台目前以本地原型形式运行。面试时由我在本地启动，打开预置任务，演示任务要求、资料依据、审核问题、人工处理和导出；这里不提供伪装成公网产品的在线按钮。公开稿尚未经过工作台模型审核，生成与审稿是否可用取决于启动时的模型配置。</p>
+          <p>面试时我在本地启动工作台，从公开练习任务展示资料、稿件、审核与人工交付。本页是静态案例；公开稿尚未经过模型审核，运行 AI 需要配置并接通模型服务。</p>
           <a class="demo-sample-link" href="#public-case">先看一份公开练习稿 <span aria-hidden="true">↓</span></a>
         </div>
         <ol class="demo-steps" aria-label="面试演示步骤">
@@ -61,13 +61,13 @@
 
     <section class="agent-section" aria-labelledby="agent-title">
       <div class="wrap section">
-        <div class="section-heading split-heading"><div><p class="eyebrow">01 / Agent 总览</p><h2 id="agent-title">不是一次生成，<br>而是一条可接管的判断链。</h2></div><p class="section-description">先看完整链路，再展开每个产品步骤。每一段都有明确输入、输出和人工接管点；模型未配置时，系统不会用预写结果冒充真实运行。</p></div>
+        <div class="section-heading split-heading"><div><p class="eyebrow">01 / 人机分工</p><h2 id="agent-title">关联资料，定位问题，<br>由人决定修改与交付。</h2></div><p class="section-description">任务与资料先由人确认，AI 提出可定位的核验建议；改稿、采纳和最终交付由人决定。模型未配置时，系统不会用预写结果冒充真实运行。</p></div>
         <ol class="agent-map" aria-label="Agent 处理链路">
-          <li><span>01</span><strong>任务澄清</strong><small>受众、目标、交付要求</small></li>
-          <li><span>02</span><strong>资料检索</strong><small>来源分类、引用定位</small></li>
-          <li><span>03</span><strong>逐句核验</strong><small>事实、范围、风险</small></li>
-          <li><span>04</span><strong>局部改写</strong><small>保留原意、生成新版本</small></li>
-          <li><span>05</span><strong>人工采纳</strong><small>确认、导出、留痕</small></li>
+          <li><span>01</span><strong>输入任务</strong><small>受众、目标、交付要求</small></li>
+          <li><span>02</span><strong>关联资料</strong><small>来源分类、引用定位</small></li>
+          <li><span>03</span><strong>AI 核验</strong><small>标出事实、范围与风险</small></li>
+          <li><span>04</span><strong>人工决定</strong><small>核对、修改或说明</small></li>
+          <li><span>05</span><strong>交付稿件</strong><small>确认版本、导出留痕</small></li>
         </ol>
         <p class="agent-note"><span>人工接管</span>关键事实、承诺边界、最终采纳与发布决策都由人完成；AI 输出的是可检查的建议，不是业务结论。</p>
       </div>
@@ -108,11 +108,11 @@
 
     <section class="workflow-section" id="walkthrough" aria-labelledby="workflow-title">
       <div class="wrap section">
-        <div class="section-heading split-heading"><div><p class="eyebrow">04 / 流程细节</p><h2 id="workflow-title">五步 Agent，落在三个操作阶段。</h2></div><p class="section-description">这里是可切换的<strong>产品流程设计</strong>，承接上方五步总览；不是模型运行回放，页面切换不会提交稿件或调用 AI。</p></div>
+        <div class="section-heading split-heading"><div><p class="eyebrow">04 / 流程细节</p><h2 id="workflow-title">五个环节，三个操作阶段。</h2></div><p class="section-description">这里是可切换的<strong>产品流程设计</strong>，承接上方五步总览；不是模型运行回放，页面切换不会提交稿件或调用 AI。</p></div>
         <nav class="flow-tabs" aria-label="工作流步骤" data-flow-tabs>
           <a href="#step-brief" data-step="step-brief"><span>01–02</span> 任务与资料 <span class="tab-arrow" aria-hidden="true">↗</span></a>
-          <a href="#step-review" data-step="step-review"><span>03–04</span> 核验与修改 <span class="tab-arrow" aria-hidden="true">↗</span></a>
-          <a href="#step-delivery" data-step="step-delivery"><span>05</span> 确认与交付 <span class="tab-arrow" aria-hidden="true">↗</span></a>
+          <a href="#step-review" data-step="step-review"><span>03–04</span> AI 核验与人工决定 <span class="tab-arrow" aria-hidden="true">↗</span></a>
+          <a href="#step-delivery" data-step="step-delivery"><span>05</span> 交付当前版本 <span class="tab-arrow" aria-hidden="true">↗</span></a>
         </nav>
         <div class="flow-panels">
           <article class="flow-panel" id="step-brief" data-flow-panel aria-labelledby="brief-title">
@@ -120,11 +120,11 @@
             <div class="flow-checklist"><h4>实际操作</h4><ol><li><strong>写清需求</strong><span>把任务、负责人、账号与补充消息放在一起。</span></li><li><strong>关联资料</strong><span>区分官方信息、历史方法和参考内容；缺资料可以保存稿件，但不把它当作有依据的成品。</span></li><li><strong>保留边界</strong><span>公开来源不是任意扩写的许可，用户假设与已有事实分别标明。</span></li></ol><p class="human-check"><span>人工节点</span>确认受众、资料适用范围，以及哪些事实允许对外表达。</p></div>
           </article>
           <article class="flow-panel" id="step-review" data-flow-panel aria-labelledby="review-title">
-            <div class="flow-story"><p class="step-label">STEPS 03–04 · 核验与修改</p><h3 id="review-title">模型接通后再验 AI 审核，<br>人做最后判断。</h3><p>设计中的模型节点会针对外稿或 AI 稿返回可定位的问题，供人对照资料核验。当前公开稿未经过模型审核；局部修改与版本留痕不能代替真实审稿效果验证。</p></div>
+            <div class="flow-story"><p class="step-label">STEPS 03–04 · AI 核验与人工决定</p><h3 id="review-title">AI 标出待核点，<br>人决定怎么处理。</h3><p>模型接通后，可针对外稿或 AI 稿返回可定位的问题，供人对照资料核验。人可以修改、补料或说明；当前公开稿未经过模型审核，局部修改与版本留痕也不能代替真实审稿效果验证。</p></div>
             <div class="flow-checklist"><h4>实际操作</h4><ol><li><strong>看问题与依据</strong><span>检查原句、问题说明及来源。模型可能漏检或误报，不代表对全文事实的穷尽验证。</span></li><li><strong>修改或说明</strong><span>按问题改稿、补料，或留下人工处理理由；旧轮次的处理不会自动继承到新审核。</span></li><li><strong>再次核验</strong><span>新版本需要再审；任务或依据变化会令旧审核失效，防止错误沿用旧结论。</span></li></ol><p class="human-check"><span>人工节点</span>核验关键事实与使用边界，再对当前版本作出采纳决定。</p></div>
           </article>
           <article class="flow-panel" id="step-delivery" data-flow-panel aria-labelledby="delivery-title">
-            <div class="flow-story"><p class="step-label">STEP 05 · 人工采纳与交付</p><h3 id="delivery-title">交出去的是当前版本，<br>不是一段失去上下文的文字。</h3><p>导出文案或包含审核依据的交付包，保留版本线索。发布与咨询数据由人按真实情况记录；系统不自动发笔记，也不虚构平台数据。</p></div>
+            <div class="flow-story"><p class="step-label">STEP 05 · 交付当前版本</p><h3 id="delivery-title">交出去的是当前版本，<br>不是一段失去上下文的文字。</h3><p>人工确认状态后，导出文案或包含审核依据的交付包，保留版本线索。发布与咨询数据由人按真实情况记录；系统不自动发笔记，也不虚构平台数据。</p></div>
             <div class="flow-checklist"><h4>实际操作</h4><ol><li><strong>核对交付状态</strong><span>未审核稿仍可导出供沟通，但不能被标成已审核可发布；正式采纳需满足当前审核条件。</span></li><li><strong>检查导出内容</strong><span>联系方式默认隐藏，识别到敏感凭据时阻止导出；脱敏规则仍不能替代人的隐私检查。</span></li><li><strong>回填真实结果</strong><span>发布后再补数据、咨询与交接信息，区分内容表现和下游转化，不用缺失数据推算增长。</span></li></ol><p class="human-check"><span>人工节点</span>最终发布决策、敏感内容复核，以及发布后真实数据的口径确认。</p></div>
           </article>
         </div>
