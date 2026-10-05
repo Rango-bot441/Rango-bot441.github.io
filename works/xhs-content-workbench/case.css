@@ -80,7 +80,8 @@
 .demo-banner-inner{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:64px;align-items:center;padding-block:42px}
 .demo-banner .eyebrow{color:#f17b43;font-size:10px}
 .demo-banner h2{font-family:var(--serif);font-size:clamp(24px,2.5vw,34px);line-height:1.45;letter-spacing:-.025em;margin-top:13px}
-.demo-banner>div>p:last-child{max-width:650px;color:#c8cabf;font-size:13px;line-height:1.9;margin-top:14px}
+.demo-copy>p:last-of-type{max-width:650px;color:#c8cabf;font-size:13px;line-height:1.9;margin-top:14px}
+.demo-sample-link{display:inline-flex;gap:10px;align-items:center;margin-top:17px;color:#f5f2e9;font-size:11px;font-weight:600}
 .demo-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:0;margin:0;list-style:none;border-top:1px solid #51534a;border-bottom:1px solid #51534a}
 .demo-steps li{display:flex;flex-direction:column;gap:7px;min-height:112px;padding:16px 14px;border-right:1px solid #51534a}
 .demo-steps li:first-child{padding-left:0}
@@ -100,6 +101,14 @@
 .agent-map small{color:var(--muted);font-size:11px;line-height:1.7}
 .agent-note{max-width:850px;margin-top:22px;padding-top:16px;border-top:1px solid #c8c6bc;color:var(--muted);font-size:12px;line-height:1.9}
 .agent-note span{display:inline-block;color:var(--orange-dark);font-weight:600;margin-right:12px}
+.screen-evidence .screen-section{padding:0 0 8px}
+.screen-evidence .section-topline{padding-top:2px}
+.screen-evidence .screen-figure{margin-top:14px}
+.screen-evidence .screen-annotations{margin-bottom:8px}
+.evidence-label{color:var(--muted);font-size:11px}
+.evidence-screenshot{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.evidence-screenshot summary{padding:17px 0;font-size:12px}
+.evidence-screenshot-body{padding-bottom:10px}
 @media(max-width:1000px){.hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,.86fr);gap:42px}.hero h1{font-size:clamp(82px,10vw,108px)}.hero-line{font-size:clamp(25px,3.2vw,31px)}.hero-note>p:first-child{font-size:15px}}
 @media(max-width:720px){
   .site-header{height:73px}.wordmark{font-size:24px;gap:8px}.wordmark span{margin-left:-8px}.wordmark small{font-size:9px}
@@ -116,7 +125,8 @@
   .case-meta{padding:16px 0;gap:9px}.case-meta dd{font-size:11px}
   .demo-banner-inner{display:block;padding-block:32px}
   .demo-banner h2{font-size:25px;line-height:1.55}
-  .demo-banner>div>p:last-child{font-size:11px;line-height:1.9}
+  .demo-copy>p:last-of-type{font-size:11px;line-height:1.9}
+  .demo-sample-link{font-size:10px;margin-top:14px}
   .demo-steps{margin-top:26px}
   .demo-steps li{min-height:103px;padding:13px 8px}
   .demo-steps li:first-child{padding-left:0}
@@ -140,3 +150,29 @@
   .footer-line{font-size:27px}
 }
 @media print{.case-masthead{background:none;color:var(--ink)}.site-header,.case-nav{display:none}.hero .eyebrow,.hero .index,.hero-line em,.hero .status-note strong,.case-meta dd{color:var(--ink)}.hero-note,.case-meta{border-color:var(--line)}.hero-note>p:first-child,.hero .status-note{color:var(--ink)}.hero .status-note{background:none}.case-footer{background:none}}
+
+/* Keep the main story readable; detailed evidence stays secondary and expandable. */
+.hero-grid{padding-bottom:70px}
+.case-meta{padding-block:20px 23px}
+.section{padding-block:88px}
+.section-heading h2{line-height:1.5}
+.problem-list p,.evidence-summary p{font-size:14px;line-height:1.95}
+.section-description,.experience-note p,.agent-note{font-size:14px;line-height:1.95}
+.flow-story>p:last-child{font-size:14px;line-height:2;max-width:390px}
+.flow-checklist li span,.human-check{font-size:13px;line-height:1.95}
+.details-body p,.details-body li{font-size:14px;line-height:2}
+.example-details dd{font-size:13px;line-height:1.95}
+.decision-example li span{font-size:13px;line-height:1.9}
+.screen-evidence .screen-section{padding-bottom:24px}
+.screen-evidence .screen-figure{max-width:760px}
+.screen-evidence .screen-annotations{max-width:900px}
+@media(max-width:720px){
+  .hero-grid{padding-bottom:34px}
+  .section{padding-block:60px}
+  .problem-list p,.evidence-summary p,.section-description,.experience-note p,.agent-note{font-size:13px;line-height:1.9}
+  .flow-story>p:last-child,.flow-checklist li span,.human-check{font-size:13px;line-height:1.9}
+  .details-body p,.details-body li,.decision-example li span{font-size:12px;line-height:1.9}
+  .example-details dd{font-size:12px}
+  .screen-evidence .section-topline{display:block}
+  .screen-evidence .section-topline .text-link{margin-top:7px}
+}
