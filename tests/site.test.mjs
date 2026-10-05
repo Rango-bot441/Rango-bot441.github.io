@@ -18,7 +18,7 @@ test('homepage leads to the specific case and preserves historical navigation', 
   for (const id of ['top', 'works', 'career-section', 'about', 'insights', 'contact']) assert.match(html, new RegExp(`id=["']${id}["']`));
   assert.ok(html.indexOf('id="works"') < html.indexOf('id="career-section"'));
   assert.ok(html.indexOf('id="career-section"') < html.indexOf('id="about"'));
-  assert.match(html, /小红书素人种草与矩阵增长/);
+  assert.match(html, /小红书素人矩阵获客/);
   assert.match(html, /成人英语直播获客与主播矩阵/);
 });
 
@@ -42,11 +42,11 @@ test('homepage copy stays job-focused and keeps early explorations secondary', (
   const html = homepage();
   const hero = html.slice(html.indexOf('<section class="hero">'), html.indexOf('<section class="section featured-section"'));
   const explorations = html.slice(html.indexOf('id="explorations"'), html.indexOf('id="contact"'));
-  assert.match(hero, /做内容增长/);
-  assert.match(hero, /创作者供给/);
+  assert.match(hero, /内容增长/);
+  assert.match(hero, /创作者/);
   assert.doesNotMatch(explorations, /可访问性检查于|不代表模型服务或全部功能已经验证可用/);
-  assert.match(explorations, /围绕选题、内容审核、社群运营与复盘的早期工具探索/);
-  assert.match(html, /本地原型 · 模型审核待验/);
+  assert.match(explorations, /选题、内容审核、社群运营与复盘的早期原型/);
+  assert.match(html.replace(/<[^>]+>/g, ''), /本地原型 · 模型审核待验/);
 });
 
 test('business case is a source-bounded account of the historical project', () => {

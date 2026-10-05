@@ -12,6 +12,15 @@
 
 ### Task 1: Isolate and preserve the stable release
 
+### Industry context and consistency revision (approved 2026-10-06)
+
+- Keep the two reading levels: concise personal positioning and outcomes on the homepage; detailed business and technical decisions in the cases. Preserve the existing palette, architecture, routes and project order.
+- Name Gaotu as a technology education company and the experience as online education content/live operations in the group marketing department. Identify the historical primary-school acquisition project without implying the independent AI prototype was used by Gaotu.
+- Unify the adult-English MVP as 2–3 accounts expanding to 10; label its 9,000 leads as that project's result. Preserve the college-admission division's product, peak-season presenter and brand contributions. Standardize project names, dates and metric units across cards and dialogs.
+- Correct contact-card clipping by checking child bounding boxes at 320/390px, not only document scroll width. Simplify repeated career headings and reduce empty archive spacing.
+- Explain the existing Agent tools and client/server data flow, while keeping the public manuscript an unreviewed technical sample. Do not call models, fabricate runs, edit the workbench database or publish without acceptance.
+- Run the existing site tests, JavaScript parsing, diff checks, public build and desktop/mobile interaction checks; preserve the prior preview and save a scoped commit.
+
 ### Business clarity and layout revision (approved 2026-10-05)
 
 1. Business case: make the project name the primary heading; explain the audience, acquisition goal, personal responsibilities and sales handoff. Consolidate repeated expansion/operations copy into concrete actions. Keep historical figures unchanged and one short outcome disclosure; do not invent deduplication, refund or cost definitions.
@@ -82,3 +91,5 @@
 **Homepage focus pass (2026-10-05):** Reduced the hero name and photo emphasis, updated the positioning statement to name content growth and creator supply, clarified the two selected-case roles, shortened repeated case and career copy, and consolidated the about content. Replaced the explorations maintenance disclaimer with a concise early-work archive introduction. Kept historical outcome caveats and prototype status labels. Added a site regression test for homepage positioning and archive copy.
 
 **Homepage focus verification (2026-10-05):** The final homepage keeps three career stages, a smaller identity treatment, a 380px desktop / 108px mobile portrait, three prominent business outcomes, and a collapsed work-method disclosure. Browser checks at 320, 390, 1024 and 1440px report equal viewport and document widths; portrait and statement bounds do not overlap at the mobile widths. The representative-work and about screenshots were visually inspected, the work-method disclosure opened successfully, and the browser console had zero errors. Site tests pass 13/13 and the final allowlisted build contains 24 files at `http://127.0.0.1:4351/`. Early prototypes now use stable status wording instead of stale access checks or unverified efficiency claims. No public deployment or live model validation was performed.
+
+**Final acceptance pass (2026-10-06):** Fixed the homepage status-label assertion after wrapping `模型审核待验` in a non-breaking span; site tests pass 13/13, `git diff --check`, inline homepage JavaScript parsing and `case.js` syntax checks pass. Built a fresh 24-file allowlisted preview at `http://127.0.0.1:4375/` without touching earlier previews. Browser checks at 320px confirm homepage, business case and AI case document widths equal the viewport; the homepage status phrase stays intact, the business data disclosure opens, AI workflow tabs switch by click and ArrowRight, engineering details expand, the public draft returns HTTP 200, console errors are zero, and the main routes/assets return HTTP 200. The public build contains no database, trace, credential or environment files. No online deployment, live model request or business-effect validation occurred.
