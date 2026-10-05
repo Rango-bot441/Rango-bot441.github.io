@@ -1187,7 +1187,7 @@
     <a class="brand" href="#top"><b>张彪</b><span>内容增长 · 创作者运营</span></a>
     <nav class="nav-links">
       <a href="#works" data-sec="works">代表作品</a>
-      <a href="#career-section" data-sec="career-section" data-zh="工作经历" data-en="Career"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>工作经历</a>
+      <a href="#career-section" data-sec="career-section" data-zh="经历与成果" data-en="Career"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4v4"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>经历与成果</a>
       <a href="#about" data-sec="about">关于我</a>
       <a href="#contact" data-sec="contact" data-zh="联系" data-en="Contact"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>联系</a>
     </nav>
@@ -1200,7 +1200,7 @@
   </header>
   <nav class="nav-drawer" id="navDrawer" aria-label="移动导航">
     <a href="#works" onclick="closeDrawer()">代表作品</a>
-    <a href="#career-section" onclick="closeDrawer()">工作经历</a>
+    <a href="#career-section" onclick="closeDrawer()">经历与成果</a>
     <a href="#about" onclick="closeDrawer()">关于我</a>
     <a href="#contact" onclick="closeDrawer()">联系</a>
   </nav>
@@ -1251,7 +1251,7 @@
               <p>把任务交接、资料依据、逐句核对和人工修改放进同一流程。案例说明设计取舍与目前能检查的能力，不把原型当成已落地的业务成效。</p>
               <div class="selected-case-ai-line"><span>任务输入</span><i aria-hidden="true">→</i><span>稿件核对</span><i aria-hidden="true">→</i><span>人工决定</span></div>
             </div>
-            <div class="selected-case-bottom"><a href="/works/xhs-content-workbench/">看 AI 实践案例 <span aria-hidden="true">↗</span></a><small>模型未配置 · 公开稿未审核</small></div>
+            <div class="selected-case-bottom"><a href="/works/xhs-content-workbench/">看 AI 实践案例 <span aria-hidden="true">↗</span></a><small>公开稿未审核 · 本地演示按实际配置运行</small></div>
           </article>
         </div>
       </div>
@@ -1261,8 +1261,8 @@
       <div class="wrap">
         <div class="head reveal">
           <span class="kicker">Career & Projects</span>
-          <h2 class="title">工作经历 & 业务项目</h2>
-          <p class="sub">2022.07–2026.04，在高途集团市场部从内容生产走向 IP 孵化、矩阵增长与供给协作。下列结果为历史项目自述，不是新工作台带来的业绩。</p>
+          <h2 class="title">经历、成果与能力成长</h2>
+          <p class="sub">2022.07–2026.04，在高途集团市场部从内容生产走向 IP 孵化、矩阵增长与供给协作。先看能力成长，业务项目细节和成果口径按需展开；以下内容均为历史项目自述，不是新工作台带来的业绩。</p>
         </div>
 
         <details class="history-summary">
@@ -1328,13 +1328,15 @@
           </div>
         </div>
 
-        <!-- 业务项目 卡片轮播 -->
-        <div class="works-sub" id="bizprojects-section">
-          <div class="works-sub-head">
-            <span class="kicker">Projects</span>
-            <h3>业务项目</h3>
-          </div>
-          <div class="biz-grid" id="biz-grid">
+        <!-- 业务项目与成果口径：默认收起，避免首页被完整简历淹没 -->
+        <details class="history-summary project-archive" id="bizprojects-section">
+          <summary>查看业务项目与成果口径 <span>4 个历史项目 · 按需展开</span></summary>
+          <div class="works-sub">
+            <div class="works-sub-head">
+              <span class="kicker">Projects</span>
+              <h3>业务项目</h3>
+            </div>
+            <div class="biz-grid" id="biz-grid">
               <div class="project-card" data-idx="0">
                 <div class="project-card-dot"></div>
 	                <h3>成人英语直播获客与主播矩阵</h3>
@@ -1385,8 +1387,9 @@
                 </ul>
                 <button class="project-card-link" type="button">查看详情</button>
               </div>
+            </div>
           </div>
-        </div><!-- /works-sub bizprojects -->
+        </details><!-- /bizprojects-section -->
 
       </div><!-- /wrap -->
     </section>
@@ -1401,14 +1404,14 @@
             </div>
             <div class="about-profile-meta">
               <div class="about-info-name">张彪 <span class="about-info-age">26 岁</span></div>
-              <div class="about-info-row school-row"><img class="school-logo" src="assets/blcu-logo.png" loading="lazy" decoding="async" alt="北京语言大学校徽"><span>北京语言大学 · 新闻学</span></div>
+              <div class="about-info-row school-row"><img class="school-logo" src="assets/blcu-logo.png" loading="lazy" decoding="async" alt="北京语言大学校徽"><span><b class="about-info-label">教育背景</b>北京语言大学 · 新闻学</span></div>
               <div class="about-info-row about-info-avail"><span class="info-chip info-chip-em">📍 北京</span><span class="info-chip info-chip-em">创作者生态</span><span class="info-chip info-chip-em">AI 工具实践</span></div>
             </div>
           </div>
           <div class="about-story reveal">
             <div class="about-story-head">
               <span class="kicker">About</span>
-              <h2 class="about-story-title">关于我</h2>
+              <h2 class="about-story-title">关于我与工作方法</h2>
               <p class="about-story-sub">新闻学背景让我重视内容判断；近 4 年教培行业一线经历，让我理解内容如何形成供给、流量和转化。</p>
             </div>
             <div class="about-body">
@@ -1472,6 +1475,40 @@
           </div>
         </div>
         </details>
+
+        <div class="about-methods" id="insights">
+          <div class="head">
+            <span class="kicker">Working principles</span>
+            <h3 class="title">把经验变成可复用的方法</h3>
+            <p class="sub">一线项目反复验证了三件事：先判断内容机会，再组织稳定供给，最后用数据和工具放大有效方法。</p>
+          </div>
+          <div class="insights-grid">
+            <div class="insight-card">
+              <div class="insight-card-num">01</div>
+              <h3 class="insight-card-headline">AI 先帮助判断，再帮助生成</h3>
+              <ul>
+                <li class="insight-card-li">选题优先级、风险表达、发布节奏和复盘归因，往往比单次生成更影响业务结果。</li>
+                <li class="insight-card-li action">工具价值要看建议是否被采用，以及采用后带来的结果变化。</li>
+              </ul>
+            </div>
+            <div class="insight-card">
+              <div class="insight-card-num">02</div>
+              <h3 class="insight-card-headline">规模化供给需要分层、标准和反馈机制</h3>
+              <ul>
+                <li class="insight-card-li">样板可以靠一对一辅导跑通，规模化则依赖清晰标准、分层策略和稳定反馈。</li>
+                <li class="insight-card-li action">机制的目标，是让更多创作者持续产出符合业务要求的内容。</li>
+              </ul>
+            </div>
+            <div class="insight-card">
+              <div class="insight-card-num">03</div>
+              <h3 class="insight-card-headline">AI 工具的价值要落到工作流变化</h3>
+              <ul>
+                <li class="insight-card-li">生成能力只是起点，团队是否采用、是否信任输出、是否调整流程同样重要。</li>
+                <li class="insight-card-li action">先记录采纳与返工，再看实际耗时、线索质量等结果，才能讨论工具价值。</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1482,8 +1519,10 @@
           <h2 class="title">其他探索</h2>
           <p class="sub">保留早期原型与尝试，展示不同业务问题的拆解过程。以下入口用于查看原型，不代表模型服务或全部功能已经验证可用。可访问性检查于 2026.09.30。</p>
         </div>
+        <details class="prototype-archive exploration-archive">
+          <summary>补充原型与工具链 <span>早期作品 · 按需展开</span></summary>
         <div class="flagship-note reveal">
-          <span>两个补充作品 · 早期原型</span>
+          <span>补充作品 · 早期原型</span>
         </div>
         <div id="supporting-projects">
           <div class="supporting-grid">
@@ -1636,46 +1675,9 @@
             </div>
           </div>
         </details><!-- /tab-protos -->
+        </details><!-- /exploration-archive -->
 
       </div><!-- /wrap -->
-    </section>
-
-    <!-- 运营方法与判断 -->
-    <section class="section" id="insights">
-      <div class="wrap">
-        <div class="head reveal">
-          <span class="kicker">Insights</span>
-          <h2 class="title">我的工作原则</h2>
-          <p class="sub">一线项目反复验证了三件事：先判断内容机会，再组织稳定供给，最后用数据和工具放大有效方法。</p>
-        </div>
-        <div class="insights-grid">
-          <div class="insight-card reveal d1">
-            <div class="insight-card-num">01</div>
-            <h3 class="insight-card-headline">AI 先帮助判断，再帮助生成</h3>
-            <ul>
-              <li class="insight-card-li">选题优先级、风险表达、发布节奏和复盘归因，往往比单次生成更影响业务结果。</li>
-              <li class="insight-card-li action">工具价值要看建议是否被采用，以及采用后带来的结果变化。</li>
-            </ul>
-          </div>
-          <div class="insight-card reveal d2">
-            <div class="insight-card-num">02</div>
-            <h3 class="insight-card-headline">规模化供给需要分层、标准和反馈机制</h3>
-            <ul>
-              <li class="insight-card-li">样板可以靠一对一辅导跑通，规模化则依赖清晰标准、分层策略和稳定反馈。</li>
-              <li class="insight-card-li action">机制的目标，是让更多创作者持续产出符合业务要求的内容。</li>
-            </ul>
-          </div>
-          <div class="insight-card reveal d3">
-            <div class="insight-card-num">03</div>
-            <h3 class="insight-card-headline">AI 工具的价值要落到工作流变化</h3>
-            <ul>
-              <li class="insight-card-li">生成能力只是起点，团队是否采用、是否信任输出、是否调整流程同样重要。</li>
-              <li class="insight-card-li action">先记录采纳与返工，再看实际耗时、线索质量等结果，才能讨论工具价值。</li>
-            </ul>
-          </div>
-        </div>
-        <hr class="divider">
-      </div>
     </section>
 
     <!-- ⑥ 联系 -->
@@ -1716,6 +1718,14 @@
               </div>
               <div class="contact-row-action">查看主页 ↗</div>
             </a>
+            <a class="contact-row" href="mailto:rango0424@126.com?subject=索取张彪简历与作品说明">
+              <div class="contact-row-icon">📄</div>
+              <div class="contact-row-body">
+                <div class="contact-row-label">简历与作品说明</div>
+                <div class="contact-row-value">可按岗位提供 PDF 简历与面试演示说明</div>
+              </div>
+              <div class="contact-row-action">邮件索取 ↗</div>
+            </a>
         </div>
       </div>
     </section>
@@ -1724,7 +1734,7 @@
   <footer class="footer">
     <div class="wrap footer-inner">
       <nav class="footer-nav">
-        <a href="#works">代表案例</a><a href="#career-section">工作经历</a><a href="#explorations">其他探索</a><a href="#about">关于我</a><a href="#insights">工作原则</a><a href="#contact">联系</a>
+        <a href="#works">代表案例</a><a href="#career-section">经历与成果</a><a href="#explorations">其他探索</a><a href="#about">关于我与工作方法</a><a href="#contact">联系</a>
       </nav>
       <p class="footer-copy">© 2026 张彪 · 内容增长与 AI 实践 · 独立作品，AI 辅助开发</p>
     </div>

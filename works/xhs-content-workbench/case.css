@@ -76,6 +76,30 @@
 .evidence-summary>div{border-top:2px solid var(--ink)}
 .case-footer{background:#1b1d1a}
 .footer-line{font-size:36px;line-height:1.5}
+.demo-banner{margin-top:0;border-bottom:1px solid #454840;background:#1b1d1a;color:#f5f2e9}
+.demo-banner-inner{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:64px;align-items:center;padding-block:42px}
+.demo-banner .eyebrow{color:#f17b43;font-size:10px}
+.demo-banner h2{font-family:var(--serif);font-size:clamp(24px,2.5vw,34px);line-height:1.45;letter-spacing:-.025em;margin-top:13px}
+.demo-banner>div>p:last-child{max-width:650px;color:#c8cabf;font-size:13px;line-height:1.9;margin-top:14px}
+.demo-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:0;margin:0;list-style:none;border-top:1px solid #51534a;border-bottom:1px solid #51534a}
+.demo-steps li{display:flex;flex-direction:column;gap:7px;min-height:112px;padding:16px 14px;border-right:1px solid #51534a}
+.demo-steps li:first-child{padding-left:0}
+.demo-steps li:last-child{border-right:0;padding-right:0}
+.demo-steps span{color:#f17b43;font:13px/1 Georgia,serif}
+.demo-steps strong{font-size:12px;font-weight:600;color:#f5f2e9}
+.demo-steps small{color:#aeb1a5;font-size:10px;line-height:1.6}
+.agent-section{background:#ebe8df;border-block:1px solid var(--line)}
+.agent-section .section{padding-block:82px}
+.agent-map{display:grid;grid-template-columns:repeat(5,1fr);gap:0;padding:0;margin:44px 0 0;list-style:none;border-block:1px solid var(--ink)}
+.agent-map li{position:relative;display:flex;flex-direction:column;gap:10px;min-height:136px;padding:20px 18px 18px;border-right:1px solid #c8c6bc}
+.agent-map li:first-child{padding-left:0}
+.agent-map li:last-child{border-right:0;padding-right:0}
+.agent-map li:not(:last-child)::after{content:'→';position:absolute;right:-8px;top:51px;z-index:1;padding:0 2px;background:#ebe8df;color:var(--orange);font-size:14px}
+.agent-map span{color:var(--orange);font:14px/1 Georgia,serif}
+.agent-map strong{font-size:14px;font-weight:600}
+.agent-map small{color:var(--muted);font-size:11px;line-height:1.7}
+.agent-note{max-width:850px;margin-top:22px;padding-top:16px;border-top:1px solid #c8c6bc;color:var(--muted);font-size:12px;line-height:1.9}
+.agent-note span{display:inline-block;color:var(--orange-dark);font-weight:600;margin-right:12px}
 @media(max-width:1000px){.hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,.86fr);gap:42px}.hero h1{font-size:clamp(82px,10vw,108px)}.hero-line{font-size:clamp(25px,3.2vw,31px)}.hero-note>p:first-child{font-size:15px}}
 @media(max-width:720px){
   .site-header{height:73px}.wordmark{font-size:24px;gap:8px}.wordmark span{margin-left:-8px}.wordmark small{font-size:9px}
@@ -90,6 +114,24 @@
   .hero .status-note{margin-top:24px;padding:11px 13px 11px 30px;font-size:10px}
   .hero .status-dot{left:14px;top:18px}
   .case-meta{padding:16px 0;gap:9px}.case-meta dd{font-size:11px}
+  .demo-banner-inner{display:block;padding-block:32px}
+  .demo-banner h2{font-size:25px;line-height:1.55}
+  .demo-banner>div>p:last-child{font-size:11px;line-height:1.9}
+  .demo-steps{margin-top:26px}
+  .demo-steps li{min-height:103px;padding:13px 8px}
+  .demo-steps li:first-child{padding-left:0}
+  .demo-steps li:last-child{padding-right:0}
+  .demo-steps strong{font-size:10px;line-height:1.5}
+  .demo-steps small{font-size:9px;line-height:1.5}
+  .agent-section .section{padding-block:58px}
+  .agent-map{grid-template-columns:1fr;gap:0;margin-top:30px}
+  .agent-map li,.agent-map li:first-child,.agent-map li:last-child{min-height:0;padding:15px 0 15px 38px;border-right:0;border-bottom:1px solid #c8c6bc}
+  .agent-map li:last-child{border-bottom:0}
+  .agent-map li:not(:last-child)::after{content:'↓';right:auto;left:14px;top:auto;bottom:-9px;padding:0 3px;font-size:12px}
+  .agent-map span{position:absolute;left:0;top:16px;font-size:12px}
+  .agent-map strong{font-size:13px}
+  .agent-map small{font-size:10px}
+  .agent-note{font-size:10px;margin-top:19px;padding-top:13px}
   .section{padding-block:64px}.section-heading h2{font-size:29px;line-height:1.5;margin-top:13px}
   .problem-list{gap:22px;margin-top:30px}.problem-list article{border-top-width:1px}.problem-list h3{font-size:16px;margin:0}.problem-list p{font-size:12px}
   .public-case-grid{grid-template-columns:1fr;gap:30px}.public-case-grid .section-description{font-size:12px}

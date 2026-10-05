@@ -31,8 +31,8 @@
         <div class="hero-note">
           <p>从小红书素人矩阵的内容协作出发，给运营一条处理外稿的路径：收齐任务与资料、核对稿件与依据、由人确认当前版本。</p>
           <div class="hero-actions">
-            <a class="button primary" href="#public-case">看具体稿件与判断 <span aria-hidden="true">↘</span></a>
-            <a class="text-link" href="#walkthrough">了解设计流程 <span aria-hidden="true">↓</span></a>
+            <a class="button primary" href="#demo">面试演示：启动本地工作台 <span aria-hidden="true">↘</span></a>
+            <a class="text-link" href="#public-case">先看一份公开练习稿 <span aria-hidden="true">↓</span></a>
           </div>
           <p class="status-note"><span class="status-dot" aria-hidden="true"></span><strong>当前：本地原型，可启动后演示</strong><br>本站只展示静态案例。公开稿尚未经过工作台模型审核；模型生成与审稿需要先配置可用模型。</p>
         </div>
@@ -45,19 +45,46 @@
     </section>
     </div>
 
-    <section class="section wrap" aria-labelledby="why-title">
-      <div class="section-heading"><p class="eyebrow">01 / 为什么做</p><h2 id="why-title">账号扩张后，怎样让外稿<br>按同一套依据交接？</h2></div>
-      <div class="problem-list">
-        <article><span class="number">01 / 历史项目自述</span><h3>从少量账号到矩阵供给</h3><p>小红书项目从 3–5 个账号验证，扩展到 40–50 个素人账号，并沉淀人设、内容和转化 SOP。规模与方法来自历史项目自述。</p></article>
-        <article><span class="number">02 / 后续设计选择</span><h3>把交稿背景放在一起</h3><p>在独立原型中，将任务要求、账号信息、引用资料和外稿关联，减少审核时重新寻找上下文的成本。</p></article>
-        <article><span class="number">03 / 预防性规则</span><h3>当前稿只用当前结论</h3><p>稿件、需求或资料变化后，使旧审核不能继续作为采纳依据。这是设计的防护目标，不代表历史项目曾发生旧结论误用。</p></article>
+    <section class="demo-banner" id="demo" aria-labelledby="demo-title">
+      <div class="demo-banner-inner wrap">
+        <p class="eyebrow">面试演示入口 / LOCAL DEMO</p>
+        <h2 id="demo-title">从一条公开练习任务，跑完一次可核对的交付。</h2>
+        <p>工作台目前以本地原型形式运行。面试时由我在本地启动，打开预置任务，演示任务要求、资料依据、审核问题、人工处理和导出；这里不提供伪装成公网产品的在线按钮。</p>
       </div>
-      <aside class="experience-note"><div><span class="small-label">历史经历与独立实践分开看</span><p>账号规模与 SOP 是历史业务项目的自述；任务归档、审核依据和版本失效是后续设计选择。这个工作台并非当时上线的系统，历史业务结果也不归因于它。</p></div><a class="text-link" href="/#career-section">查看工作经历 <span aria-hidden="true">↗</span></a></aside>
+      <ol class="demo-steps" aria-label="面试演示步骤">
+        <li><span>01</span><strong>打开预置任务</strong><small>公开资料练习稿</small></li>
+        <li><span>02</span><strong>查看 Agent 链路</strong><small>资料 → 审核 → 人工</small></li>
+        <li><span>03</span><strong>导出当前版本</strong><small>保留状态与依据</small></li>
+      </ol>
+    </section>
+
+    <section class="section wrap" aria-labelledby="why-title">
+      <div class="section-heading"><p class="eyebrow">01 / 为什么做</p><h2 id="why-title">把多人协作里的隐性判断，<br>变成可检查的 Agent 步骤。</h2></div>
+      <div class="problem-list">
+        <article><span class="number">01 / 协作痛点</span><h3>交稿背景经常是散的</h3><p>任务要求、账号信息、参考资料和外稿分在不同地方，审核人需要先补齐上下文，才知道该检查什么。</p></article>
+        <article><span class="number">02 / Agent 设计</span><h3>让依据跟着任务走</h3><p>在独立原型中，把任务、资料、稿件版本和引用关系放进同一条工作流，减少“看过但找不到依据”的交接。</p></article>
+        <article><span class="number">03 / 质量边界</span><h3>新版本必须重新判断</h3><p>稿件、需求或资料变化后，旧审核不能继续作为采纳依据；模型结论也必须留给人核验，而不是自动发布。</p></article>
+      </div>
+      <aside class="experience-note"><div><span class="small-label">历史来源只作为问题背景</span><p>历史项目中曾有 3–5 个账号试跑、扩展到 40–50 个账号池并沉淀 SOP 的自述；本工作台是离职后的独立 AI 实践，并非当时上线的系统，历史结果不归因于它。</p></div><a class="text-link" href="/works/xhs-matrix-growth/">查看历史业务案例 <span aria-hidden="true">↗</span></a></aside>
+    </section>
+
+    <section class="agent-section" aria-labelledby="agent-title">
+      <div class="wrap section">
+        <div class="section-heading split-heading"><div><p class="eyebrow">02 / Agent 编排</p><h2 id="agent-title">不是一次生成，<br>而是一条可接管的判断链。</h2></div><p class="section-description">每一段都有明确输入、输出和人工接管点；模型未配置时，系统不会用预写结果冒充真实运行。</p></div>
+        <ol class="agent-map" aria-label="Agent 处理链路">
+          <li><span>01</span><strong>任务澄清</strong><small>受众、目标、交付要求</small></li>
+          <li><span>02</span><strong>资料检索</strong><small>来源分类、引用定位</small></li>
+          <li><span>03</span><strong>逐句核验</strong><small>事实、范围、风险</small></li>
+          <li><span>04</span><strong>局部改写</strong><small>保留原意、生成新版本</small></li>
+          <li><span>05</span><strong>人工采纳</strong><small>确认、导出、留痕</small></li>
+        </ol>
+        <p class="agent-note"><span>人工接管</span>关键事实、承诺边界、最终采纳与发布决策都由人完成；AI 输出的是可检查的建议，不是业务结论。</p>
+      </div>
     </section>
 
     <section class="section wrap" id="public-case" aria-labelledby="example-title">
       <div class="public-case-grid">
-        <div class="section-heading"><p class="eyebrow">02 / 一份练习稿</p><h2 id="example-title">拿一句公开练习稿，<br>看人机怎样分工。</h2><p class="section-description">下面引用的是可下载原稿中的真实句子。它尚未经过工作台模型审核；这里展示人工核对要点和后续要验证的 AI 节点，不展示虚构的模型结论。</p>
+        <div class="section-heading"><p class="eyebrow">03 / 一份练习稿</p><h2 id="example-title">拿一句公开练习稿，<br>看人机怎样分工。</h2><p class="section-description">下面引用的是可下载原稿中的真实句子。它尚未经过工作台模型审核；这里展示人工核对要点和后续要验证的 AI 节点，不展示虚构的模型结论。</p>
           <div class="decision-example" aria-label="公开练习稿的判断分工">
             <span class="small-label">原稿中的一句</span>
             <blockquote>“官方页面说明无需先前经验。”</blockquote>
@@ -81,19 +108,19 @@
     <section class="screen-section wrap" aria-labelledby="screen-title">
       <div class="section-topline"><h2 id="screen-title">界面证据：这份稿目前停在哪一步</h2><a class="text-link" href="/assets/xhs-workbench-public.png" target="_blank" rel="noopener">查看完整截图 <span aria-hidden="true">↗</span><span class="sr-only">，在新窗口打开</span></a></div>
       <figure class="screen-figure">
-        <a href="/assets/xhs-workbench-public.png" target="_blank" rel="noopener" aria-label="查看工作台公开资料案例的真实截图，在新窗口打开"><img src="/assets/xhs-workbench-public.png" alt="有据工作台截图。界面标记该公开稿待人工审阅、模型尚未配置、事实与来源为零条引用；此案例未完成模型审核。" width="1440" height="1570" decoding="async"></a>
+        <a href="/assets/xhs-workbench-public.png" target="_blank" rel="noopener" aria-label="查看工作台公开资料案例的真实截图，在新窗口打开"><img src="/assets/xhs-workbench-public.png" alt="有据工作台公开案例截图。截图当时标记该公开稿待人工审阅、模型尚未配置、事实与来源为零条引用；此案例未完成模型审核。" width="1440" height="1570" decoding="async"></a>
         <figcaption><span>本地应用截图 · 手机端放大显示局部，点击可看整图</span><span>截图记录界面状态，不代表审核通过</span></figcaption>
       </figure>
       <ol class="screen-annotations" aria-label="截图中可以核对的状态">
         <li><span>01 / 稿件状态</span><strong>待人工审阅</strong><p>稿件可以查看与编辑，尚未被标记为审核通过。</p></li>
-        <li><span>02 / 模型状态</span><strong>模型尚未配置</strong><p>页面提示模型生成、审稿等能力此时不可用。</p></li>
+        <li><span>02 / 公开截图状态</span><strong>截图当时未配置模型</strong><p>这张截图记录的是公开案例当时的界面状态，不代表每次本地启动都使用相同配置。</p></li>
         <li><span>03 / 来源状态</span><strong>0 条引用</strong><p>不能把“资料已添加”说成事实已逐句核对。</p></li>
       </ol>
     </section>
 
     <section class="workflow-section" id="walkthrough" aria-labelledby="workflow-title">
       <div class="wrap section">
-        <div class="section-heading split-heading"><div><p class="eyebrow">03 / 流程设计</p><h2 id="workflow-title">三步，把一份稿件交接清楚。</h2></div><p class="section-description">这里是可切换的<strong>产品流程设计</strong>，不是模型运行回放；页面切换不会提交稿件或调用 AI。</p></div>
+        <div class="section-heading split-heading"><div><p class="eyebrow">04 / 流程设计</p><h2 id="workflow-title">三步，把一份稿件交接清楚。</h2></div><p class="section-description">这里是可切换的<strong>产品流程设计</strong>，不是模型运行回放；页面切换不会提交稿件或调用 AI。</p></div>
         <nav class="flow-tabs" aria-label="工作流步骤" data-flow-tabs>
           <a href="#step-brief" data-step="step-brief"><span>01</span> 需求与资料 <span class="tab-arrow" aria-hidden="true">↗</span></a>
           <a href="#step-review" data-step="step-review"><span>02</span> 产出与审核 <span class="tab-arrow" aria-hidden="true">↗</span></a>
@@ -113,21 +140,21 @@
             <div class="flow-checklist"><h4>实际操作</h4><ol><li><strong>核对交付状态</strong><span>未审核稿仍可导出供沟通，但不能被标成已审核可发布；正式采纳需满足当前审核条件。</span></li><li><strong>检查导出内容</strong><span>联系方式默认隐藏，识别到敏感凭据时阻止导出；脱敏规则仍不能替代人的隐私检查。</span></li><li><strong>回填真实结果</strong><span>发布后再补数据、咨询与交接信息，区分内容表现和下游转化，不用缺失数据推算增长。</span></li></ol><p class="human-check"><span>人工节点</span>最终发布决策、敏感内容复核，以及发布后真实数据的口径确认。</p></div>
           </article>
         </div>
-        <p class="flow-footnote">当前应用未配置可用模型。资料整理、保存外稿、人工编辑与导出属于已实现的软件流程；生成与模型审稿需接通模型后单独验收。</p>
+        <p class="flow-footnote">公开案例稿尚未经过模型审核；本地面试演示是否可运行 AI，取决于启动时的实际模型配置。资料整理、保存外稿、人工编辑与导出属于已实现的软件流程；生成与模型审稿需按当前配置单独验收。</p>
       </div>
     </section>
 
     <section class="section wrap evidence-section" aria-labelledby="evidence-title">
-      <div class="section-heading"><p class="eyebrow">04 / 证据与边界</p><h2 id="evidence-title">能展示到哪一步，就说到哪一步。</h2></div>
+      <div class="section-heading"><p class="eyebrow">05 / 证据与边界</p><h2 id="evidence-title">能展示到哪一步，就说到哪一步。</h2></div>
       <div class="evidence-summary"><div><span class="small-label">已有公开证据</span><p>可下载的公开资料练习稿、对应官方来源、真实本地界面截图，以及软件规则与页面测试。它们可核对稿件、状态和界面流程。</p></div><div><span class="small-label">尚缺关键证据</span><p>该稿的模型审核记录与人工处理结果、真实运营团队持续使用、审核耗时变化、内容或获客增长。模型接通后需记录误报、漏报和成本。</p></div></div>
       <div class="disclosures">
-        <details><summary><span>工程实现与验收</span><span class="detail-plus" aria-hidden="true">＋</span></summary><div class="details-body"><p>前端为 HTML / CSS / JavaScript，后端为 Node.js，SQLite 保存任务、资料、稿件版本与处理记录。模型调用在服务端完成；本网站只发布静态案例，不公开本地数据库或模型凭据。</p><p>审核绑定对应的任务上下文与轮次；新版本重新审核，过期结果不能作为当前稿的采纳依据。局部修改以新版本保存，保留比较线索。</p><p><strong>截至 2026 年 9 月 30 日，211 项自动化测试通过。</strong>同时完成桌面与手机页面、关键交互和实际下载验收。这是软件规则和流程的验证，不是 211 份内容的真实模型评测，更不代表增长效果。</p></div></details>
+        <details><summary><span>工程实现与验收</span><span class="detail-plus" aria-hidden="true">＋</span></summary><div class="details-body"><p>前端为 HTML / CSS / JavaScript，后端为 Node.js，SQLite 保存任务、资料、稿件版本与处理记录。模型调用在服务端完成；本网站只发布静态案例，不公开本地数据库或模型凭据。</p><p>审核绑定对应的任务上下文与轮次；新版本重新审核，过期结果不能作为当前稿的采纳依据。局部修改以新版本保存，保留比较线索。</p><p><strong>已完成本地自动化测试、桌面与手机页面、关键交互和实际下载验收。</strong>这些是软件规则与流程的验证，不是内容模型效果评测，更不代表增长效果。</p></div></details>
         <details><summary><span>我的贡献，以及 AI 的边界</span><span class="detail-plus" aria-hidden="true">＋</span></summary><div class="details-body"><p>我负责从内容运营场景提炼问题、梳理需求与交接顺序、明确资料和审核边界、制定验收要求，并根据实际操作反复迭代。开发由 AI 辅助完成，不将代码生成包装为全部独立手写。</p><p>AI 用于辅助生成、审稿与局部修改；人负责输入资料的可信度、关键事实、采纳和发布决策。规则校验也有覆盖边界，不能保证识别全部问题。</p></div></details>
-        <details><summary><span>当前限制与下一步验证</span><span class="detail-plus" aria-hidden="true">＋</span></summary><div class="details-body"><ul><li><strong>模型：</strong>当前应用未配置可用模型，公开案例仍未审核；接通后需完成真实运行，并记录误报、漏报、失败与调用成本。</li><li><strong>使用范围：</strong>这是可启动的本地原型，当前页面是静态介绍；不是已部署的多人生产系统，也没有小红书平台接入或自动发布能力。</li><li><strong>业务验证：</strong>后续用明确口径比较人工审核耗时、返工轮次和采纳情况，再验证下游咨询质量；现阶段不填未经测量的提升数字。</li></ul></div></details>
+        <details><summary><span>当前限制与下一步验证</span><span class="detail-plus" aria-hidden="true">＋</span></summary><div class="details-body"><ul><li><strong>模型：</strong>公开案例稿仍未经过模型审核；本地启动时是否可运行取决于实际配置，接通后需记录误报、漏报、失败与调用成本。</li><li><strong>使用范围：</strong>这是可启动的本地原型，当前页面是静态介绍；不是已部署的多人生产系统，也没有小红书平台接入或自动发布能力。</li><li><strong>业务验证：</strong>后续用明确口径比较人工审核耗时、返工轮次和采纳情况，再验证下游咨询质量；现阶段不填未经测量的提升数字。</li></ul></div></details>
       </div>
     </section>
 
-    <footer class="case-footer"><div class="wrap footer-inner"><div><p class="eyebrow">OPERATIONS × AI</p><p class="footer-line">让 AI 接进业务，<br>也让判断留在人手里。</p></div><div class="footer-links"><a href="/#works">返回全部作品 <span aria-hidden="true">↗</span></a><a href="/#career-section">查看相关经历 <span aria-hidden="true">↗</span></a><a href="#case-title">回到顶部 <span aria-hidden="true">↑</span></a><p>独立实践 · 状态更新于 2026.09.30</p></div></div></footer>
+    <footer class="case-footer"><div class="wrap footer-inner"><div><p class="eyebrow">OPERATIONS × AI</p><p class="footer-line">让 AI 接进业务，<br>也让判断留在人手里。</p></div><div class="footer-links"><a href="#demo">面试演示入口 <span aria-hidden="true">↗</span></a><a href="/#works">返回全部作品 <span aria-hidden="true">↗</span></a><a href="/#career-section">查看相关经历 <span aria-hidden="true">↗</span></a><a href="#case-title">回到顶部 <span aria-hidden="true">↑</span></a><p>独立实践 · 当前为本地可启动原型</p></div></div></footer>
   </main>
 </body>
 </html>

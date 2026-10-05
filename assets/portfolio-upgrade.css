@@ -149,6 +149,9 @@ body.portfolio-upgrade::after { display: none; }
 .history-summary { font-size: 12px; color: var(--muted); margin: 0 0 15px; }
 .history-summary summary { cursor: pointer; display: list-item; color: var(--accent); }
 .history-summary p { padding: 15px 18px; background: var(--soft); border-radius: 6px; line-height: 1.9; margin: 12px 0 0; }
+.portfolio-upgrade .project-archive { margin-top: 28px; }
+.portfolio-upgrade .project-archive > summary { padding: 16px 0; }
+.portfolio-upgrade .exploration-archive { margin-top: 20px; }
 .portfolio-upgrade .exp-header { border: 0; padding: 0; background: transparent; }
 .portfolio-upgrade .exp-header-info h3 { color: var(--ink); }
 .portfolio-upgrade .exp-header-info span { color: var(--muted); }
@@ -207,6 +210,7 @@ body.portfolio-upgrade::after { display: none; }
 .portfolio-upgrade .proto-badge { color: var(--accent); background: var(--accent-soft); font-size: 10px; }
 .portfolio-upgrade .about-story-title,.portfolio-upgrade .about-info-name,.portfolio-upgrade .about-cap-title { color: var(--ink); }
 .portfolio-upgrade .about-story-sub,.portfolio-upgrade .about-body,.portfolio-upgrade .about-cap-desc,.portfolio-upgrade .about-info-row { color: var(--muted); }
+.portfolio-upgrade .about-info-label { display: inline-block; margin-right: 8px; color: var(--accent); font-size: 10px; font-weight: 700; letter-spacing: .08em; }
 .portfolio-upgrade .about-body strong { color: var(--ink); }
 .portfolio-upgrade .about-layout { grid-template-columns: minmax(180px,.75fr) minmax(0,1.35fr) minmax(0,.9fr); gap: 35px; }
 .portfolio-upgrade .about-photo-wrap { border-color: var(--rule); border-radius: 10px; }
@@ -217,6 +221,10 @@ body.portfolio-upgrade::after { display: none; }
 .portfolio-upgrade .skill-card h4 { color: var(--ink); }
 .portfolio-upgrade .skill-tag { color: var(--muted); border-color: var(--rule); background: var(--soft); }
 .portfolio-upgrade #insights { padding: 55px 0; }
+.portfolio-upgrade .about-methods#insights { margin-top: 48px; padding: 42px 0 0; border-top: 1px solid var(--rule); }
+.portfolio-upgrade .about-methods#insights .head { margin-bottom: 20px; }
+.portfolio-upgrade .about-methods#insights .title { font-size: clamp(21px,2vw,28px); margin-bottom: 10px; }
+.portfolio-upgrade .about-methods#insights .sub { max-width: 680px; }
 .portfolio-upgrade .insight-card { background: transparent; border: 0; border-left: 1px solid var(--rule); border-radius: 0; padding: 12px 24px; min-height: 0; box-shadow: none; transform: none; }
 .portfolio-upgrade .insight-card:first-child { border-left: 0; padding-left: 0; }
 .portfolio-upgrade .insight-card.active { background: transparent !important; border-color: var(--rule) !important; box-shadow: none; transform: none; }
