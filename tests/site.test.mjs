@@ -38,6 +38,17 @@ test('personal first screen has one primary route and both selected works share 
   assert.ok(html.indexOf('id="about"') < html.indexOf('id="explorations"'), 'About the person should precede the archive');
 });
 
+test('homepage copy stays job-focused and keeps early explorations secondary', () => {
+  const html = homepage();
+  const hero = html.slice(html.indexOf('<section class="hero">'), html.indexOf('<section class="section featured-section"'));
+  const explorations = html.slice(html.indexOf('id="explorations"'), html.indexOf('id="contact"'));
+  assert.match(hero, /做内容增长/);
+  assert.match(hero, /创作者供给/);
+  assert.doesNotMatch(explorations, /可访问性检查于|不代表模型服务或全部功能已经验证可用/);
+  assert.match(explorations, /围绕选题、内容审核、社群运营与复盘的早期工具探索/);
+  assert.match(html, /本地原型 · 模型审核待验/);
+});
+
 test('business case is a source-bounded account of the historical project', () => {
   const html = read(businessPath);
   assert.match(html, /小红书/);
