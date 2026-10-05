@@ -12,6 +12,16 @@
 
 ### Task 1: Isolate and preserve the stable release
 
+### Business clarity and layout revision (approved 2026-10-05)
+
+1. Business case: make the project name the primary heading; explain the audience, acquisition goal, personal responsibilities and sales handoff. Consolidate repeated expansion/operations copy into concrete actions. Keep historical figures unchanged and one short outcome disclosure; do not invent deduplication, refund or cost definitions.
+2. Homepage: keep the established warm palette and navigation. Move education/location beside the personal introduction; reduce portrait dominance and make the mobile profile a compact horizontal group. Keep tools/method disclosures close to their related text, without filling blank space with new claims.
+3. AI case: correct the demonstration CTA, show the existing public practice draft before one three-stage workflow, and explain version/review/delivery design decisions. Concentrate validation limits instead of repeating them. Do not manufacture model output or modify the local workbench.
+4. Integrate the three disjoint HTML/CSS edits, check links and scripts, run existing site tests and build the 24-file public allowlist in a new output directory. Inspect desktop and mobile screenshots and exercise disclosures and workflow tabs.
+5. Keep the existing 4351 preview and online release available. Deliver a new local preview after verification; public publication remains contingent on acceptance.
+
+**Revision verification:** Site tests pass 13/13, homepage inline JavaScript and case.js parse successfully, and `git diff --check` passes. Actual browser checks cover all three pages at 320, 390 and 1440px with no horizontal overflow or page-script errors. Inspected hero, works, career, about and case screenshots; fixed the about paragraph break and duplicate disclosure rules. The business data disclosure and AI review/delivery tabs open correctly; the practice draft returns HTTP 200 with its unreviewed provenance. The fresh 24-file public build is served at `http://127.0.0.1:4357/`, and its page/assets checks report no failing local HTTP responses. No workbench backend changes, live model requests, business-effect validation or online deployment occurred in this revision.
+
 ### Reading-first revision scope (2026-10-05)
 
 1. Preserve `da3fde4` with `reading-baseline-20261005`; preserve the separate workbench UI before editing. Keep the online release unchanged.
