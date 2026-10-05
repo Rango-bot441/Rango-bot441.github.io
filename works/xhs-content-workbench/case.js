@@ -21,6 +21,13 @@
     if (moveFocus) tab.focus();
   }
 
+  document.querySelectorAll('[data-open-details]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const details = document.getElementById(link.dataset.openDetails);
+      if (details) details.open = true;
+    });
+  });
+
   navigation.setAttribute('role', 'tablist');
   tabs.forEach((tab, index) => {
     const panel = panels.find((candidate) => candidate.id === tab.dataset.step);

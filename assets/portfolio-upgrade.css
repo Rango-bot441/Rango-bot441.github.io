@@ -436,3 +436,54 @@ body.portfolio-upgrade.warm .career-kpi-tag span { color: var(--muted); text-ali
   .selected-case-proof strong { font-size: 22px; }
   .selected-case-proof div>span { font-size: 11px; }
 }
+
+/* Interview-first hierarchy pass: keep the personal tone, expose evidence sooner. */
+.portfolio-upgrade .hero,.portfolio-upgrade.warm .hero { min-height: 590px; padding-top: 94px; }
+.portfolio-upgrade .hero-name { font-size: clamp(44px,3.5vw,50px); }
+.hero-results { background: #ece6d9; border-bottom: 1px solid #d8d1c4; color: #25251f; }
+.hero-results-inner { display: grid; grid-template-columns: minmax(280px,.9fr) minmax(0,1.1fr); align-items: center; gap: 30px; padding: 18px 0; }
+.hero-results-intro { display: grid; gap: 4px; }
+.hero-results-intro .kicker { margin: 0; color: #a94820; font-size: 11px; }
+.hero-results-intro strong { font-size: 15px; line-height: 1.6; font-weight: 700; }
+.hero-results-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); border-left: 1px solid #c9c4b8; }
+.hero-results-grid > div { padding: 0 20px; border-right: 1px solid #c9c4b8; }
+.hero-results-grid > div:last-child { border-right: 0; }
+.hero-results-grid strong { display: block; color: #a23f1c; font-size: 28px; line-height: 1.2; white-space: nowrap; }
+.hero-results-grid strong span { font-size: .52em; margin-left: 2px; }
+.hero-results-grid > div > span { display: block; color: #6b6b61; font-size: 12px; margin-top: 4px; }
+.portfolio-upgrade .about-capability-line { margin: 24px 0 0; padding: 14px 16px; border-left: 2px solid var(--accent); background: var(--soft); color: var(--muted); font-size: 13px; line-height: 1.7; }
+.portfolio-upgrade .about-capability-line strong { color: var(--ink); }
+.portfolio-upgrade .history-summary > summary,.portfolio-upgrade .prototype-archive > summary { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 46px; padding-right: 12px; border-block: 1px solid transparent; list-style: none; }
+.portfolio-upgrade .history-summary > summary::-webkit-details-marker,.portfolio-upgrade .prototype-archive > summary::-webkit-details-marker { display: none; }
+.portfolio-upgrade .history-summary > summary::after,.portfolio-upgrade .prototype-archive > summary::after { content: '展开'; flex: 0 0 auto; padding: 4px 9px; border: 1px solid var(--rule); border-radius: 999px; color: var(--muted); font-size: 11px; line-height: 1.2; }
+.portfolio-upgrade .history-summary[open] > summary::after,.portfolio-upgrade .prototype-archive[open] > summary::after { content: '收起'; color: var(--accent); border-color: var(--accent); }
+.portfolio-upgrade .history-summary > summary span,.portfolio-upgrade .prototype-archive > summary span { color: var(--muted); }
+.featured-tools { margin-top: 28px; padding-top: 26px; border-top: 1px solid var(--rule); }
+.featured-tools-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 16px; }
+.featured-tools-head .kicker { margin: 0 0 5px; }
+.featured-tools-head h3 { margin: 0; color: var(--ink); font-size: 20px; line-height: 1.4; }
+.featured-tools-note { color: var(--muted); font-size: 12px; }
+.featured-tools-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; }
+.featured-tools-grid article { padding: 19px 18px; border: 1px solid var(--rule); background: var(--panel); }
+.featured-tools-grid .tool-index { color: var(--accent); font: 700 11px/1 Georgia,serif; letter-spacing: .08em; }
+.featured-tools-grid h4 { margin: 12px 0 8px; color: var(--ink); font-size: 16px; line-height: 1.4; }
+.featured-tools-grid p { margin: 0 0 13px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.featured-tools-grid a { color: var(--accent); font-size: 12px; font-weight: 700; }
+@media(max-width:760px) {
+  .portfolio-upgrade .hero,.portfolio-upgrade.warm .hero { min-height: 0; padding-top: 82px; }
+  .portfolio-upgrade .hero-name { font-size: 36px; }
+  .hero-results-inner { display: block; padding: 16px 0; }
+  .hero-results-intro { margin-bottom: 13px; }
+  .hero-results-intro strong { font-size: 14px; }
+  .hero-results-grid { border-left: 0; border-top: 1px solid #c9c4b8; padding-top: 13px; }
+  .hero-results-grid > div { padding: 0 10px; }
+  .hero-results-grid > div:first-child { padding-left: 0; }
+  .hero-results-grid strong { font-size: 23px; }
+  .hero-results-grid > div > span { font-size: 11px; }
+  .portfolio-upgrade .history-summary > summary,.portfolio-upgrade .prototype-archive > summary { align-items: flex-start; flex-wrap: wrap; gap: 8px 12px; }
+  .portfolio-upgrade .history-summary > summary span,.portfolio-upgrade .prototype-archive > summary span { flex: 1 1 100%; margin-left: 0; }
+  .featured-tools-head { display: block; }
+  .featured-tools-note { display: block; margin-top: 8px; }
+  .featured-tools-grid { grid-template-columns: 1fr; gap: 10px; }
+  .featured-tools-grid article { padding: 17px 16px; }
+}

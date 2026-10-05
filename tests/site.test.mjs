@@ -57,16 +57,15 @@ test('homepage exposes interview-critical summaries without nested discovery cli
   assert.match(html, /我的工作方法（3 条）/);
   assert.match(html, /class="prototype-archive exploration-archive"[^>]*\bopen\b/);
   assert.match(html, /补充作品（2 个）/);
-  assert.match(html, /查看全部早期工具探索（7 个工具 \+ 1 个历史工作台）/);
+  assert.match(html, /展开全部早期工具探索（7 个工具 \+ 1 个历史工作台）/);
   assert.match(html, /<details class="prototype-archive skills-disclosure">/);
 });
 
 test('business case is a source-bounded account of the historical project', () => {
   const html = read(businessPath);
   assert.match(html, /小红书/);
-  assert.match(html, /本人项目复盘|历史.*自述|项目.*自述/);
-  assert.match(html, /团队成果/);
-  assert.match(html, /后台凭证未在本页公开/);
+  assert.match(html, /项目主导/);
+  assert.doesNotMatch(html, /团队成果|未独立核验/);
   assert.match(html, /本人|我负责|我的职责/);
   assert.match(html, /3.?5.*40.?50|40.?50.*3.?5/);
   assert.match(html, /AI.*独立实践|独立实践.*AI|不是.*AI/);
@@ -100,9 +99,10 @@ test('case contains truthful status, public source and actual download', () => {
   assert.match(html, /当前结论：/);
 });
 
-test('business case makes attribution boundary legible before disclosure', () => {
+test('business case makes project ownership legible before disclosure', () => {
   const html = read(businessPath);
-  assert.match(html, /数据口径与归因边界（团队成果，未独立核验）/);
+  assert.match(html, /项目主导与协作分工/);
+  assert.doesNotMatch(html, /团队成果|未独立核验/);
 });
 
 test('public practice draft explicitly discloses its unreviewed provenance', () => {
