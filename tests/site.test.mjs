@@ -49,6 +49,18 @@ test('homepage copy stays job-focused and keeps early explorations secondary', (
   assert.match(html.replace(/<[^>]+>/g, ''), /本地原型 · 模型审核待验/);
 });
 
+test('homepage exposes interview-critical summaries without nested discovery clicks', () => {
+  const html = homepage();
+  assert.match(html, /id="bizprojects-section"[^>]*\bopen\b/);
+  assert.match(html, /业务项目（4 个）/);
+  assert.match(html, /id="insights"[^>]*\bopen\b/);
+  assert.match(html, /我的工作方法（3 条）/);
+  assert.match(html, /class="prototype-archive exploration-archive"[^>]*\bopen\b/);
+  assert.match(html, /补充作品（2 个）/);
+  assert.match(html, /查看全部早期工具探索（7 个工具 \+ 1 个历史工作台）/);
+  assert.match(html, /<details class="prototype-archive skills-disclosure">/);
+});
+
 test('business case is a source-bounded account of the historical project', () => {
   const html = read(businessPath);
   assert.match(html, /小红书/);
@@ -83,6 +95,14 @@ test('case contains truthful status, public source and actual download', () => {
   assert.match(html, /人工/);
   assert.match(html, /独立实践|独立.*实践|业务.*流程.*设计/);
   assert.doesNotMatch(html, /href=["'][^"']*(?:127\.0\.0\.1|localhost|file:\/\/)/);
+  assert.match(html, /class="architecture-summary"/);
+  assert.match(html, /search_sources/);
+  assert.match(html, /当前结论：/);
+});
+
+test('business case makes attribution boundary legible before disclosure', () => {
+  const html = read(businessPath);
+  assert.match(html, /数据口径与归因边界（团队成果，未独立核验）/);
 });
 
 test('public practice draft explicitly discloses its unreviewed provenance', () => {

@@ -286,6 +286,10 @@ body.portfolio-upgrade.warm .career-kpi-tag span { color: var(--muted); text-ali
 .portfolio-upgrade #explorations .head { margin-bottom: 20px; text-align: left; }
 .portfolio-upgrade #explorations .head .sub { margin: 0; text-align: left; }
 .portfolio-upgrade .exploration-archive { margin-top: 0; }
+.portfolio-upgrade .project-archive[open] > summary,
+.portfolio-upgrade .about-methods[open] > summary,
+.portfolio-upgrade .exploration-archive[open] > summary { color: var(--ink); }
+.portfolio-upgrade .exploration-archive[open] .supporting-grid { margin-top: 8px; }
 .portfolio-upgrade .contact-row-label,.portfolio-upgrade .contact-row-action { color: var(--muted); font-size: 13px; }
 .portfolio-upgrade .footer { background: var(--panel); color: var(--muted); border-top: 1px solid var(--rule); padding: 28px 0; }
 .portfolio-upgrade .footer-nav { flex-wrap: wrap; gap: 18px; }

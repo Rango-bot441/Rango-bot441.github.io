@@ -1313,9 +1313,9 @@
           </div>
         </div>
 
-        <!-- 业务项目与成果口径：默认收起，避免首页被完整简历淹没 -->
-        <details class="history-summary project-archive" id="bizprojects-section">
-          <summary>查看 4 个业务项目 <span>本人职责、关键动作与团队成果</span></summary>
+        <!-- 业务项目摘要默认可见；完整过程仍通过卡片详情查看 -->
+        <details class="history-summary project-archive" id="bizprojects-section" open>
+          <summary>业务项目（4 个） <span>本人职责、关键动作与团队成果</span></summary>
           <div class="works-sub">
             <div class="works-sub-head">
               <span class="kicker">Projects</span>
@@ -1328,9 +1328,8 @@
 	                <div class="project-card-meta">2024.11–2025.06 · 内容与直播运营</div>
 	                <div class="project-card-tags"><span class="project-card-tag">主播分层</span><span class="project-card-tag">自然流增长</span><span class="project-card-tag">内容生产辅助工具</span></div>
                 <ul class="project-card-list">
-	                  <li>先用 2–3 个账号验证，再扩展至 10 个账号</li>
-	                  <li>协作 50+ 位兼职主播，建立培训、排期与激励机制</li>
-	                  <li>项目累计 32 万次预约、9000 条线索、180 万元总 GMV；AI 工具用于辅助内容制作</li>
+                  <li>2–3 个账号试跑 → 10 个账号，协作 50+ 位兼职主播</li>
+                  <li>32 万次预约、9000 条线索、180 万元总 GMV；AI 工具辅助内容制作</li>
                 </ul>
                 <button class="project-card-link" type="button">查看详情</button>
               </div>
@@ -1340,9 +1339,8 @@
 	                <div class="project-card-meta">2025.07–2026.02 · 内容策略与矩阵协作</div>
 	                <div class="project-card-tags"><span class="project-card-tag">UGC 供给</span><span class="project-card-tag">人设分层</span><span class="project-card-tag">自然流获客</span></div>
                 <ul class="project-card-list">
-	                  <li>从 3–5 个账号试跑，扩展到 40–50 个素人账号</li>
-	                  <li>新增粉丝 12 万，获得 4000+ 条有效线索</li>
-	                  <li>项目总 GMV 80 万元，沉淀人设、内容和转化 SOP</li>
+                  <li>3–5 个账号试跑 → 40–50 个素人账号，沉淀内容与转化 SOP</li>
+                  <li>新增粉丝 12 万、4000+ 条有效线索、项目总 GMV 80 万元</li>
                 </ul>
                 <button class="project-card-link" type="button">查看历史项目摘要</button>
                 <a class="related-case-link" href="/works/xhs-matrix-growth/">查看完整业务案例 →</a>
@@ -1354,9 +1352,8 @@
 	                <div class="project-card-meta">2023.01–2023.07 · IP 定位与内容运营</div>
 	                <div class="project-card-tags"><span class="project-card-tag">IP 孵化</span><span class="project-card-tag">内容策略</span><span class="project-card-tag">多平台分发</span></div>
                 <ul class="project-card-list">
-	                  <li>围绕北大学姐身份，从 0 孵化 IP，测试 5 个平台</li>
-	                  <li>视频号 5 万粉丝、小红书 20 万粉丝，总播放 6500 万+</li>
-	                  <li>产出 15 条百万级内容，形成多平台分发与直播双场策略</li>
+                  <li>从 0 孵化 IP，测试 5 个平台并形成多平台分发策略</li>
+                  <li>小红书 20 万粉丝、15 条百万级内容</li>
                 </ul>
                 <button class="project-card-link" type="button">查看详情</button>
               </div>
@@ -1366,9 +1363,8 @@
 	                <div class="project-card-meta">2024.03–2024.10 · 账号与直播运营</div>
 	                <div class="project-card-tags"><span class="project-card-tag">账号矩阵</span><span class="project-card-tag">主播供给</span><span class="project-card-tag">转化漏斗</span></div>
                 <ul class="project-card-list">
-	                  <li>提前布局高考内容，自孵化 1 位主播、合作 2 位兼职主播；学部提供产品、旺季主播和品牌支持</li>
-	                  <li>矩阵总粉丝 18 万、总播放 6000 万，近百条 10 万+ 内容</li>
-	                  <li>项目直播线索 4000+ 条，总 GMV 70 万元+</li>
+                  <li>自孵化 1 位主播、合作 2 位兼职主播，搭建账号矩阵</li>
+                  <li>矩阵 18 万粉丝、6000 万播放、4000+ 直播线索、70 万元+ GMV</li>
                 </ul>
                 <button class="project-card-link" type="button">查看详情</button>
               </div>
@@ -1406,7 +1402,7 @@
         </div>
         <!-- 技能工具栈 -->
         <details class="prototype-archive skills-disclosure">
-          <summary>常用工具 <span>业务协作与 AI 辅助开发</span></summary>
+          <summary>查看常用工具 <span>业务协作 + AI 辅助开发</span></summary>
         <div class="skills-wrap reveal-pop">
           <div class="skill-card">
             <h4>业务协作</h4>
@@ -1423,8 +1419,8 @@
         </div>
         </details>
 
-        <details class="prototype-archive about-methods" id="insights">
-          <summary>我的工作方法 <span>判断、供给与核验</span></summary>
+        <details class="prototype-archive about-methods" id="insights" open>
+          <summary>我的工作方法（3 条） <span>判断、供给与核验</span></summary>
           <div class="insights-grid">
             <div class="insight-card">
               <div class="insight-card-num">01</div>
@@ -1459,8 +1455,8 @@
           <h2 class="title">更多作品</h2>
           <p class="sub">选题、内容审核、社群运营与复盘的早期原型。</p>
         </div>
-        <details class="prototype-archive exploration-archive">
-          <summary>补充原型与工具链 <span>早期作品 · 按需展开</span></summary>
+        <details class="prototype-archive exploration-archive" open>
+          <summary>补充作品（2 个） <span>早期原型；下方可查看全部工具探索</span></summary>
         <div class="flagship-note reveal">
           <span>补充作品 · 早期原型</span>
         </div>
@@ -1503,7 +1499,7 @@
         </div>
         <!-- AI 原型工具 -->
         <details class="prototype-archive" id="tab-protos">
-          <summary>早期工具探索 <span>7 个工具 + 1 个历史工作台</span></summary>
+          <summary>查看全部早期工具探索（7 个工具 + 1 个历史工作台）</summary>
           <p class="archive-note">以下保留原项目说明与入口。页面可打开不等于模型可用；功能描述是原型设计范围，不能据此推断真实业务成效。</p>
             <article class="flagship-card">
               <div>

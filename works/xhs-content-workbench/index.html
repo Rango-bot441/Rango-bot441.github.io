@@ -97,8 +97,15 @@
         <article><span class="number">02 / 审核轮次</span><h3>处理记录对应当前这一轮</h3><p>修改、补料或人工说明关联具体审核轮次，旧轮次的处理不能替代新一轮确认。</p></article>
         <article><span class="number">03 / 交付状态</span><h3>待审核稿与可交付稿分开</h3><p>未审核稿可导出供沟通；正式采纳需要满足当前审核条件，交付包保留状态与依据。</p></article>
       </div>
+      <div class="architecture-summary" aria-label="工程实现摘要">
+        <div><span>前端</span><strong>HTML / CSS / JavaScript</strong><p>任务、资料与稿件操作界面。</p></div>
+        <div><span>服务端</span><strong>Node.js</strong><p>模型调用与引用、字段校验。</p></div>
+        <div><span>数据层</span><strong>SQLite</strong><p>保存任务、资料、版本与处理记录。</p></div>
+        <p><b>Agent 工具：</b><code>search_sources</code> · <code>read_source</code> · <code>deliver_review</code></p>
+        <p><b>实现状态：</b>本地流程已实现；模型效果与业务收益待验证。</p>
+      </div>
       <details class="architecture-details" id="architecture">
-        <summary><span>工程实现：工具调用、审核校验与数据留痕</span><span class="detail-plus" aria-hidden="true">＋</span></summary>
+        <summary><span>查看完整工程实现、校验规则与数据流</span><span class="detail-plus" aria-hidden="true">＋</span></summary>
         <div class="architecture-body">
           <p class="architecture-intro">个人网站展示静态案例；本地工作台的前端为 HTML / CSS / JavaScript，Node.js 后端处理模型调用与数据校验，SQLite 保存任务、资料、稿件和记录。</p>
           <ol class="architecture-path" aria-label="工作台的数据流">
@@ -144,6 +151,7 @@
     <section class="section wrap evidence-section" aria-labelledby="evidence-title">
       <div class="section-heading"><p class="eyebrow">05 / 验证范围</p><h2 id="evidence-title">已实现的流程，和待验证的效果。</h2></div>
       <div class="evidence-summary"><div><span class="small-label">已有证据</span><p>公开练习稿、官方来源、本地界面截图，以及软件规则和页面测试，可核对稿件、状态和流程。</p></div><div><span class="small-label">待补证据</span><p>模型审核记录、人工处理结果、团队持续使用和效率变化，都要在真实运行后记录，不能从原型界面推断。</p></div></div>
+      <p class="evidence-conclusion"><strong>当前结论：</strong>软件流程与界面状态可核对；模型效果、团队效率和业务收益仍待真实运行后验证。</p>
       <div class="disclosures">
         <details class="screen-evidence"><summary><span>界面证据：公开截图与状态留痕</span><span class="detail-plus" aria-hidden="true">＋</span></summary><div class="screen-section"><div class="section-topline"><h2>公开截图记录这份稿当时停在哪一步</h2><a class="text-link" href="/assets/xhs-workbench-public.png" target="_blank" rel="noopener">查看完整截图 <span aria-hidden="true">↗</span><span class="sr-only">，在新窗口打开</span></a></div><figure class="screen-figure"><a href="/assets/xhs-workbench-public.png" target="_blank" rel="noopener" aria-label="查看工作台公开资料案例的真实截图，在新窗口打开"><img src="/assets/xhs-workbench-public.png" alt="有据工作台公开案例截图。截图当时标记该公开稿待人工审阅、模型尚未配置、事实与来源为零条引用；此案例未完成模型审核。" width="1440" height="1570" loading="lazy" decoding="async"></a><figcaption><span>本地应用截图 · 手机端放大显示局部，点击可看整图</span><span>截图记录界面状态，不代表审核通过</span></figcaption></figure><ol class="screen-annotations" aria-label="截图中可以核对的状态"><li><span>01 / 稿件状态</span><strong>待人工审阅</strong><p>稿件可以查看与编辑，尚未被标记为审核通过。</p></li><li><span>02 / 公开截图状态</span><strong>截图当时未配置模型</strong><p>这张截图记录的是公开案例当时的界面状态，不代表每次本地启动都使用相同配置。</p></li><li><span>03 / 来源状态</span><strong>0 条引用</strong><p>不能把“资料已添加”说成事实已逐句核对。</p></li></ol></div></details>
         <details><summary><span>软件流程验证</span><span class="detail-plus" aria-hidden="true">＋</span></summary><div class="details-body"><p>静态案例页用于公开阅读；本地自动化测试、页面检查与下载验收覆盖软件流程，不能代替模型效果或增长结果的验证。</p></div></details>

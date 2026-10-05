@@ -156,6 +156,22 @@
 }
 @media print{.case-masthead{background:none;color:var(--ink)}.site-header,.case-nav{display:none}.hero .eyebrow,.hero .index,.hero-line em,.hero .status-note strong,.case-meta dd{color:var(--ink)}.hero-note,.case-meta{border-color:var(--line)}.hero-note>p:first-child,.hero .status-note{color:var(--ink)}.hero .status-note{background:none}.case-footer{background:none}}
 
+/* Keep the interview-level conclusion visible; source screenshots and detailed limits remain expandable. */
+.evidence-conclusion{margin:0 0 28px;padding:14px 16px;background:#ebe8de;border-left:3px solid var(--orange);color:var(--muted);font-size:13px;line-height:1.85}
+.evidence-conclusion strong{color:var(--ink);font-weight:600}
+@media(max-width:720px){.evidence-conclusion{margin-bottom:20px;padding:12px 13px;font-size:12px;line-height:1.8}}
+
+/* The recruiter-facing architecture summary is visible; implementation audit details stay on demand. */
+.architecture-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:26px;padding:20px 0;border-block:1px solid var(--line)}
+.architecture-summary>div{padding-top:12px;border-top:2px solid var(--ink)}
+.architecture-summary span{display:block;color:var(--orange-dark);font-size:11px;font-weight:600;letter-spacing:.06em}
+.architecture-summary strong{display:block;margin-top:7px;font-size:16px;font-weight:600}
+.architecture-summary div p{margin-top:6px;color:var(--muted);font-size:12px;line-height:1.8}
+.architecture-summary>p{grid-column:1 / -1;margin:0;color:var(--muted);font-size:13px;line-height:1.8}
+.architecture-summary>p+p{margin-top:-8px}
+.architecture-summary code{color:var(--orange-dark);font-size:12px}
+@media(max-width:720px){.architecture-summary{grid-template-columns:1fr;gap:14px;margin-top:22px;padding:16px 0}.architecture-summary>div{padding-top:10px}.architecture-summary strong{font-size:15px}.architecture-summary div p,.architecture-summary>p{font-size:12px}.architecture-summary>p+p{margin-top:-2px}}
+
 /* Keep the main story readable; detailed evidence stays secondary and expandable. */
 .hero-grid{padding-bottom:70px}
 .case-meta{padding-block:20px 23px}
