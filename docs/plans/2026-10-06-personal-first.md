@@ -21,3 +21,7 @@ Hero: name, literal career direction, Gaotu experience and modest portrait. Remo
 ## Acceptance
 
 First visit makes identity and business clear without clicking. Metrics stay attached to their project, AI is not credited for historical results, and simple demos do not displace stronger work. No horizontal overflow, oversized names, hidden primary content or conflicting theme styles. Existing preview and public site remain unchanged.
+
+## Hierarchy Refinement
+
+Keep the approved page and project order. Shorten adult-English and IP titles without removing their business context. Give only the primary-course Xiaohongshu card an accent top border. Split the AI summary into the concrete collaboration problem, implemented tool functions and Agent rule design, followed by the candidate's role. Correct mobile business headings to 21px and the About tool row to 18px vertical padding. Remove the inherited duplicate project-link arrow. Add regression checks for the full page order, stable modal identities, per-card metric ownership and AI promise boundaries. Validate the allowlisted build in a separate preview at 320, 390, 1440 and 1920 widths; do not deploy publicly.

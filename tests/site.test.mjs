@@ -19,7 +19,7 @@ test('homepage leads to the specific case and preserves historical navigation', 
   assert.ok(html.indexOf('id="works"') < html.indexOf('id="career-section"'));
   assert.ok(html.indexOf('id="career-section"') < html.indexOf('id="about"'));
   assert.match(html, /高途小学课程 · 小红书内容获客/);
-  assert.match(html, /成人英语直播获客与主播矩阵/);
+  assert.match(html, /成人英语 · 主播矩阵获客/);
 });
 
 test('personal hero precedes business projects, AI practice and other work', () => {
@@ -89,6 +89,53 @@ test('cross-project results preserve attribution and project modals use stable i
   assert.match(projects, /数理思维与阅读写作/);
   assert.equal((projects.match(/class="project-responsibility"/g) || []).length, 3);
   assert.equal((projects.match(/class="project-results"/g) || []).length, 3);
+});
+
+test('locked homepage hierarchy and project focus stay stable', () => {
+  const html = homepage().replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '');
+  const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
+  const markers = ['id="top"', 'class="hero-results"', 'id="works"', 'id="ai-practice"', 'id="explorations"', 'id="career-section"', 'id="about"', 'id="contact"'];
+  let previous = -1;
+  for (const marker of markers) {
+    assert.equal(main.split(marker).length - 1, 1, `${marker} must exist exactly once`);
+    const position = main.indexOf(marker);
+    assert.ok(position > previous, `${marker} must follow the previous section`);
+    previous = position;
+  }
+  const grid = main.slice(main.indexOf('class="business-project-grid"'), main.indexOf('class="supplementary-project'));
+  const cards = [...grid.matchAll(/<article\b([^>]*)>([\s\S]*?)<\/article>/g)];
+  assert.equal(cards.length, 3);
+  const expected = [
+    { title: '成人英语 · 主播矩阵获客', idx: '0', facts: ['银发', '短视频与直播', '9000', '180'] },
+    { title: '北大学姐 · IP 孵化与增长', idx: '2', facts: ['内容策划', '20', '15'] },
+    { title: '高途小学课程 · 小红书内容获客', facts: ['小学家长', '数理思维与阅读写作', '销售', '4000', '80', '40–50'] },
+  ];
+  cards.forEach(([, attributes, body], index) => {
+    const item = expected[index];
+    assert.ok(body.includes(item.title));
+    assert.match(body, /主导/);
+    for (const fact of item.facts) assert.ok(body.includes(fact), `${item.title}: missing ${fact}`);
+    if (item.idx) {
+      assert.ok(attributes.includes(`data-idx="${item.idx}"`));
+      assert.doesNotMatch(attributes, /project-focus/);
+    } else {
+      assert.doesNotMatch(attributes, /data-idx/);
+      assert.match(attributes, /project-focus/);
+      assert.match(body, /href="\/works\/xhs-matrix-growth\/"/);
+    }
+  });
+});
+
+test('AI summary separates business problem, implemented tools and personal role', () => {
+  const html = homepage();
+  const ai = html.slice(html.indexOf('id="ai-practice"'), html.indexOf('id="explorations"'));
+  assert.match(ai, /class="selected-case-problem"/);
+  assert.match(ai, /供稿资料分散|修改版本难追踪/);
+  assert.match(ai, /class="selected-case-capabilities"/);
+  assert.match(ai, /Agent.*检索.*核验.*设计/);
+  assert.match(ai, /我负责需求、流程和 Agent 规则设计/);
+  assert.match(ai, /AI 辅助完成/);
+  assert.doesNotMatch(ai, /selected-case-ai-line|在线使用|立即生成|一键发布|已提升业务收益/);
 });
 
 test('business case is a source-bounded account of the historical project', () => {

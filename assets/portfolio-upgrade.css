@@ -57,6 +57,7 @@ body.portfolio-upgrade::after { display: none; }
 .hero-name span { color: #f47b3e; padding-left: .04em; }
 .hero-statement { margin-top: 24px; color: #f7f8f4; font: 700 42px/1.4 'PingFang SC','Noto Sans SC','Microsoft YaHei',sans-serif; }
 .hero-role { display: block; margin-top: 16px; color: #f7f8f4; font: 700 36px/1.4 'PingFang SC','Noto Sans SC','Microsoft YaHei',sans-serif; }
+.hero-role > span { display: inline-block; white-space: nowrap; }
 .portfolio-upgrade .hero h1 .highlight-text { color: #f68a4f; font: inherit; }
 .portfolio-upgrade .hero h1 .highlight-text::after { display: none; }
 .portfolio-upgrade .hero .lead,.portfolio-upgrade.warm .hero .lead { font-size: 17px; line-height: 1.85; margin: 0 0 10px; color: #d1d8ce; max-width: 540px; text-wrap: pretty; }
@@ -146,6 +147,10 @@ body.portfolio-upgrade::after { display: none; }
 .selected-case-ai .selected-case-top span:first-child,.selected-case-ai .selected-case-kind { color: #f8a071 !important; }
 .selected-case-ai h3 { color: #f3f6ef; font-size: 28px; text-wrap: balance; }
 .selected-case-ai .selected-case-body>p:not(.selected-case-kind) { color: #c4d0c2; }
+.selected-case-problem,.selected-case-capabilities { display: grid; gap: 6px; margin: 18px 0 0; }
+.selected-case-problem strong,.selected-case-capabilities strong { color: #f3f6ef; font-size: 13px; line-height: 1.5; }
+.selected-case-problem span,.selected-case-capabilities span { color: #c4d0c2; font-size: 15px; line-height: 1.8; }
+.selected-case-capabilities { padding-top: 18px; border-top: 1px solid #ffffff26; }
 .selected-case-ai .selected-case-bottom a { color: #ffa777; }
 .selected-case-ai .selected-case-bottom small { color: #b9c6b8; }
 .selected-case-ai-line { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; padding-top: 18px; border-top: 1px solid #ffffff26; color: #f3f6ef; font-size: 14px; font-weight: 600; }
@@ -228,10 +233,13 @@ body.portfolio-upgrade .biz-grid .project-card:hover,body.portfolio-upgrade.warm
 .portfolio-upgrade .project-card-list { margin-bottom: 20px; }
 .portfolio-upgrade .project-card-list li { color: var(--muted); font-size: 15px; }
 .portfolio-upgrade .project-card-link { display: inline-block; padding: 0 0 3px; color: var(--accent); background: none; border: 0; border-bottom: 1px solid var(--accent); font-size: 12px; cursor: pointer; }
+.portfolio-upgrade .project-card-link::after { content: none; }
 .related-case-link { display: block; margin-top: 16px; font-size: 12px; }
 .business-project-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; }
 body.portfolio-upgrade .business-project-grid .business-project,body.portfolio-upgrade.warm .business-project-grid .business-project { min-width: 0; padding: 26px 24px 24px; border: 1px solid var(--rule); border-radius: 6px; background: var(--panel); box-shadow: none; transform: none; cursor: default; }
 body.portfolio-upgrade .business-project-grid .business-project:hover,body.portfolio-upgrade.warm .business-project-grid .business-project:hover { border-color: var(--quiet); background: var(--panel); transform: none; box-shadow: none; }
+body.portfolio-upgrade .business-project-grid .business-project.project-focus,body.portfolio-upgrade.warm .business-project-grid .business-project.project-focus { border-top: 3px solid var(--accent); padding-top: 24px; }
+body.portfolio-upgrade .business-project-grid .business-project.project-focus:hover,body.portfolio-upgrade.warm .business-project-grid .business-project.project-focus:hover { border-top-color: var(--accent); }
 .portfolio-upgrade .business-project h3 { margin: 12px 0 14px; font-size: 22px; font-weight: 700; line-height: 1.5; color: var(--ink); text-wrap: balance; }
 .portfolio-upgrade .business-project .project-card-meta { margin: 0; font-size: 13px; color: var(--muted); line-height: 1.6; }
 .project-card-context { color: var(--muted); font-size: 15px; line-height: 1.8; margin: 0 0 20px; }
@@ -324,7 +332,7 @@ body.portfolio-upgrade .about-photo-wrap:hover,body.portfolio-upgrade.warm .abou
 .portfolio-upgrade #insights .insights-grid { padding: 20px 0; }
 .portfolio-upgrade .about-methods#insights .head { margin-bottom: 20px; }
 .portfolio-upgrade .about-methods#insights .title { font-size: 24px; margin-bottom: 10px; }
-.portfolio-upgrade .about-tools { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px 20px; margin: 24px 0 28px; padding: 18px 0; border-block: 1px solid var(--rule); color: var(--muted); font-size: 14px; line-height: 1.8; }
+.portfolio-upgrade .about-tools,.portfolio-upgrade .about-tools#insights { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px 20px; margin: 24px 0 28px; padding: 18px 0; border-block: 1px solid var(--rule); color: var(--muted); font-size: 14px; line-height: 1.8; }
 .portfolio-upgrade .about-tools strong { color: var(--ink); }
 .portfolio-upgrade .about-methods#insights .sub { max-width: 680px; }
 .portfolio-upgrade .insight-card { background: transparent; border: 0; border-left: 1px solid var(--rule); border-radius: 0; padding: 10px 18px; min-height: 0; box-shadow: none; transform: none; }
@@ -433,6 +441,8 @@ body.portfolio-upgrade .footer,body.portfolio-upgrade.warm .footer { background:
   .portfolio-upgrade .hero .hero-secondary { font-size: 13px; white-space: nowrap; }
   .business-project-grid,.more-work-grid { grid-template-columns: minmax(0,1fr); gap: 18px; }
   .portfolio-upgrade .business-project h3 { font-size: 21px; }
+  .hero-role > .hero-role-divider { display: none; }
+  .hero-role > span { display: block; }
   .project-results strong { font-size: 26px; }
   .supplementary-project,.experiment-entry { align-items: flex-start; flex-direction: column; gap: 16px; }
   .portfolio-upgrade .supplementary-project.project-card { flex-direction: column; gap: 16px; }
@@ -498,6 +508,7 @@ body.portfolio-upgrade .footer,body.portfolio-upgrade.warm .footer { background:
   .portfolio-upgrade .biz-grid,.supporting-grid,.prototype-grid { grid-template-columns: 1fr; }
   body.portfolio-upgrade .biz-grid .project-card,body.portfolio-upgrade.warm .biz-grid .project-card,.portfolio-upgrade .flagship-card { padding: 23px 20px; }
   .portfolio-upgrade .project-card h3 { font-size: 18px; }
+  .portfolio-upgrade .business-project h3 { font-size: 21px; }
   .career-grid { grid-template-columns: 1fr; }
   .portfolio-upgrade .career-card { border-right: 0; padding: 23px 20px; }
   .portfolio-upgrade .career-card p { font-size: 15px; }
