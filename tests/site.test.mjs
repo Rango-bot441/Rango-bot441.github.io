@@ -18,51 +18,59 @@ test('homepage leads to the specific case and preserves historical navigation', 
   for (const id of ['top', 'works', 'career-section', 'about', 'insights', 'contact']) assert.match(html, new RegExp(`id=["']${id}["']`));
   assert.ok(html.indexOf('id="works"') < html.indexOf('id="career-section"'));
   assert.ok(html.indexOf('id="career-section"') < html.indexOf('id="about"'));
-  assert.match(html, /小红书素人矩阵获客/);
+  assert.match(html, /高途小学课程 · 小红书内容获客/);
   assert.match(html, /成人英语直播获客与主播矩阵/);
 });
 
-test('first screen shows capability evidence and selected work keeps clear hierarchy', () => {
+test('personal hero precedes business projects, AI practice and other work', () => {
   const html = homepage();
   const worksStart = html.indexOf('id="works"');
   const careerStart = html.indexOf('id="career-section"');
   const firstScreen = html.slice(0, worksStart);
   const selectedWorks = html.slice(worksStart, careerStart);
   assert.ok(worksStart > 0 && careerStart > worksStart);
-  assert.match(firstScreen, /capability-chain/);
-  assert.match(firstScreen, /assets\/xhs-workbench-public\.png/, 'Hero uses a real workbench image');
-  assert.doesNotMatch(firstScreen, /class="hero-portrait"/);
+  assert.match(firstScreen, /class="personal-portrait"/);
+  assert.match(firstScreen, /assets\/profile\.jpg/);
+  assert.doesNotMatch(firstScreen, /capability-chain|hero-tool-preview|xhs-workbench-public/);
   assert.doesNotMatch(firstScreen, /class="hero-decision"/, 'Hero should not duplicate the business report');
   assert.equal((firstScreen.match(/class="[^"]*btn-primary[^"]*"/g) || []).length, 1, 'Hero should present only one primary action');
   assert.match(selectedWorks, /href="\/works\/xhs-matrix-growth\/"/);
   assert.match(selectedWorks, /href="\/works\/xhs-content-workbench\/"/);
   assert.ok(selectedWorks.indexOf('/works/xhs-matrix-growth/') < selectedWorks.indexOf('/works/xhs-content-workbench/'));
-  assert.ok(html.indexOf('id="about"') < html.indexOf('id="explorations"'), 'About the person should precede the archive');
+  assert.ok(html.indexOf('id="works"') < html.indexOf('id="ai-practice"'));
+  assert.ok(html.indexOf('id="ai-practice"') < html.indexOf('id="explorations"'));
+  assert.ok(html.indexOf('id="explorations"') < html.indexOf('id="career-section"'));
 });
 
 test('homepage copy stays job-focused and keeps early explorations secondary', () => {
   const html = homepage();
-  const hero = html.slice(html.indexOf('<section class="hero">'), html.indexOf('<section class="section featured-section"'));
-  const explorations = html.slice(html.indexOf('id="explorations"'), html.indexOf('id="contact"'));
+  const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
+  const hero = main.slice(0, main.indexOf('id="works"'));
+  const explorations = main.slice(main.indexOf('id="explorations"'), main.indexOf('id="career-section"'));
   assert.match(hero, /内容增长/);
   assert.match(hero, /创作者/);
   assert.doesNotMatch(explorations, /可访问性检查于|不代表模型服务或全部功能已经验证可用/);
-  assert.match(explorations, /选题、内容审核、社群运营与复盘的早期原型/);
-  assert.match(html.replace(/<[^>]+>/g, ''), /本地原型 · 模型审核待验/);
+  assert.match(explorations, /创作者社群助手|AI 短剧创作者运营/);
+  assert.doesNotMatch(main, /944|模型效果待验证|尚未完成模型审核|模型审核待验|把内容做成增长/);
+  assert.match(main, /独立实践 · 本地工作台/);
 });
 
 test('homepage summaries are visible and early work has one standalone entry', () => {
   const html = homepage();
   const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
   assert.doesNotMatch(main, /<details\b/);
-  assert.match(html, /其他代表项目/);
+  assert.match(html, /代表业务项目/);
   assert.equal((main.match(/href="\/works\/explorations\/"/g) || []).length, 1);
   assert.doesNotMatch(main, /featured-tools-grid|prototype-grid|我的工作边界/);
   assert.match(main, /北京语言大学 · 新闻学/);
+  const ids = [...html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
+  assert.equal(new Set(ids).size, ids.length, 'Homepage element IDs must be unique');
   const archive = read('works/explorations/index.html');
   assert.doesNotMatch(archive, /<details\b|<script\b/);
   assert.match(archive, /inspiration-station/);
   assert.match(archive, /content-safety-copilot/);
+  assert.ok(archive.indexOf('id="featured-title"') > 0);
+  assert.ok(archive.indexOf('id="featured-title"') < archive.indexOf('id="tools-title"'));
 });
 
 test('cross-project results preserve attribution and project modals use stable identities', () => {
@@ -70,12 +78,17 @@ test('cross-project results preserve attribution and project modals use stable i
   const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
   assert.match(main, /北大学姐 · 小红书粉丝/);
   assert.match(main, /成人英语 · 兼职主播/);
-  assert.match(main, /小红书矩阵 · 有效线索/);
-  assert.match(main, /知识付费 · 自然流订单/);
+  assert.match(main, /小学课程 · 小红书有效线索/);
   assert.equal((main.match(/40–50/g) || []).length, 1);
   assert.doesNotMatch(main, /3W\+|3 万.*累计|HTML\/CSS\/JS/);
   assert.match(html, /openProjectModal\(Number\(card\.dataset\.idx\)\)/);
+  assert.match(html, /#biz-grid \.project-card\[data-idx\]/, 'Case links without modal identities must retain navigation');
   assert.ok(main.indexOf('class="hero-results"') < main.indexOf('id="works"'));
+  const projects = main.slice(main.indexOf('id="biz-grid"'), main.indexOf('id="ai-practice"'));
+  assert.match(projects, /小学家长/);
+  assert.match(projects, /数理思维与阅读写作/);
+  assert.equal((projects.match(/class="project-responsibility"/g) || []).length, 3);
+  assert.equal((projects.match(/class="project-results"/g) || []).length, 3);
 });
 
 test('business case is a source-bounded account of the historical project', () => {
@@ -183,11 +196,14 @@ test('legacy branch deployment also excludes development directories', () => {
   }
 });
 
-test('capability media and contrasting work sections retain responsive styles', () => {
+test('portrait and project results retain responsive styles', () => {
   const css = read('assets/portfolio-upgrade.css');
-  assert.match(css, /\.hero-tool-preview/);
-  assert.match(css, /\.capability-chain/);
+  assert.match(css, /\.personal-portrait/);
+  assert.match(css, /\.business-project-grid/);
   assert.match(css, /\.selected-case-ai::before\s*\{[^}]*background:/);
   assert.match(css, /\.selected-case-screen/);
   assert.doesNotMatch(css, /clamp\([^;]*vw/);
+  const modalCloseRule = css.match(/\.portfolio-upgrade \.card-modal-close\s*\{([^}]+)\}/)?.[1];
+  assert.match(modalCloseRule, /transition:/);
+  assert.doesNotMatch(modalCloseRule, /transition:\s*all/, 'Visibility must not delay modal focus');
 });
