@@ -147,6 +147,9 @@ test('business case is a source-bounded account of the historical project', () =
   assert.match(html, /3.?5.*40.?50|40.?50.*3.?5/);
   assert.match(html, /AI.*独立实践|独立实践.*AI|不是.*AI/);
   assert.doesNotMatch(html, /(?:真实|显著).*提升.*(?:ROI|获客效率)|自动.*发布/);
+  assert.match(html, /不同家长人设承接不同需求/);
+  assert.match(html, /从内容触达到销售承接/);
+  assert.match(html, /家长问题选题.*人设笔记建立信任.*私信答疑/);
 });
 
 test('first paint has no full-screen page loader or blocking Google font request', () => {
@@ -174,12 +177,28 @@ test('case contains truthful status, public source and actual download', () => {
   assert.match(html, /class="architecture-summary"/);
   assert.match(html, /search_sources/);
   assert.match(html, /当前结论：/);
+  assert.match(html, /内容运营、审核人和外部供稿者/);
+  assert.match(html, /外稿提交后使用它/);
+  assert.match(html, /核心价值：/);
 });
 
 test('business case makes project ownership legible before disclosure', () => {
   const html = read(businessPath);
   assert.match(html, /项目主导与协作分工/);
   assert.doesNotMatch(html, /团队成果|未独立核验/);
+});
+
+test('case pages expose a specific business chain and product use context', () => {
+  const business = read(businessPath);
+  const ai = read(casePath);
+  assert.match(business, /家长问题选题.*人设笔记建立信任.*私信答疑.*企微／群聊.*体验课／资料.*正价课/);
+  assert.match(business, /用不同家长人设承接不同需求/);
+  assert.match(business, /干货内容占 80% 以上/);
+  assert.match(ai, /内容运营、审核人和外部供稿者在外稿提交后使用它/);
+  assert.match(ai, /资料、原句、修改记录和交付状态/);
+  assert.match(ai, /核心价值：让审核人知道这句话依据什么/);
+  assert.match(ai, /已实现：资料与外稿管理、人工编辑、版本导出/);
+  assert.match(ai, /模型效果与业务收益待验证/);
 });
 
 test('public practice draft explicitly discloses its unreviewed provenance', () => {

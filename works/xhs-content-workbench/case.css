@@ -35,6 +35,7 @@
 .hero-line em{color:#f17b43}
 .hero-note{align-self:end;padding:0 0 5px 24px;border-left:1px solid #5c6057}
 .hero-note>p:first-child{font-size:16px;line-height:2;color:#e4e5dc;max-width:410px}
+.hero-value { margin-top: 18px; padding-top: 16px; border-top: 1px solid #565b52; color: #f4eee4; font-size: 14px; line-height: 1.85; max-width: 440px; }
 .hero-actions{margin-top:32px;gap:23px}
 .hero-actions .text-link{color:#eeeade}
 .hero-actions .text-link:hover{color:#fff}
@@ -124,6 +125,7 @@
   .hero-line{font-size:clamp(25px,6.9vw,31px);line-height:1.55;margin-top:27px}
   .hero-note{border-left:0;border-top:1px solid #5c6057;padding:22px 0 0}
   .hero-note>p:first-child{font-size:14px;line-height:1.9}
+  .hero-value{font-size:13px;line-height:1.85;margin-top:15px;padding-top:13px}
   .hero-actions{margin-top:22px;gap:16px}
   .hero .status-note{margin-top:24px;padding:11px 13px 11px 30px;font-size:10px}
   .hero .status-dot{left:14px;top:18px}
