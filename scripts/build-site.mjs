@@ -14,6 +14,7 @@ export const publicFiles = [
   'assets/creator-inspiration-station-cover.png', 'assets/creator-postmortem-ai-cover.png',
   'assets/creatorinsight-cover.png', 'assets/xhs-workbench-public.png',
   'assets/portfolio-upgrade.css',
+  'works/explorations/index.html', 'works/explorations/archive.css',
   'works/xhs-matrix-growth/index.html', 'works/xhs-matrix-growth/case.css',
   'works/xhs-content-workbench/index.html', 'works/xhs-content-workbench/case.css',
   'works/xhs-content-workbench/case.js', 'works/xhs-content-workbench/public-draft.md',

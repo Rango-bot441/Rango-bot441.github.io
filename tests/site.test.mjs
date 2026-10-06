@@ -22,14 +22,16 @@ test('homepage leads to the specific case and preserves historical navigation', 
   assert.match(html, /成人英语直播获客与主播矩阵/);
 });
 
-test('personal first screen has one primary route and both selected works share a clear hierarchy', () => {
+test('first screen shows capability evidence and selected work keeps clear hierarchy', () => {
   const html = homepage();
   const worksStart = html.indexOf('id="works"');
   const careerStart = html.indexOf('id="career-section"');
   const firstScreen = html.slice(0, worksStart);
   const selectedWorks = html.slice(worksStart, careerStart);
   assert.ok(worksStart > 0 && careerStart > worksStart);
-  assert.match(firstScreen, /assets\/profile\.jpg/, 'Hero should show the actual person before the case reports');
+  assert.match(firstScreen, /capability-chain/);
+  assert.match(firstScreen, /assets\/xhs-workbench-public\.png/, 'Hero uses a real workbench image');
+  assert.doesNotMatch(firstScreen, /class="hero-portrait"/);
   assert.doesNotMatch(firstScreen, /class="hero-decision"/, 'Hero should not duplicate the business report');
   assert.equal((firstScreen.match(/class="[^"]*btn-primary[^"]*"/g) || []).length, 1, 'Hero should present only one primary action');
   assert.match(selectedWorks, /href="\/works\/xhs-matrix-growth\/"/);
@@ -49,16 +51,31 @@ test('homepage copy stays job-focused and keeps early explorations secondary', (
   assert.match(html.replace(/<[^>]+>/g, ''), /本地原型 · 模型审核待验/);
 });
 
-test('homepage exposes interview-critical summaries without nested discovery clicks', () => {
+test('homepage summaries are visible and early work has one standalone entry', () => {
   const html = homepage();
-  assert.match(html, /id="bizprojects-section"[^>]*\bopen\b/);
-  assert.match(html, /业务项目（4 个）/);
-  assert.match(html, /id="insights"[^>]*\bopen\b/);
-  assert.match(html, /我的工作方法（3 条）/);
-  assert.match(html, /class="prototype-archive exploration-archive"[^>]*\bopen\b/);
-  assert.match(html, /补充作品（2 个）/);
-  assert.match(html, /展开全部早期工具探索（7 个工具 \+ 1 个历史工作台）/);
-  assert.match(html, /<details class="prototype-archive skills-disclosure">/);
+  const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
+  assert.doesNotMatch(main, /<details\b/);
+  assert.match(html, /其他代表项目/);
+  assert.equal((main.match(/href="\/works\/explorations\/"/g) || []).length, 1);
+  assert.doesNotMatch(main, /featured-tools-grid|prototype-grid|我的工作边界/);
+  assert.match(main, /北京语言大学 · 新闻学/);
+  const archive = read('works/explorations/index.html');
+  assert.doesNotMatch(archive, /<details\b|<script\b/);
+  assert.match(archive, /inspiration-station/);
+  assert.match(archive, /content-safety-copilot/);
+});
+
+test('cross-project results preserve attribution and project modals use stable identities', () => {
+  const html = homepage();
+  const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
+  assert.match(main, /北大学姐 · 小红书粉丝/);
+  assert.match(main, /成人英语 · 兼职主播/);
+  assert.match(main, /小红书矩阵 · 有效线索/);
+  assert.match(main, /知识付费 · 自然流订单/);
+  assert.equal((main.match(/40–50/g) || []).length, 1);
+  assert.doesNotMatch(main, /3W\+|3 万.*累计|HTML\/CSS\/JS/);
+  assert.match(html, /openProjectModal\(Number\(card\.dataset\.idx\)\)/);
+  assert.ok(main.indexOf('class="hero-results"') < main.indexOf('id="works"'));
 });
 
 test('business case is a source-bounded account of the historical project', () => {
@@ -114,7 +131,7 @@ test('public practice draft explicitly discloses its unreviewed provenance', () 
 });
 
 test('local links and anchors resolve for homepage and both cases', () => {
-  for (const file of ['index.html', businessPath, casePath]) {
+  for (const file of ['index.html', businessPath, casePath, 'works/explorations/index.html']) {
     const html = read(file).replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '');
     for (const [, raw] of html.matchAll(/(?:href|src)=["']([^"']+)["']/g)) {
       if (/^(?:https?:|mailto:|tel:|data:|javascript:)/.test(raw)) continue;
@@ -143,7 +160,7 @@ test('public allowlist excludes development and private workspace data', () => {
 
 test('new public files contain no workspace database, private trace or credentials', () => {
   const walk = dir => readdirSync(dir, { withFileTypes: true }).flatMap(item => item.isDirectory() ? walk(resolve(dir, item.name)) : [resolve(dir, item.name)]);
-  for (const file of [...walk(resolve(root, 'works/xhs-content-workbench')), ...walk(resolve(root, 'works/xhs-matrix-growth'))]) {
+  for (const file of [...walk(resolve(root, 'works/xhs-content-workbench')), ...walk(resolve(root, 'works/xhs-matrix-growth')), ...walk(resolve(root, 'works/explorations'))]) {
     assert.doesNotMatch(file, /\.(?:sqlite|db|env)$/);
     if (!/\.(html|css|js|md)$/.test(file)) continue;
     const text = readFileSync(file, 'utf8');
@@ -166,9 +183,11 @@ test('legacy branch deployment also excludes development directories', () => {
   }
 });
 
-test('personal portrait and contrasting selected-work cards retain explicit styles', () => {
+test('capability media and contrasting work sections retain responsive styles', () => {
   const css = read('assets/portfolio-upgrade.css');
-  assert.match(css, /\.hero-portrait-frame\s*\{[^}]*aspect-ratio:/);
-  assert.match(css, /\.featured-pair\s*\{[^}]*grid-template-columns:/);
-  assert.match(css, /\.selected-case-ai\s*\{[^}]*background:/);
+  assert.match(css, /\.hero-tool-preview/);
+  assert.match(css, /\.capability-chain/);
+  assert.match(css, /\.selected-case-ai::before\s*\{[^}]*background:/);
+  assert.match(css, /\.selected-case-screen/);
+  assert.doesNotMatch(css, /clamp\([^;]*vw/);
 });
