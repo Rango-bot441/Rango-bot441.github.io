@@ -13,11 +13,12 @@ export const publicFiles = [
   'assets/cover-prd-copilot.png', 'assets/cover-script-copywriter.png',
   'assets/creator-inspiration-station-cover.png', 'assets/creator-postmortem-ai-cover.png',
   'assets/creatorinsight-cover.png', 'assets/xhs-workbench-public.png',
-  'assets/portfolio-upgrade.css',
+  'assets/portfolio-upgrade.css', 'assets/xhs-workbench-current.jpg',
   'works/explorations/index.html', 'works/explorations/archive.css',
   'works/xhs-matrix-growth/index.html', 'works/xhs-matrix-growth/case.css',
   'works/xhs-content-workbench/index.html', 'works/xhs-content-workbench/case.css',
   'works/xhs-content-workbench/case.js', 'works/xhs-content-workbench/public-draft.md',
+  'education-content-growth-workbench/index.html',
 ];
 
 export function buildSite(destination = resolve(root, '_site')) {

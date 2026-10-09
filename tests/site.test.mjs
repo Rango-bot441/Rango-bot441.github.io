@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { runInNewContext } from 'node:vm';
 import { publicFiles, buildSite } from '../scripts/build-site.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -52,7 +53,7 @@ test('homepage copy stays job-focused and keeps early explorations secondary', (
   assert.doesNotMatch(explorations, /可访问性检查于|不代表模型服务或全部功能已经验证可用/);
   assert.match(explorations, /创作者社群助手|AI 短剧创作者运营/);
   assert.doesNotMatch(main, /944|模型效果待验证|尚未完成模型审核|模型审核待验|把内容做成增长/);
-  assert.match(main, /独立实践 · 本地工作台/);
+  assert.match(main, /本地原型 · 完整流程仍待验收/);
 });
 
 test('homepage summaries are visible and early work has one standalone entry', () => {
@@ -130,11 +131,11 @@ test('AI summary separates business problem, implemented tools and personal role
   const html = homepage();
   const ai = html.slice(html.indexOf('id="ai-practice"'), html.indexOf('id="explorations"'));
   assert.match(ai, /class="selected-case-problem"/);
-  assert.match(ai, /供稿资料分散|修改版本难追踪/);
+  assert.match(ai, /分散的选题、文案和审核工具/);
   assert.match(ai, /class="selected-case-capabilities"/);
-  assert.match(ai, /Agent.*检索.*核验.*设计/);
-  assert.match(ai, /我负责需求、流程和 Agent 规则设计/);
-  assert.match(ai, /AI 辅助完成/);
+  assert.match(ai, /主题、草稿或资料.*多套.*审核修改.*复制/);
+  assert.match(ai, /我负责需求、流程与规则设计/);
+  assert.match(ai, /AI 辅助开发/);
   assert.doesNotMatch(ai, /selected-case-ai-line|在线使用|立即生成|一键发布|已提升业务收益/);
 });
 
@@ -164,22 +165,20 @@ test('case contains truthful status, public source and actual download', () => {
   assert.ok(existsSync(resolve(root, casePath)), 'Case page must exist');
   const html = read(casePath);
   assert.match(html, /未审核|未完成.*审核|尚未.*审核/);
-  assert.match(html, /模型.*配置|配置.*模型/);
+  assert.match(html, /真实模型.*验收/);
   assert.match(html, /静态案例/);
   assert.match(html, /不会提交稿件或调用 AI/);
   assert.match(html, /https:\/\/grow\.google\/ai-essentials\//);
   assert.match(html, /public-draft\.md/);
-  assert.match(html, /xhs-workbench-public\.png/);
+  assert.match(html, /xhs-workbench-current\.jpg/);
   assert.match(html, /id=["']walkthrough["']/);
   assert.match(html, /人工/);
   assert.match(html, /独立实践|独立.*实践|业务.*流程.*设计/);
   assert.doesNotMatch(html, /href=["'][^"']*(?:127\.0\.0\.1|localhost|file:\/\/)/);
-  assert.match(html, /class="architecture-summary"/);
   assert.match(html, /search_sources/);
-  assert.match(html, /当前结论：/);
-  assert.match(html, /内容运营、审核人和外部供稿者/);
-  assert.match(html, /外稿提交后使用它/);
-  assert.match(html, /核心价值：/);
+  assert.match(html, /完整流程仍待验收/);
+  assert.match(html, /data-local-tool/);
+  assert.match(html, /工具入口/);
 });
 
 test('business case makes project ownership legible before disclosure', () => {
@@ -194,11 +193,70 @@ test('case pages expose a specific business chain and product use context', () =
   assert.match(business, /家长问题选题.*人设笔记建立信任.*私信答疑.*企微／群聊.*体验课／资料.*正价课/);
   assert.match(business, /用不同家长人设承接不同需求/);
   assert.match(business, /干货内容占 80% 以上/);
-  assert.match(ai, /内容运营、审核人和外部供稿者在外稿提交后使用它/);
-  assert.match(ai, /资料、原句、修改记录和交付状态/);
-  assert.match(ai, /核心价值：让审核人知道这句话依据什么/);
-  assert.match(ai, /已实现：资料与外稿管理、人工编辑、版本导出/);
-  assert.match(ai, /模型效果与业务收益待验证/);
+  assert.match(ai, /小红书 AI 内容工作台/);
+  assert.match(ai, /主题、草稿或资料/);
+  assert.match(ai, /标题、正文、话题/);
+  assert.match(ai, /不自动发布/);
+  assert.match(ai, /完整流程仍待验收/);
+});
+
+test('AI case page shows a real content case with all four evidence stages', () => {
+  const html = read(casePath);
+  assert.match(html, /id=["']real-case["']/);
+  const evidence = html.slice(html.indexOf('<section class="section wrap" id="real-case"'), html.indexOf('<section class="section wrap" id="project-background"'));
+  for (const [id, label] of [['case-input', '输入'], ['case-output', '产出'], ['case-human-edit', '人工修改'], ['case-fact-check', '事实核验']]) {
+    const stage = evidence.match(new RegExp(`<article[^>]+id="${id}"[^>]*>([\\s\\S]*?)<\\/article>`))?.[1];
+    assert.ok(stage, `${label} must remain in the visible case section`);
+    assert.ok(stage.includes(label));
+  }
+  assert.match(evidence, /失败|超时|已取消/);
+  assert.match(evidence, /重试/);
+  assert.match(evidence, /采纳|驳回|核验/);
+  assert.match(evidence, /模型请求超过 90 秒，已取消；可重试或缩小任务范围。/);
+  assert.match(evidence, /请精简输出，每个选题的角度和理由各不超过80字/);
+  assert.match(evidence, /开发验收反馈（由Codex整理，待本人确认）/);
+  assert.match(evidence, /人工核对确认这句话是本文范围说明，不是政策事实，因此无需来源支持/);
+  assert.match(evidence, /2026-09-22T18:44:42.679Z/);
+  assert.match(evidence, /2026-09-23T10:18:19.454Z/);
+  assert.match(evidence, /另一篇稿件/);
+  assert.doesNotMatch(evidence, /<details\b/);
+  assert.ok(html.indexOf('id="walkthrough"') < html.indexOf('id="real-case"'));
+  assert.ok(html.indexOf('id="real-case"') < html.indexOf('id="project-background"'));
+  assert.doesNotMatch(html, /<details[^>]*id=["']real-case["']/);
+  assert.doesNotMatch(html, /(?:task|draft|source)_[a-f0-9-]{20,}/);
+});
+
+test('tool introduction puts current UI and usable entry before engineering details', () => {
+  const html = read(casePath);
+  assert.ok(html.indexOf('id="tool-access"') < html.indexOf('id="walkthrough"'));
+  assert.ok(html.indexOf('xhs-workbench-current.jpg') < html.indexOf('id="architecture"'));
+  assert.doesNotMatch(html, /外稿提交后使用它|一条可复核|面试官先看/);
+  assert.match(html, /本机.*启动|启动.*本机/);
+  assert.match(html, /未开放在线试用/);
+  const script = read('works/xhs-content-workbench/case.js');
+  assert.match(script, /location\.hostname/);
+  assert.match(script, /data-local-tool/);
+  assert.match(script, /127\.0\.0\.1:4318/);
+  assert.ok(publicFiles.includes('assets/xhs-workbench-current.jpg'));
+});
+
+test('tool links activate only in local preview and do not misdirect public visitors', () => {
+  const script = read('works/xhs-content-workbench/case.js');
+  const execute = hostname => {
+    const links = Array.from({ length: 3 }, () => ({ href: '#tool-access', setAttribute(name, value) { this[name] = value; } }));
+    const note = { textContent: '工具目前在本机运行' };
+    runInNewContext(script, {
+      window: { location: { hostname, protocol: 'http:' } },
+      document: { querySelectorAll: () => links, querySelector: () => note },
+    });
+    return links;
+  };
+  for (const hostname of ['127.0.0.1', 'localhost', '[::1]']) {
+    const links = execute(hostname);
+    assert.ok(links.every(link => link.href === 'http://127.0.0.1:4318/' && link.target === '_blank' && link.rel === 'noopener'));
+  }
+  const links = execute('rango-bot441.github.io');
+  assert.ok(links.every(link => link.href === '#tool-access' && !link.target));
 });
 
 test('public practice draft explicitly discloses its unreviewed provenance', () => {

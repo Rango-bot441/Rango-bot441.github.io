@@ -102,6 +102,7 @@
 .agent-map small{color:var(--muted);font-size:11px;line-height:1.7}
 .agent-note{max-width:850px;margin-top:22px;padding-top:16px;border-top:1px solid #c8c6bc;color:var(--muted);font-size:12px;line-height:1.9}
 .agent-note span{display:inline-block;color:var(--orange-dark);font-weight:600;margin-right:12px}
+.interview-case-title{max-width:680px}
 .screen-evidence .screen-section{padding:0 0 8px}
 .screen-evidence .section-topline{padding-top:2px}
 .screen-evidence .screen-figure{margin-top:14px}
@@ -290,6 +291,7 @@ h1,h2,h3,.hero-line,.demo-banner h2,.footer-line{font-family:var(--sans);letter-
 .workflow-logic { display:flex; align-items:center; flex-wrap:wrap; gap:9px 10px; margin-top:27px; padding:16px 18px; border:1px solid var(--line); background:#f0ede5; color:var(--ink); font-size:13px; line-height:1.5; }
 .workflow-logic span { font-weight:600; }
 .workflow-logic i { color:var(--orange); font-style:normal; }
+.agent-map small { max-width: 18ch; }
 .flow-tabs a { position:relative; }
 .flow-tabs a[aria-selected="true"]::after { content:'当前'; display:inline-block; margin-left:8px; padding:2px 6px; border-radius:999px; background:var(--orange); color:#fff; font-size:10px; line-height:1.3; vertical-align:2px; }
 .review-schema { background:#f6f2e9; }
@@ -303,6 +305,7 @@ h1,h2,h3,.hero-line,.demo-banner h2,.footer-line{font-family:var(--sans);letter-
 @media(max-width:720px){
   .workflow-logic { align-items:flex-start; gap:6px 8px; padding:14px; font-size:12px; }
   .workflow-logic i { display:none; }
+  .agent-map small { max-width: none; }
   .flow-tabs { display:grid; grid-template-columns:1fr; gap:8px; }
   .flow-tabs a { display:flex; align-items:center; min-height:48px; padding:12px 14px; }
   .flow-tabs a[aria-selected="true"] { background:#ece5d9; }
@@ -310,4 +313,79 @@ h1,h2,h3,.hero-line,.demo-banner h2,.footer-line{font-family:var(--sans);letter-
   .schema-grid { grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:22px; }
   .schema-grid > div { min-height:94px; padding:14px; }
   .schema-grid strong { font-size:13px; }
+}
+
+/* Content-first product case; scoped to avoid changing older case layouts. */
+.writing-case .product-intro { padding-block:48px 44px; }
+.writing-case .product-intro .eyebrow { justify-content:space-between; color:#c4c7bc; }
+.writing-case .product-intro h1 { margin-top:28px; font-size:80px; line-height:1.1; letter-spacing:0; }
+.writing-case h2,.writing-case h3,.writing-case .eyebrow { letter-spacing:0; }
+.writing-case .product-category { margin-top:16px; color:#f6f2e9; font-size:23px; font-weight:600; }
+.writing-case .product-summary { max-width:800px; margin-top:20px; color:#e1e3d9; font-size:20px; line-height:1.8; }
+.writing-case .summary-goal { display:block; margin-bottom:6px; font-size:12px; color:#bfc3b7; }
+.writing-case .hero-actions { margin-top:24px; gap:24px; }
+.writing-case .hero-actions .button { min-height:48px; padding:11px 24px; font-size:14px; }
+.writing-case .hero-actions .text-link { color:#e1e3d9; }
+.writing-case .intro-status { margin-top:18px; color:#bfc3b7; font-size:12px; }
+.writing-case .section { padding-block:58px; }
+.writing-case .section-heading h2 { margin-top:10px; font-size:32px; }
+.writing-case .section-description { max-width:650px; margin-top:14px; font-size:14px; }
+.writing-case .split-heading { display:grid; grid-template-columns:1fr 1fr; align-items:end; gap:40px; }
+.writing-case .access-copy { font-size:14px; line-height:1.85; color:var(--muted); }
+.writing-case .access-copy .text-link { display:inline-block; margin-top:10px; color:var(--orange-dark); font-weight:600; }
+.writing-case .current-screen { margin-top:26px; }
+.writing-case .current-screen a { display:block; border:1px solid var(--line); background:white; }
+.writing-case .current-screen img { width:100%; height:auto; }
+.writing-case .current-screen figcaption { display:flex; justify-content:space-between; gap:12px; margin-top:12px; color:var(--muted); font-size:12px; }
+.writing-case .writing-steps { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:25px; margin:28px 0 0; padding:0; list-style:none; }
+.writing-case .writing-steps li { min-width:0; border-top:1px solid var(--ink); padding-top:15px; }
+.writing-case .step-number { font-size:13px; color:var(--orange-dark); }
+.writing-case .writing-steps h3 { margin-top:10px; font-size:20px; }
+.writing-case .writing-steps p { margin-top:10px; font-size:14px; line-height:1.85; color:var(--muted); }
+.writing-case .workflow-output { margin-top:30px; padding:18px 0; border-block:1px solid var(--line); font-size:15px; }
+.writing-case .workflow-output strong { margin-right:20px; }
+.writing-case .flow-footnote { font-size:12px; margin-top:16px; text-align:left; }
+.writing-case .project-story { display:grid; grid-template-columns:1fr 1fr; gap:50px; margin-top:28px; }
+.writing-case .project-story h3 { font-size:20px; }
+.writing-case .project-story p { margin-top:10px; font-size:15px; color:var(--muted); }
+.writing-case .project-story .text-link { display:inline-block; margin-top:12px; font-size:13px; }
+.writing-case .project-details { padding-top:0; }
+.writing-case .disclosures { margin-top:24px; }
+.writing-case summary { min-height:56px; padding:16px 0; font-size:15px; }
+.writing-case .details-body { padding-right:0; max-width:850px; }
+.writing-case .details-body p { font-size:14px; }
+.writing-case .case-footer { padding-block:42px; }
+.writing-case .footer-line { font-size:30px; }
+@media(max-width:900px) {
+  .writing-case .writing-steps { grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+}
+@media(max-width:720px) {
+  .writing-case .wrap { width:calc(100% - 40px); }
+  .writing-case .site-header { height:72px; }
+  .writing-case .case-nav { gap:12px; }
+  .writing-case .product-intro { padding-block:32px; }
+  .writing-case .product-intro .eyebrow { font-size:10px; gap:12px; }
+  .writing-case .product-intro h1 { font-size:60px; margin-top:24px; }
+  .writing-case .product-category { font-size:20px; margin-top:12px; }
+  .writing-case .product-summary { font-size:17px; line-height:1.8; margin-top:16px; }
+  .writing-case .desktop-break { display:none; }
+  .writing-case .hero-actions { gap:16px; }
+  .writing-case .hero-actions .text-link { font-size:13px; }
+  .writing-case .intro-status { font-size:12px; line-height:1.8; }
+  .writing-case .section { padding-block:36px; }
+  .writing-case .section-heading h2 { font-size:27px; }
+  .writing-case .split-heading,.writing-case .project-story { grid-template-columns:1fr; gap:18px; }
+  .writing-case .current-screen { margin-top:20px; }
+  .writing-case .current-screen figcaption { display:block; font-size:11px; }
+  .writing-case .current-screen figcaption span { display:block; margin-top:4px; }
+  .writing-case .writing-steps { grid-template-columns:1fr; gap:18px; margin-top:24px; }
+  .writing-case .writing-steps h3 { font-size:19px; }
+  .writing-case .writing-steps p { margin-top:6px; }
+  .writing-case .workflow-output { font-size:14px; }
+  .writing-case .workflow-output strong { display:block; margin-bottom:6px; }
+  .writing-case .project-story { margin-top:22px; gap:24px; }
+  .writing-case .project-details { padding-top:0; }
+  .writing-case .details-body p { font-size:14px; }
+  .writing-case .sheet-actions { align-items:start; gap:15px; }
+  .writing-case .footer-line { font-size:26px; }
 }
