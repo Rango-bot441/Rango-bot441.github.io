@@ -29,7 +29,7 @@
           <a class="button primary" href="#tool-access" data-local-tool>工具与入口说明 <span aria-hidden="true">↓</span></a>
           <a class="text-link" href="#real-case">查看真实内容案例 <span aria-hidden="true">↓</span></a>
         </div>
-        <p class="intro-status">已有真实运行、失败重试、返稿与人工裁定记录；新版完整流程仍待验收，未开放在线试用。</p>
+        <p class="intro-status">已有真实运行、失败重试、返稿与人工裁定记录；新版多方案→审核→修改→复查→导出完整流程已于 2026-10-11 用真实模型验收通过，未开放在线试用。</p>
       </section>
     </div>
 
@@ -48,7 +48,7 @@
 
     <section class="workflow-section" id="walkthrough" aria-labelledby="workflow-title">
       <div class="wrap section">
-        <div class="section-heading"><p class="eyebrow">02 / 使用流程</p><h2 id="workflow-title">从想法到一套完整文案。</h2><p class="section-description">正在完善以下流程。界面已有多方案入口，完整真实模型流程尚未验收。</p></div>
+        <div class="section-heading"><p class="eyebrow">02 / 使用流程</p><h2 id="workflow-title">从想法到一套完整文案。</h2><p class="section-description">以下流程已于 2026-10-11 用真实模型完整跑通：多方案生成、选中审核、按意见修改、复查、导出交付物。</p></div>
         <ol class="writing-steps">
           <li><span class="step-number">01</span><h3>输入内容</h3><p>写主题、粘贴草稿或参考资料。受众、语气和篇幅可补充，不必先填复杂任务表。</p></li>
           <li><span class="step-number">02</span><h3>比较方案</h3><p>查看不同角度的标题、正文、话题和配图文案，选中一套进入审核。</p></li>
@@ -116,7 +116,7 @@
           <p class="source-note">此处展示保存时的来源快照与人工判断，不作为当前入学政策解读；本轮没有重新核验官网政策。</p>
         </div>
       </article>
-      <p class="evidence-conclusion"><strong>已验证什么：</strong>真实任务、草稿版本、超时失败、重试成功、返稿与人工裁定均有保存记录。<strong>还缺什么：</strong>SOP 返稿仍待本人确认，尚未形成同一篇内容的本人终审与发布证据；新版多方案完整流程仍待验收，没有平台数据或获客效果。历史内容由豆包／DeepSeek 辅助完成，不改写为当时已用 Codex／Claude Agent。</p>
+      <p class="evidence-conclusion"><strong>已验证什么：</strong>真实任务、草稿版本、超时失败、重试成功、返稿与人工裁定均有保存记录；新版多方案生成→审核→修改→复查→导出完整流程已于 2026-10-11 用真实模型（gpt-6.1-sol）验收通过，验收任务「AI 入门课怎么选」共产出 4 个稿件版本、4 次运行记录，事实核验引用逐条回查资料原文。<strong>还缺什么：</strong>SOP 返稿仍待本人确认，尚未形成同一篇内容的本人终审与发布证据；没有平台数据或获客效果。历史内容由豆包／DeepSeek 辅助完成，不改写为当时已用 Codex／Claude Agent。</p>
     </section>
 
     <section class="section wrap" id="project-background" aria-labelledby="background-title">
@@ -128,7 +128,7 @@
     </section>
 
     <section class="section wrap project-details" aria-labelledby="details-title">
-      <div class="section-heading"><p class="eyebrow">05 / 实现与验证</p><h2 id="details-title">当前做到哪里。</h2><p class="section-description">已展示历史真实运行与人工判断记录。新版真实模型多方案生成、选中审核、修改和复制仍需完整验收；没有真实发布效果可展示。</p></div>
+      <div class="section-heading"><p class="eyebrow">05 / 实现与验证</p><h2 id="details-title">当前做到哪里。</h2><p class="section-description">已展示历史真实运行与人工判断记录。新版真实模型多方案生成、选中审核、修改、复查和导出已于 2026-10-11 完整验收；没有真实发布效果可展示。</p></div>
       <div class="disclosures">
         <details id="architecture"><summary><span>实现方式与人工边界</span><span class="detail-plus" aria-hidden="true">＋</span></summary><div class="details-body">
           <p>沿用 Node.js、SQLite 与原生网页界面，保存输入、稿件版本和审核记录。模型接入、生成和修改由服务端执行，不把凭据放进公开网站。</p>
@@ -140,7 +140,7 @@
           <div class="sheet-actions"><a class="text-link" href="./public-draft.md" download="有据-公开资料练习-未审核.md">下载练习稿 <span aria-hidden="true">↓</span></a><a class="text-link" href="https://grow.google/ai-essentials/" target="_blank" rel="noopener">官方来源 <span aria-hidden="true">↗</span></a><a class="text-link" href="/assets/xhs-workbench-public.png" target="_blank" rel="noopener">旧版界面截图 <span aria-hidden="true">↗</span></a></div>
         </div></details>
         <details><summary><span>下一步验证与功能范围</span><span class="detail-plus" aria-hidden="true">＋</span></summary><div class="details-body">
-          <p>下一步用同一篇实际内容跑通新版多方案生成、审核、修改、复查和复制，补足本人终审证据。上方历史记录不能替代新版完整流程验收。</p>
+          <p>新版多方案生成、审核、修改、复查和导出已于 2026-10-11 用真实模型验收通过（验收任务「AI 入门课怎么选」）。下一步是形成同一篇内容的本人终审与发布证据。上方历史记录与本次验收记录相互独立。</p>
           <p>教育内容为优先场景，不限强基。资料收集、发布记录与数据复盘后置；没有接通小红书自动发布或实时平台数据，也没有可证明的效率与获客提升。</p>
         </div></details>
       </div>
