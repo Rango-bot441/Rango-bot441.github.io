@@ -56,6 +56,15 @@
 
 ## 已完成
 
+- [x] TODO-006：新增「有序」案例页 `works/xhs-youxu-workbench/`
+  - 优先级：P1
+  - 目标：为个人网站「AI 实践」里的有序卡片提供链接目标。有序与有据是两个独立工具，页面只讲有序自己的流程（想法→生成→选稿修改→内容检查→导出），不写与有据的版本或前后关系。
+  - 验收标准：页面所有说法有出处（有序 README / TODO / 实跑的测试）；只用候选稿与模型选择两张截图，不含真实姓名、密钥或本机路径；已加入 `scripts/build-site.mjs` 白名单和 `tests/site.test.mjs` 的链接检查；`node --test tests/site.test.mjs` 全绿。
+  - 依赖：无；推送发布需用户另行授权，本任务只做本地构建与提交。
+  - 完成日期：2026-10-11
+  - 结果：新增 works/xhs-youxu-workbench/index.html（复用有据案例页的 case.css），含界面、五步工作环节、内容检查、实现与边界；新增 assets/youxu-draft.png、assets/youxu-model-picker.png，并加入构建白名单；tests/site.test.mjs 新增有序页检查并纳入链接检查。
+  - 验证：node --test tests/site.test.mjs 23 项全通过；build-site 临时构建含新页与两张图（已删除临时目录）；桌面 1440px 无头 Chrome 渲染、390px 宽度无横向溢出。未验证：平板宽度、公网发布后的实际访问（未推送）。
+
 - [x] SETUP-001：建立 To Do 与本地 Git 提交流程
   - 完成日期：2026-10-10
   - 结果：新增 TODO.md 与 AGENTS.md，沿用现有 Git 仓库。

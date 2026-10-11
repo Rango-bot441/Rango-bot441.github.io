@@ -11,6 +11,7 @@ const read = path => readFileSync(resolve(root, path), 'utf8');
 const homepage = () => read('index.html');
 const casePath = 'works/xhs-content-workbench/index.html';
 const businessPath = 'works/xhs-matrix-growth/index.html';
+const youxuPath = 'works/xhs-youxu-workbench/index.html';
 
 test('homepage leads to the specific case and preserves historical navigation', () => {
   const html = homepage();
@@ -259,6 +260,16 @@ test('tool links activate only in local preview and do not misdirect public visi
   assert.ok(links.every(link => link.href === '#tool-access' && !link.target));
 });
 
+test('youxu case page is public, honest about status and lists its own flow', () => {
+  const html = read(youxuPath);
+  for (const file of [youxuPath, 'assets/youxu-draft.png', 'assets/youxu-model-picker.png']) assert.ok(publicFiles.includes(file), file);
+  for (const step of ['想法', '生成', '选稿修改', '内容检查', '导出']) assert.match(html, new RegExp('<h3>' + step + '</h3>'));
+  assert.match(html, /未开放在线试用/);
+  assert.match(html, /整体端到端验收仍在收尾/);
+  assert.doesNotMatch(html, /有据.{0,12}(前身|升级|新版|重构)|(前身|升级版|重构).{0,12}有据/);
+  assert.doesNotMatch(html, /127\.0\.0\.1|localhost|:43\d\d|XHS_API_KEY|\.xhs-workbench\.env/);
+});
+
 test('public practice draft explicitly discloses its unreviewed provenance', () => {
   const text = read('works/xhs-content-workbench/public-draft.md');
   assert.match(text, /未完成模型审核/);
@@ -268,7 +279,7 @@ test('public practice draft explicitly discloses its unreviewed provenance', () 
 });
 
 test('local links and anchors resolve for homepage and both cases', () => {
-  for (const file of ['index.html', businessPath, casePath, 'works/explorations/index.html']) {
+  for (const file of ['index.html', businessPath, casePath, youxuPath, 'works/explorations/index.html']) {
     const html = read(file).replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '');
     for (const [, raw] of html.matchAll(/(?:href|src)=["']([^"']+)["']/g)) {
       if (/^(?:https?:|mailto:|tel:|data:|javascript:)/.test(raw)) continue;
@@ -297,7 +308,7 @@ test('public allowlist excludes development and private workspace data', () => {
 
 test('new public files contain no workspace database, private trace or credentials', () => {
   const walk = dir => readdirSync(dir, { withFileTypes: true }).flatMap(item => item.isDirectory() ? walk(resolve(dir, item.name)) : [resolve(dir, item.name)]);
-  for (const file of [...walk(resolve(root, 'works/xhs-content-workbench')), ...walk(resolve(root, 'works/xhs-matrix-growth')), ...walk(resolve(root, 'works/explorations'))]) {
+  for (const file of [...walk(resolve(root, 'works/xhs-content-workbench')), ...walk(resolve(root, 'works/xhs-youxu-workbench')), ...walk(resolve(root, 'works/xhs-matrix-growth')), ...walk(resolve(root, 'works/explorations'))]) {
     assert.doesNotMatch(file, /\.(?:sqlite|db|env)$/);
     if (!/\.(html|css|js|md)$/.test(file)) continue;
     const text = readFileSync(file, 'utf8');

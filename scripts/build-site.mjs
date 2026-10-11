@@ -18,6 +18,7 @@ export const publicFiles = [
   'works/xhs-matrix-growth/index.html', 'works/xhs-matrix-growth/case.css',
   'works/xhs-content-workbench/index.html', 'works/xhs-content-workbench/case.css',
   'works/xhs-content-workbench/case.js', 'works/xhs-content-workbench/public-draft.md',
+  'works/xhs-youxu-workbench/index.html', 'assets/youxu-draft.png', 'assets/youxu-model-picker.png',
   'education-content-growth-workbench/index.html',
 ];
 
