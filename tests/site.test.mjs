@@ -22,7 +22,7 @@ test('homepage exposes the current section hierarchy and truthful entry points',
   assert.match(html, /MarioCode|RangoCode/);
   assert.match(html, /AI API 控制台|AI 网关/);
   assert.match(html, /轻量 Demo/);
-  assert.match(html, /href="\/?works\/explorations\//);
+  assert.match(html, /https:\/\/rango-bot441\.github\.io\/works\/explorations\//);
 });
 
 test('homepage keeps the personal hero and business projects before AI practice', () => {
@@ -72,8 +72,8 @@ test('cross-project results and project modals retain source-bounded facts', () 
   assert.match(main, /小学数理思维 · 素人矩阵线索|小学家长/);
   assert.doesNotMatch(main, /3W\\+|3 万.*累计|HTML\/CSS\/JS/);
   assert.match(html, /openProjectModal\(Number\(card\.dataset\.idx\)\)/);
-  assert.equal((main.match(/class="project-responsibility"/g) || []).length, 3);
-  assert.equal((main.match(/class="project-results"/g) || []).length, 3);
+  assert.equal((main.match(/class="project-responsibility"/g) || []).length, 4);
+  assert.equal((main.match(/class="project-results"/g) || []).length, 4);
 });
 
 test('locked homepage hierarchy and project focus stay stable', () => {
@@ -95,9 +95,9 @@ test('AI practice separates business problem, implemented tools and personal rol
   const html = homepage();
   const ai = html.slice(html.indexOf('id="ai-practice"'), html.indexOf('id="explorations"'));
   assert.match(ai, /class="selected-case-problem"/);
-  assert.match(ai, /分散的选题、文案和审核工具/);
+  assert.match(ai, /选题、写稿和审核原本分散在不同工具里/);
   assert.match(ai, /class="selected-case-capabilities"/);
-  assert.match(ai, /输入主题、草稿或资料/);
+  assert.match(ai, /选题、写稿和审核原本分散在不同工具里/);
   assert.match(ai, /AI 辅助开发/);
   assert.doesNotMatch(ai, /在线使用|立即生成|一键发布|已提升业务收益/);
 });
