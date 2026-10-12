@@ -11,52 +11,61 @@ const homepage = () => read('index.html');
 const casePath = 'works/xhs-content-workbench/index.html';
 const businessPath = 'works/xhs-matrix-growth/index.html';
 
-test('homepage exposes the current section hierarchy and truthful entry points', () => {
+test('homepage leads to the specific case and preserves historical navigation', () => {
   const html = homepage();
-  for (const id of ['top', 'works', 'ai-practice', 'explorations', 'career-section', 'about', 'contact']) assert.match(html, new RegExp(`id=["']${id}["']`));
+  for (const id of ['top', 'works', 'career-section', 'about', 'insights', 'contact']) assert.match(html, new RegExp(`id=["']${id}["']`));
   assert.ok(html.indexOf('id="works"') < html.indexOf('id="career-section"'));
-  assert.ok(html.indexOf('id="ai-practice"') < html.indexOf('id="explorations"'));
-  assert.ok(html.indexOf('id="explorations"') < html.indexOf('id="career-section"'));
-  assert.match(html, /RangoCode/);
-  assert.match(html, /AI 网关/);
-  assert.match(html, /轻量 Demo/);
-  assert.match(html, /https:\/\/rango-bot441\.github\.io\/works\/explorations\//);
-  assert.doesNotMatch(html, /href=["']\/?works\/xhs-(?:content-workbench|youxu-workbench|matrix-growth)\//);
-  assert.match(html, /小学数理思维 · 素人矩阵线索|小学家长/);
+  assert.ok(html.indexOf('id="career-section"') < html.indexOf('id="about"'));
+  assert.match(html, /小红书素人矩阵 · 自然流获课/);
   assert.match(html, /成人英语 · 主播矩阵获客/);
 });
 
-test('personal hero precedes business projects and uses the current portrait', () => {
+test('personal hero precedes business projects, AI practice and other work', () => {
   const html = homepage();
   const worksStart = html.indexOf('id="works"');
+  const careerStart = html.indexOf('id="career-section"');
   const firstScreen = html.slice(0, worksStart);
-  assert.ok(worksStart > 0);
+  const selectedWorks = html.slice(worksStart, careerStart);
+  assert.ok(worksStart > 0 && careerStart > worksStart);
+  assert.match(firstScreen, /class="hero-avatar"/);
   assert.match(firstScreen, /assets\/profile\.jpg/);
+  assert.doesNotMatch(firstScreen, /capability-chain|hero-tool-preview|xhs-workbench-public/);
+  assert.doesNotMatch(firstScreen, /class="hero-decision"/, 'Hero should not duplicate the business report');
+  assert.equal((firstScreen.match(/class="[^"]*btn-primary[^"]*"/g) || []).length, 1, 'Hero should present only one primary action');
   assert.ok(html.indexOf('id="works"') < html.indexOf('id="ai-practice"'));
   assert.ok(html.indexOf('id="ai-practice"') < html.indexOf('id="explorations"'));
+  assert.ok(html.indexOf('id="explorations"') < html.indexOf('id="career-section"'));
 });
 
-test('homepage copy stays job-focused and accurately labels lightweight demos', () => {
+test('homepage copy stays job-focused and keeps early explorations secondary', () => {
   const html = homepage();
   const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
-  assert.match(main, /内容增长/);
-  assert.match(main, /创作者/);
-  assert.match(main, /轻量 Demo/);
-  assert.doesNotMatch(main, /一键发布|自动发布|已提升业务收益/);
+  const hero = main.slice(0, main.indexOf('id="works"'));
+  const explorations = main.slice(main.indexOf('id="explorations"'), main.indexOf('id="career-section"'));
+  assert.match(hero, /内容增长/);
+  assert.match(hero, /创作者/);
+  assert.doesNotMatch(explorations, /可访问性检查于|不代表模型服务或全部功能已经验证可用/);
+  assert.match(explorations, /规则驱动的前端演示|未接入大模型/);
+  assert.doesNotMatch(main, /944|模型效果待验证|尚未完成模型审核|模型审核待验|把内容做成增长/);
+  assert.match(main, /独立 AI 实践/);
 });
 
-test('homepage summaries are visible and section IDs are unique', () => {
+test('homepage summaries are visible and early work has one standalone entry', () => {
   const html = homepage();
   const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
   assert.doesNotMatch(main, /<details\b/);
   assert.match(html, /代表业务项目/);
+  assert.equal((main.match(/href="https:\/\/rango-bot441\.github\.io\/works\/explorations\//g) || []).length, 1);
+  assert.doesNotMatch(main, /featured-tools-grid|prototype-grid|我的工作边界/);
   assert.match(main, /北京语言大学 · 新闻学/);
   const ids = [...html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
   assert.equal(new Set(ids).size, ids.length, 'Homepage element IDs must be unique');
   const archive = read('works/explorations/index.html');
+  assert.doesNotMatch(archive, /<details\b|<script\b/);
   assert.match(archive, /inspiration-station/);
   assert.match(archive, /content-safety-copilot/);
   assert.doesNotMatch(archive, /featured-title|featured-card/);
+  assert.ok(archive.indexOf('id="tools-title"') > 0);
 });
 
 test('cross-project results preserve attribution and project modals use stable identities', () => {
@@ -64,14 +73,14 @@ test('cross-project results preserve attribution and project modals use stable i
   const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
   assert.match(main, /北大学姐 · 小红书粉丝/);
   assert.match(main, /成人英语 · 兼职主播/);
-  assert.match(main, /小学家长/);
+  assert.match(main, /小红书素人矩阵 · 自然流获课/);
   assert.equal((main.match(/40–50/g) || []).length, 1);
   assert.doesNotMatch(main, /3W\+|3 万.*累计|HTML\/CSS\/JS/);
   assert.match(html, /openProjectModal\(Number\(card\.dataset\.idx\)\)/);
-  assert.ok(main.indexOf('id="works"') < main.indexOf('id="ai-practice"'));
-  const projects = main.slice(main.indexOf('class="business-project-grid"'), main.indexOf('id="ai-practice"'));
+  assert.ok(main.indexOf('class="hero-board-stats"') < main.indexOf('id="works"'));
+  const projects = main.slice(main.indexOf('id="biz-grid"'), main.indexOf('id="ai-practice"'));
   assert.match(projects, /小学家长/);
-  assert.match(projects, /小学数理思维/);
+  assert.match(projects, /小学家长/);
   assert.equal((projects.match(/class="project-responsibility"/g) || []).length, 4);
   assert.equal((projects.match(/class="project-results"/g) || []).length, 4);
 });
@@ -79,7 +88,7 @@ test('cross-project results preserve attribution and project modals use stable i
 test('locked homepage hierarchy and project focus stay stable', () => {
   const html = homepage().replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '');
   const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
-  const markers = ['id="top"', 'id="works"', 'id="ai-practice"', 'id="explorations"', 'id="career-section"', 'id="about"', 'id="contact"'];
+  const markers = ['id="top"', 'class="hero-board-stats"', 'id="works"', 'id="ai-practice"', 'id="explorations"', 'id="career-section"', 'id="about"', 'id="contact"'];
   let previous = -1;
   for (const marker of markers) {
     assert.equal(main.split(marker).length - 1, 1, `${marker} must exist exactly once`);
@@ -88,18 +97,38 @@ test('locked homepage hierarchy and project focus stay stable', () => {
     previous = position;
   }
   const grid = main.slice(main.indexOf('class="business-project-grid"'), main.indexOf('id="ai-practice"'));
-  assert.equal((grid.match(/<article\b/g) || []).length, 4);
+  const cards = [...grid.matchAll(/<article\b([^>]*)>([\s\S]*?)<\/article>/g)];
+  assert.equal(cards.length, 4);
+  const expected = [
+    { title: '小红书素人矩阵 · 自然流获课', idx: '1', facts: ['小学家长', '4000', '80', '40–50'] },
+    { title: '成人英语 · 主播矩阵获客', idx: '0', facts: ['银发', '短视频与直播', '9000', '180'] },
+    { title: '高中志愿账号矩阵与直播获客', idx: '3', facts: ['高考家庭', '4000', '70'] },
+    { title: '北大学姐 · IP 孵化与增长', idx: '2', facts: ['内容策划', '20', '15'] },
+  ];
+  cards.forEach(([, attributes, body], index) => {
+    const item = expected[index];
+    assert.ok(body.includes(item.title));
+    assert.match(body, /主导/);
+    for (const fact of item.facts) assert.ok(body.includes(fact), `${item.title}: missing ${fact}`);
+    if (item.idx) {
+      assert.ok(attributes.includes(`data-idx="${item.idx}"`));
+      assert.doesNotMatch(attributes, /project-focus/);
+    } else {
+      assert.fail(`${item.title} should carry a modal identity`);
+    }
+  });
 });
 
-test('AI practice separates business problem, implemented tools and personal role', () => {
+test('AI summary separates business problem, implemented tools and personal role', () => {
   const html = homepage();
   const ai = html.slice(html.indexOf('id="ai-practice"'), html.indexOf('id="explorations"'));
   assert.match(ai, /class="selected-case-problem"/);
-  assert.match(ai, /选题、写稿和审核原本分散在不同工具里/);
+  assert.match(ai, /把已有的选题或想法写成合规可用的小红书文案/);
   assert.match(ai, /class="selected-case-capabilities"/);
-  assert.match(ai, /需求、流程和检查规则由我设计并验收/);
-  assert.match(ai, /AI 辅助开发/);
-  assert.doesNotMatch(ai, /在线使用|立即生成|一键发布|已提升业务收益/);
+  assert.match(ai, /任务、资料、稿件和审核意见集中管理/);
+  assert.match(ai, /需求、流程和检查规则由我设计/);
+  assert.match(ai, /AI 辅助完成/);
+  assert.doesNotMatch(ai, /selected-case-ai-line|在线使用|立即生成|一键发布|已提升业务收益/);
 });
 
 test('business case is a source-bounded account of the historical project', () => {
@@ -173,7 +202,7 @@ test('public practice draft explicitly discloses its unreviewed provenance', () 
   assert.doesNotMatch(text, /source_[a-f0-9-]+|draft_[a-f0-9-]+|task_[a-f0-9-]+|api[_-]?key\s*[:=]/i);
 });
 
-test('local links and anchors resolve for homepage and retained public pages', () => {
+test('local links and anchors resolve for homepage and both cases', () => {
   for (const file of ['index.html', businessPath, casePath, 'works/explorations/index.html']) {
     const html = read(file).replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '');
     for (const [, raw] of html.matchAll(/(?:href|src)=["']([^"']+)["']/g)) {
@@ -226,12 +255,14 @@ test('legacy branch deployment also excludes development directories', () => {
   }
 });
 
-test('homepage assets and project cards retain responsive styles', () => {
+test('portrait and project results retain responsive styles', () => {
   const css = read('assets/portfolio-upgrade.css');
   assert.match(css, /\.personal-portrait/);
   assert.match(css, /\.business-project-grid/);
+  assert.match(css, /\.selected-case-ai::before\s*\{[^}]*background:/);
   assert.match(css, /\.selected-case-screen/);
-  for (const file of ['assets/fusion.css', 'assets/ai-gateway-diagram.svg', 'assets/mariocode-hero.png', 'assets/xhs-workbench-public.jpg', 'assets/youxu-workbench.png']) {
-    assert.ok(publicFiles.includes(file), `${file} must be in the build allowlist`);
-  }
+  assert.doesNotMatch(css, /clamp\([^;]*vw/);
+  const modalCloseRule = css.match(/\.portfolio-upgrade \.card-modal-close\s*\{([^}]+)\}/)?.[1];
+  assert.match(modalCloseRule, /transition:/);
+  assert.doesNotMatch(modalCloseRule, /transition:\s*all/, 'Visibility must not delay modal focus');
 });

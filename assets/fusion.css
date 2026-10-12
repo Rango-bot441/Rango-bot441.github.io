@@ -767,6 +767,8 @@ body.portfolio-upgrade.fusion-study .hero-board-stats .hero-result-item:hover {
   box-shadow: 0 0 0 1px #ff875d66, 0 10px 34px #e8450a44;
 }
 
+body.portfolio-upgrade.fusion-study .hero-ai-cards { display: grid; gap: 10px; }
+
 body.portfolio-upgrade.fusion-study .hero-ai-card {
   position: relative;
   display: grid;
