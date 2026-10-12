@@ -57,6 +57,15 @@
 
 ## 已完成
 
+- [x] TODO-010：「更多作品与工具实验」页删除「业务场景原型 · 协作与运营工作台」区块
+  - 优先级：P1
+  - 目标：该页只保留 7 个工具 demo，不再展示创作者社群助手、AI 短剧创作者运营平台、内容增长工作台三张卡片。
+  - 验收标准：`works/explorations/index.html` 不含 featured 区块及其无用样式；页头与 meta 文案不再提「工作台原型」；测试同步；7 个 demo 完整保留。
+  - 依赖：无
+  - 完成日期：2026-10-12
+  - 结果：删除 `works/explorations/index.html` 的 featured 区块（三张卡片）；`works/explorations/archive.css` 清除 `.featured-*` 样式及其媒体查询里的对应规则；页头简介和 meta description 改为只描述 7 个轻量工具；`tests/site.test.mjs` 把「featured 在 tools 之前」的断言改为「不含 featured 区块、tools 标题存在」。
+  - 验证：`node --test tests/site.test.mjs` 23 项全通过；`git diff --check` 通过；CSS 花括号平衡；本地临时服务（已关闭）打开该页，DOM 读取确认只剩 7 个 `h3`（选题、脚本文案、审核、复盘诊断、增长计划、A/B 实验、产品化表达），无 featured 卡片。未验证：视觉效果与 390px 窄屏（未目测）；公网发布后的实际页面（未推送）。
+
 - [x] TODO-006：新增「有序」案例页 `works/xhs-youxu-workbench/`
   - 优先级：P1
   - 目标：为个人网站「AI 实践」里的有序卡片提供链接目标。有序与有据是两个独立工具，页面只讲有序自己的流程（想法→生成→选稿修改→内容检查→导出），不写与有据的版本或前后关系。
