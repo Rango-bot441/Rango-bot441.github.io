@@ -64,7 +64,8 @@
   - 依赖：无
   - 完成日期：2026-10-12
   - 结果：删除 `works/explorations/index.html` 的 featured 区块（三张卡片）；`works/explorations/archive.css` 清除 `.featured-*` 样式及其媒体查询里的对应规则；页头简介和 meta description 改为只描述 7 个轻量工具；`tests/site.test.mjs` 把「featured 在 tools 之前」的断言改为「不含 featured 区块、tools 标题存在」。
-  - 验证：`node --test tests/site.test.mjs` 23 项全通过；`git diff --check` 通过；CSS 花括号平衡；本地临时服务（已关闭）打开该页，DOM 读取确认只剩 7 个 `h3`（选题、脚本文案、审核、复盘诊断、增长计划、A/B 实验、产品化表达），无 featured 卡片。未验证：视觉效果与 390px 窄屏（未目测）；公网发布后的实际页面（未推送）。
+  - 验证：`node --test tests/site.test.mjs` 23 项全通过；`git diff --check` 通过；CSS 花括号平衡；本地临时服务（已关闭）打开该页，DOM 读取确认只剩 7 个 `h3`（选题、脚本文案、审核、复盘诊断、增长计划、A/B 实验、产品化表达），无 featured 卡片。未验证：视觉效果与 390px 窄屏（未目测）；视觉效果。
+  - 发布（2026-10-12，经用户确认）：只把本条改动摘到线上 main 推送，线上提交 85ebc28（其余 12 个本地提交未发布）；推送走 SSH（HTTPS 无凭证）。线上 https://rango-bot441.github.io/works/explorations/ 已确认不含「协作与运营工作台」、有 7 个 tool-card；Pages 工作流当时仍显示 in_progress。
 
 - [x] TODO-006：新增「有序」案例页 `works/xhs-youxu-workbench/`
   - 优先级：P1
