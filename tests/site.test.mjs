@@ -69,8 +69,8 @@ test('homepage summaries are visible and early work has one standalone entry', (
   assert.doesNotMatch(archive, /<details\b|<script\b/);
   assert.match(archive, /inspiration-station/);
   assert.match(archive, /content-safety-copilot/);
-  assert.ok(archive.indexOf('id="featured-title"') > 0);
-  assert.ok(archive.indexOf('id="featured-title"') < archive.indexOf('id="tools-title"'));
+  assert.doesNotMatch(archive, /featured-title|featured-card/);
+  assert.ok(archive.indexOf('id="tools-title"') > 0);
 });
 
 test('cross-project results preserve attribution and project modals use stable identities', () => {
