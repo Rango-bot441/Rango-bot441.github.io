@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 430" width="1180" height="430" role="img" aria-labelledby="t d">
+  <title id="t">AI 网关架构示意图</title>
+  <desc id="d">多个 AI 项目通过统一的 AI 网关调用多个模型，网关负责统一入口、权限和成本记录。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14121a"/>
+      <stop offset="1" stop-color="#0c0d14"/>
+    </linearGradient>
+    <linearGradient id="hub" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff875d"/>
+      <stop offset="1" stop-color="#e8450a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1180" height="430" fill="url(#bg)"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',sans-serif" text-anchor="middle">
+    <text x="170" y="52" fill="#9aa0ae" font-size="20">AI 项目</text>
+    <text x="590" y="52" fill="#9aa0ae" font-size="20">统一入口</text>
+    <text x="1010" y="52" fill="#9aa0ae" font-size="20">模型服务</text>
+
+    <g fill="none" stroke="#ffffff33" stroke-width="2">
+      <path d="M290 110 C 380 110, 380 215, 450 215"/>
+      <path d="M290 215 L 450 215"/>
+      <path d="M290 320 C 380 320, 380 215, 450 215"/>
+      <path d="M730 215 C 800 215, 800 110, 890 110"/>
+      <path d="M730 215 L 890 215"/>
+      <path d="M730 215 C 800 215, 800 320, 890 320"/>
+    </g>
+
+    <g fill="#ffffff0d" stroke="#ffffff30" stroke-width="2">
+      <rect x="50" y="80" width="240" height="60" rx="12"/>
+      <rect x="50" y="185" width="240" height="60" rx="12"/>
+      <rect x="50" y="290" width="240" height="60" rx="12"/>
+      <rect x="890" y="80" width="240" height="60" rx="12"/>
+      <rect x="890" y="185" width="240" height="60" rx="12"/>
+      <rect x="890" y="290" width="240" height="60" rx="12"/>
+    </g>
+    <g fill="#e6e8ee" font-size="22">
+      <text x="170" y="118">内容工具</text>
+      <text x="170" y="223">编程工具</text>
+      <text x="170" y="328">其他项目</text>
+      <text x="1010" y="118">模型 A</text>
+      <text x="1010" y="223">模型 B</text>
+      <text x="1010" y="328">模型 C</text>
+    </g>
+
+    <rect x="450" y="120" width="280" height="190" rx="18" fill="url(#hub)"/>
+    <text x="590" y="178" fill="#fff" font-size="34" font-weight="700">AI 网关</text>
+    <g fill="#fff" font-size="20" fill-opacity=".92">
+      <text x="590" y="222">统一调用</text>
+      <text x="590" y="254">权限管理</text>
+      <text x="590" y="286">成本记录</text>
+    </g>
+    <text x="590" y="395" fill="#6f7585" font-size="16">示意图 · 非真实界面</text>
+  </g>
+</svg>

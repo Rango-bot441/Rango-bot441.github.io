@@ -8,7 +8,7 @@ export const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const publicFiles = [
   'index.html', 'favicon.svg',
   'index-preview.html', 'index-v2-backup.html', 'index-v2-with-proof.html', 'index-v2.html',
-  'assets/profile.jpg', 'assets/blcu-logo.png', 'assets/gaotu-logo.svg',
+  'assets/profile.jpg', 'assets/blcu-logo.png', 'assets/gaotu-logo.svg', 'assets/fusion.css', 'assets/ai-gateway-diagram.svg', 'assets/mariocode-hero.png', 'assets/xhs-workbench-public.jpg', 'assets/youxu-workbench.png',
   'assets/cover-ab-test-designer.png', 'assets/cover-content-safety-copilot.png',
   'assets/cover-prd-copilot.png', 'assets/cover-script-copywriter.png',
   'assets/creator-inspiration-station-cover.png', 'assets/creator-postmortem-ai-cover.png',
