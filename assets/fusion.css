@@ -1,0 +1,994 @@
+/* Keep the published layout. Add neutral depth, glass surfaces and restrained feedback. */
+html { background: #202127; }
+body.portfolio-upgrade.fusion-study {
+  --paper: #1e1f25;
+  --panel: #303139;
+  --soft: #272831;
+  --ink: #f7f7fa;
+  --muted: #c5c6cf;
+  --quiet: #a6a8b5;
+  --rule: #ffffff24;
+  --accent: #e8450a;
+  --accent-hover: #f45c22;
+  --accent-text: #ff875d;
+  --accent-soft: #e8450a10;
+  --glass: rgba(43,44,54,.88);
+  --surface-shadow: 0 18px 45px #08091038, inset 0 1px 0 #ffffff18;
+  background: var(--paper);
+}
+body.portfolio-upgrade.fusion-study .nav {
+  background: rgba(25,26,33,.86);
+  border-bottom: 1px solid #ffffff20;
+  box-shadow: 0 1px 0 #0000000a;
+  backdrop-filter: blur(20px) saturate(115%);
+  -webkit-backdrop-filter: blur(20px) saturate(115%);
+}
+body.portfolio-upgrade.fusion-study .nav-btn {
+  background: linear-gradient(135deg,#ffffff13,#ffffff05);
+  box-shadow: inset 0 1px 0 #ffffff20;
+  border-radius: 10px;
+}
+body.portfolio-upgrade.fusion-study .nav-drawer {
+  background: var(--glass);
+  border-bottom: 1px solid var(--rule);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+body.portfolio-upgrade.fusion-study .hero {
+  background: radial-gradient(ellipse at 90% 22%,#ffffff08,transparent 52%),
+    radial-gradient(ellipse at 8% 96%,#e8450a16,transparent 58%), #22232b;
+  color: #f5f5ef;
+  position: relative;
+}
+body.portfolio-upgrade.fusion-study .hero-grid {
+  min-height: min(690px, calc(100vh - 120px));
+  gap: clamp(34px, 5vw, 78px);
+}
+body.portfolio-upgrade.fusion-study .hero-copy { position: relative; z-index: 2; }
+body.portfolio-upgrade.fusion-study .personal-portrait {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 320px);
+  margin: 0 auto;
+  align-self: center;
+  justify-self: end;
+}
+body.portfolio-upgrade.fusion-study .personal-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: min(68vh, 650px);
+  object-fit: cover;
+  object-position: center top;
+  opacity: .96;
+  mask-image: linear-gradient(to bottom,#000 84%,transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom,#000 84%,transparent 100%);
+}
+body.portfolio-upgrade.fusion-study .personal-portrait::before {
+  content: '';
+  position: absolute;
+  inset: 8% -12% 8% -12%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 44%,#e8450a25,transparent 68%);
+  filter: blur(16px);
+}
+body.portfolio-upgrade.fusion-study .personal-portrait-note {
+  position: absolute;
+  right: 18px;
+  bottom: 42px;
+  z-index: 2;
+  padding: 8px 12px;
+  border: 1px solid #ffffff2b;
+  border-radius: 8px;
+  background: #191a22bb;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+body.portfolio-upgrade.fusion-study .hero::before {
+  display: block;
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='.14' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  opacity: .16;
+  animation: none;
+}
+body.portfolio-upgrade.fusion-study .hero-tag { color: #ff875d; }
+body.portfolio-upgrade.fusion-study .hero .lead { color: #e3e4eb; }
+body.portfolio-upgrade.fusion-study .personal-portrait-note { color: #c5c6d0; }
+body.portfolio-upgrade.fusion-study .hero-practice {
+  color: #ffe2d3;
+  border-left: 2px solid #ff875d99;
+  padding-left: 12px;
+  background: linear-gradient(90deg,#e8450a0f,transparent 85%);
+}
+body.portfolio-upgrade.fusion-study .hero-name span { color: #e8450a; }
+body.portfolio-upgrade.fusion-study .hero-bottomline { color: #bdbfc9; }
+body.portfolio-upgrade.fusion-study .personal-portrait img {
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px #ffffff32, 0 22px 60px #0c0c184d;
+}
+body.portfolio-upgrade.fusion-study .hero .btn-primary {
+  border-radius: 999px;
+  background: linear-gradient(180deg,#cb410d,#b73508);
+  color: #fff;
+  box-shadow: inset 0 1px 0 #ffffff35, 0 6px 22px #e8450a25;
+  transition: transform .24s cubic-bezier(.2,.75,.2,1), box-shadow .24s ease, background .18s ease;
+}
+body.portfolio-upgrade.fusion-study .hero .btn-primary:hover {
+  background: linear-gradient(180deg,#d74710,#c23a09);
+  transform: translateY(-2px);
+  box-shadow: inset 0 1px 0 #ffffff45, 0 10px 28px #e8450a40;
+}
+body.portfolio-upgrade.fusion-study .hero .btn-primary:active { transform: translateY(0); }
+body.portfolio-upgrade.fusion-study .hero-secondary:hover { color: #ff875d; border-color: #ff875d; }
+
+body.portfolio-upgrade.fusion-study .hero-results {
+  background: linear-gradient(180deg,#ffffff06,transparent),var(--soft);
+  border-top: 1px solid var(--rule);
+  box-shadow: inset 0 1px 0 #ffffff25;
+}
+body.portfolio-upgrade.fusion-study .hero-results-grid strong {
+  font-size: 32px;
+  color: var(--accent-text);
+  font-weight: 750;
+  font-variant-numeric: lining-nums tabular-nums;
+  letter-spacing: 0;
+}
+body.portfolio-upgrade.fusion-study .hero-results-grid strong span {
+  font-size: .5em;
+  font-weight: 500;
+  color: color-mix(in srgb,var(--accent-text) 78%,var(--muted));
+  letter-spacing: 0;
+  margin-left: 4px;
+}
+body.portfolio-upgrade.fusion-study .hero-result-item { position: relative; isolation: isolate; }
+body.portfolio-upgrade.fusion-study .hero-result-item::after { content:''; position:absolute; left:0; right:0; bottom:-10px; height:2px; border-radius:999px; transform:scaleX(0); transform-origin:left; background:linear-gradient(90deg,#ff875d,transparent); box-shadow:0 0 12px #e8450a55; }
+body.portfolio-upgrade.fusion-study .hero-result-item.counting::after { animation:fusion-result-line 1.4s ease-out both; }
+body.portfolio-upgrade.fusion-study .hero-result-item.counting strong { text-shadow:0 0 18px #e8450a44; }
+@keyframes fusion-result-line { to { transform:scaleX(1); } }
+body.portfolio-upgrade.fusion-study .project-results strong {
+  font-weight: 750;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+body.portfolio-upgrade.fusion-study .project-results strong span {
+  font-weight: 500;
+  color: color-mix(in srgb,var(--accent-text) 78%,var(--muted));
+}
+
+body.portfolio-upgrade.fusion-study .section { background: transparent; }
+body.portfolio-upgrade.fusion-study #works,
+body.portfolio-upgrade.fusion-study #explorations {
+  background: radial-gradient(ellipse at 95% 38%,#e8450a08,transparent 55%),var(--paper);
+}
+body.portfolio-upgrade.fusion-study .business-project-grid .business-project {
+  border-radius: 14px;
+  background: linear-gradient(180deg,#ffffff12,#ffffff02 65%),var(--glass);
+  border-color: var(--rule);
+  box-shadow: var(--surface-shadow);
+  transition: transform .28s cubic-bezier(.2,.75,.2,1), box-shadow .28s ease, border-color .18s ease;
+}
+body.portfolio-upgrade.fusion-study .business-project-grid .business-project:hover {
+  transform: translateY(-2px);
+  border-color: #ffffff40;
+  background: linear-gradient(180deg,#ffffff16,#ffffff03 65%),var(--glass);
+  box-shadow: inset 0 1px 0 #ffffff24,0 22px 48px #08091050;
+}
+body.portfolio-upgrade.fusion-study .project-card-link {
+  transition: color .2s ease, border-color .2s ease;
+}
+body.portfolio-upgrade.fusion-study .project-card-link > span {
+  display: inline-block;
+  transition: transform .2s ease;
+}
+body.portfolio-upgrade.fusion-study .project-card-link:hover > span { transform: translate(2px,-2px); }
+
+body.portfolio-upgrade.fusion-study #ai-practice {
+  background: radial-gradient(ellipse at 86% 25%,#e8450a16,transparent 58%),#282932;
+}
+body.portfolio-upgrade.fusion-study .selected-case-ai::before { background: none; }
+body.portfolio-upgrade.fusion-study .selected-case-screen img {
+  border-radius: 8px;
+  box-shadow: inset 0 1px 0 #ffffff20;
+}
+body.portfolio-upgrade.fusion-study .selected-case-screen a {
+  position: relative;
+  isolation: isolate;
+  padding: 8px;
+  border-radius: 15px;
+  border: 1px solid #ffb08b66;
+  background: linear-gradient(180deg,#ffffff15,#ffffff04),#24252d;
+  box-shadow: inset 0 1px 0 #ffffff30,0 20px 55px #07081050,0 0 0 5px #ffffff05;
+  transition: border-color .2s ease,box-shadow .3s ease;
+}
+body.portfolio-upgrade.fusion-study #ai-practice .selected-case-screen a:is(:hover,:focus-visible) {
+  border-color: #ff875da6;
+  box-shadow: inset 0 1px 0 #ffffff38,0 0 0 1px #e8450a24,0 20px 55px #e8450a20;
+}
+body.portfolio-upgrade.fusion-study .selected-case-screen { position: relative; isolation: isolate; }
+body.portfolio-upgrade.fusion-study .selected-case-screen::before {
+  content: '';
+  position: absolute;
+  inset: -28px -20px 14px;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 80% 30%,#e8450a22,transparent 68%);
+  animation: fusion-halo-breathe 12s ease-in-out infinite;
+  animation-play-state: paused;
+}
+body.portfolio-upgrade.fusion-study #ai-practice.motion-active .selected-case-screen::before { animation-play-state: running; }
+@keyframes fusion-halo-breathe {
+  0%,100% { opacity: .45; transform: scale(.98); }
+  50% { opacity: .8; transform: scale(1.03); }
+}
+body.portfolio-upgrade.fusion-study .selected-case-capabilities {
+  padding: 14px 14px 14px 16px;
+  border-top-color: transparent;
+  border-left: 2px solid #ff875d99;
+  border-radius: 0 9px 9px 0;
+  background: linear-gradient(100deg,#e8450a16,#ffffff03 70%);
+  box-shadow: inset 0 1px 0 #ffffff08;
+  transition: background-color .24s ease,border-color .24s ease;
+}
+body.portfolio-upgrade.fusion-study .selected-case-capabilities strong { color: #ffc4ac; }
+body.portfolio-upgrade.fusion-study .selected-case-capabilities span { color: #e4e4eb; }
+/* Reading blocks (problem, capabilities, career cards, about): not clickable.
+   Pointing shows a left rule and a faint tint; nothing lifts or opens. */
+body.portfolio-upgrade.fusion-study :is(.selected-case-problem,.selected-case-capabilities,.career-card,.about-body) {
+  position: relative;
+  cursor: default;
+  transition: background-color .22s ease, box-shadow .22s ease;
+}
+body.portfolio-upgrade.fusion-study .career-card { overflow: hidden; }
+body.portfolio-upgrade.fusion-study .career-card::before { display: none; }
+body.portfolio-upgrade.fusion-study :is(.selected-case-problem,.selected-case-capabilities,.career-card,.about-body)::after {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 2px;
+  background: var(--accent-text);
+  box-shadow: 0 0 10px #e8450a55;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform .32s ease;
+  pointer-events: none;
+}
+body.portfolio-upgrade.fusion-study .selected-case-problem { padding: 14px 14px 14px 16px; border-radius: 0 9px 9px 0; }
+body.portfolio-upgrade.fusion-study .about-body { padding: 12px 0 12px 14px; border-radius: 0 9px 9px 0; }
+@media(min-width:761px) {
+  body.portfolio-upgrade.fusion-study .about-body { padding-inline: 16px; margin-inline: -16px; }
+}
+@media(hover:hover) {
+  body.portfolio-upgrade.fusion-study :is(.selected-case-problem,.selected-case-capabilities,.career-card,.about-body):hover {
+    background-color: #e8450a0d;
+    box-shadow: inset 0 1px 0 #ffffff0b;
+  }
+  body.portfolio-upgrade.fusion-study :is(.selected-case-problem,.selected-case-capabilities,.career-card,.about-body):hover::after { transform: scaleY(1); }
+}
+body.portfolio-upgrade.fusion-study .selected-case-top span:first-child,
+body.portfolio-upgrade.fusion-study #ai-practice .head .kicker,
+body.portfolio-upgrade.fusion-study .selected-case-ai .selected-case-bottom a {
+  color: #ff875d;
+}
+body.portfolio-upgrade.fusion-study #career-section,
+body.portfolio-upgrade.fusion-study #about,
+body.portfolio-upgrade.fusion-study .contact { background: var(--soft); }
+body.portfolio-upgrade.fusion-study .contact-row {
+  border-color: var(--rule);
+  background: linear-gradient(145deg,#ffffff04,transparent),var(--soft);
+  border-radius: 12px;
+  box-shadow: inset 0 1px 0 #ffffff0a;
+}
+body.portfolio-upgrade.fusion-study .contact-row:is(:hover,:focus-visible) {
+  transform: translateY(-2px);
+  border-color: #ffffff40;
+  box-shadow: inset 0 1px 0 #ffffff18,0 16px 36px #08091030;
+}
+body.portfolio-upgrade.fusion-study .contact-row:active { transform: translateY(0); }
+body.portfolio-upgrade.fusion-study .footer { background: #1c1d24; }
+
+body.portfolio-upgrade.fusion-study .card-modal-overlay {
+  background: rgba(8,9,17,.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: opacity .22s ease, visibility 0s linear .22s;
+}
+body.portfolio-upgrade.fusion-study .card-modal-overlay.active {
+  transition-delay: 0s, 0s;
+}
+body.portfolio-upgrade.fusion-study .card-modal {
+  background: linear-gradient(180deg,#ffffff08,transparent 38%),var(--panel);
+  border: 1px solid #e8450a99;
+  box-shadow: inset 0 1px 0 #ffffff26,0 0 0 1px #e8450a12,0 32px 90px #e8450a20,0 0 60px #e8450a0d;
+  border-radius: 18px;
+  transform: translateY(12px) scale(.975);
+  transition: transform .32s cubic-bezier(.2,.75,.2,1),opacity .22s ease;
+}
+body.portfolio-upgrade.fusion-study .card-modal-overlay.active .card-modal {
+  transform: translateY(0) scale(1);
+}
+body.portfolio-upgrade.fusion-study .card-modal-close:hover {
+  transform: rotate(90deg);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+body.portfolio-upgrade.fusion-study .card-modal-tag,
+body.portfolio-upgrade.fusion-study .card-modal-kpi {
+  background: var(--accent-soft);
+  border-color: var(--rule);
+}
+
+/* Light stays behind the content; layout and text sizes follow the published page. */
+body.portfolio-upgrade.fusion-study .fusion-ambient {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+body.portfolio-upgrade.fusion-study .fusion-ambient::before,
+body.portfolio-upgrade.fusion-study .fusion-ambient::after {
+  content: '';
+  position: absolute;
+  width: clamp(560px,70vw,1000px);
+  height: clamp(440px,52vw,740px);
+  pointer-events: none;
+  animation: fusion-ambient-drift 24s ease-in-out infinite alternate;
+  animation-play-state: paused;
+}
+body.portfolio-upgrade.fusion-study .fusion-ambient::before {
+  left: -20%;
+  bottom: -47%;
+  background: radial-gradient(ellipse,rgba(232,69,10,.23),rgba(232,69,10,.07) 38%,transparent 70%);
+}
+body.portfolio-upgrade.fusion-study .fusion-ambient::after {
+  right: -22%;
+  top: -52%;
+  background: radial-gradient(ellipse,rgba(232,69,10,.13),rgba(255,255,255,.035) 38%,transparent 70%);
+  animation-duration: 32s;
+  animation-delay: -14s;
+  animation-direction: alternate-reverse;
+}
+body.portfolio-upgrade.fusion-study .hero.ambient-active .fusion-ambient::before,
+body.portfolio-upgrade.fusion-study .hero.ambient-active .fusion-ambient::after {
+  animation-play-state: running;
+}
+@keyframes fusion-ambient-drift {
+  from { transform: translate3d(-30px,12px,0) scale(1); }
+  to { transform: translate3d(48px,-24px,0) scale(1.06); }
+}
+body.portfolio-upgrade.fusion-study .fusion-meteor {
+  position: absolute;
+  top: 90px;
+  left: 92%;
+  width: 80px;
+  height: 1px;
+  border-radius: 999px;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(90deg,#ffd0b9bb,#e8450a38,transparent);
+  animation: fusion-meteor-pass 26s linear infinite;
+  animation-delay: 2s;
+  animation-play-state: paused;
+}
+body.portfolio-upgrade.fusion-study .fusion-meteor-b { top:248px; left:24%; width:58px; animation-delay:12s; animation-duration:34s; }
+body.portfolio-upgrade.fusion-study .fusion-meteor::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #ffe2d2;
+  box-shadow: 0 0 7px #ff9d6f88;
+}
+body.portfolio-upgrade.fusion-study .hero.ambient-active .fusion-meteor { animation-play-state: running; }
+@keyframes fusion-meteor-pass {
+  0% { opacity: 0; transform: translate3d(20px,-6px,0) rotate(-18deg); }
+  2% { opacity: .65; }
+  8% { opacity: .3; }
+  11%,100% { opacity: 0; transform: translate3d(-110px,16px,0) rotate(-18deg); }
+}
+body.portfolio-upgrade.fusion-study .hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(600px circle at var(--mx,25%) var(--my,65%),rgba(232,69,10,.13),transparent 65%);
+}
+body.portfolio-upgrade.fusion-study .cursor-glow { position:fixed; z-index:2; width:150px; height:150px; border-radius:50%; pointer-events:none; opacity:0; transform:translate3d(-50%,-50%,0); background:radial-gradient(circle,#e8450a12,transparent 70%); transition:opacity .18s ease; will-change:transform,opacity; }
+body.portfolio-upgrade.fusion-study .cursor-glow.active { opacity:1; }
+body.portfolio-upgrade.fusion-study .hero-grid,
+body.portfolio-upgrade.fusion-study .hero-bottomline { position: relative; z-index: 1; }
+body.portfolio-upgrade.fusion-study .business-project {
+  position: relative;
+  isolation: isolate;
+}
+body.portfolio-upgrade.fusion-study .business-project::before {
+  display: block;
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(300px circle at var(--mx,50%) var(--my,20%),rgba(232,69,10,.13),transparent 65%);
+  opacity: 0;
+  transform: none;
+  transition: opacity .25s ease;
+}
+body.portfolio-upgrade.fusion-study .business-project:is(:hover,:focus-within)::before { opacity: 1; }
+body.portfolio-upgrade.fusion-study #biz-grid .project-card[data-idx] { cursor: pointer; }
+body.portfolio-upgrade.fusion-study .business-project-grid .business-project[data-idx]:active {
+  transform: translateY(0);
+  transition-duration: .12s;
+}
+body.portfolio-upgrade.fusion-study .business-project:focus-within {
+  border-color: #ffffff40;
+  box-shadow: var(--surface-shadow);
+}
+body.portfolio-upgrade.fusion-study .project-responsibility {
+  padding: 10px 12px;
+  background: #0b0c131c;
+  border: 1px solid #ffffff14;
+  box-shadow: inset 0 1px 0 #ffffff05;
+  border-radius: 8px;
+  border-left-color: #ff875d55;
+  transition: background-color .24s ease,border-color .24s ease;
+}
+body.portfolio-upgrade.fusion-study :is(.project-results strong,.supplementary-results strong,.project-card-link,.card-modal-kpi b,.career-kpi-tag b,.kicker,.modal-action-label) {
+  color: var(--accent-text);
+}
+body.portfolio-upgrade.fusion-study .modal-section-label { color: var(--quiet); }
+body.portfolio-upgrade.fusion-study .modal-action-item {
+  background: #ffffff04;
+  border-color: var(--rule);
+}
+body.portfolio-upgrade.fusion-study .modal-insight-block {
+  background: linear-gradient(135deg,#e8450a12,#e8450a05);
+  border-color: #e8450a40;
+}
+body.portfolio-upgrade.fusion-study .nav-links a.active {
+  background: #e8450a14;
+  border-color: #e8450a50;
+  color: #ff996f;
+}
+body.portfolio-upgrade.fusion-study .card-modal-tag { color: var(--muted); }
+
+/* Edge reflections follow the pointer without lighting the text itself. */
+body.portfolio-upgrade.fusion-study :is(.business-project,.contact-row) { position: relative; isolation: isolate; }
+body.portfolio-upgrade.fusion-study :is(.business-project,.selected-case-screen a,.contact-row)::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  background: radial-gradient(240px circle at var(--mx,50%) var(--my,0%),#ffb08bcc,#e8450a55 35%,transparent 72%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+body.portfolio-upgrade.fusion-study :is(.business-project,.selected-case-screen a,.contact-row):is(:hover,:focus-within)::after { opacity: 1; }
+body.portfolio-upgrade.fusion-study .project-results {
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 9px;
+  background: linear-gradient(145deg,#e8450a0e,transparent 72%);
+  box-shadow: inset 0 1px 0 #e8450a28;
+  transition: background-color .24s ease,box-shadow .24s ease;
+}
+body.portfolio-upgrade.fusion-study .project-results > div {
+  position: relative;
+  padding: 12px 10px 10px;
+  border: 1px solid #e8450a28;
+  border-radius: 8px;
+  background: linear-gradient(180deg,#e8450a12,#ffffff03);
+  overflow: hidden;
+}
+body.portfolio-upgrade.fusion-study .project-results > div::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg,#ff875d,#e8450a22);
+  box-shadow: 0 0 12px #e8450a66;
+  transition: transform .55s cubic-bezier(.2,.75,.2,1);
+}
+body.portfolio-upgrade.fusion-study .business-project:is(:hover,:focus-within) .project-results > div::after { transform: scaleX(1); }
+body.portfolio-upgrade.fusion-study .project-results > div strong,
+body.portfolio-upgrade.fusion-study .supplementary-results strong {
+  display: inline-flex;
+  align-items: baseline;
+  color: #ff9a72;
+  font-size: 1.22em;
+  text-shadow: 0 0 16px #e8450a2e;
+}
+body.portfolio-upgrade.fusion-study .project-results > div > span { display:block; margin-top:4px; }
+body.portfolio-upgrade.fusion-study .supplementary-results {
+  padding: 12px 14px;
+  border: 1px solid #e8450a28;
+  border-radius: 9px;
+  background: linear-gradient(100deg,#e8450a12,transparent 72%);
+}
+body.portfolio-upgrade.fusion-study .project-responsibility dt { color: #f5d4c6; transition: color .24s ease; }
+body.portfolio-upgrade.fusion-study .business-project:is(:hover,:focus-within) .project-responsibility {
+  background-color: #e8450a09;
+  border-left-color: #ff875daa;
+}
+body.portfolio-upgrade.fusion-study .business-project:is(:hover,:focus-within) .project-responsibility dt {
+  color: #ffb08b;
+}
+body.portfolio-upgrade.fusion-study .business-project:is(:hover,:focus-within) .project-card-link {
+  color: color-mix(in srgb,var(--accent-text) 85%,var(--ink));
+  border-color: #ff875d88;
+}
+
+/* A short arrival cue marks the chosen section after anchor scrolling finishes. */
+/* Each visible section has an edge light; copy stays on a stable surface. */
+body.portfolio-upgrade.fusion-study :is(#works,#ai-practice,#explorations,#career-section,#about,#contact) {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  --section-light-x: 100%;
+  --section-light-y: 28%;
+  --section-light-strength: .1;
+}
+body.portfolio-upgrade.fusion-study #ai-practice { --section-light-x: 96%; --section-light-y: 54%; --section-light-strength: .15; }
+body.portfolio-upgrade.fusion-study #explorations { --section-light-x: 0%; --section-light-y: 85%; --section-light-strength: .065; }
+body.portfolio-upgrade.fusion-study #career-section { --section-light-x: 100%; --section-light-y: 85%; --section-light-strength: .075; }
+body.portfolio-upgrade.fusion-study #about { --section-light-x: 0%; --section-light-y: 20%; --section-light-strength: .055; }
+body.portfolio-upgrade.fusion-study #contact { --section-light-x: 96%; --section-light-y: 90%; --section-light-strength: .08; }
+body.portfolio-upgrade.fusion-study :is(#works,#ai-practice,#explorations,#career-section,#about,#contact)::before {
+  display: block;
+  content: '';
+  position: absolute;
+  inset: -25px;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 60% 78% at var(--section-light-x) var(--section-light-y),rgba(232,69,10,var(--section-light-strength)),transparent 75%);
+  animation: fusion-section-drift 36s ease-in-out infinite alternate;
+  animation-play-state: paused;
+}
+body.portfolio-upgrade.fusion-study .ambient-section-active:is(#works,#ai-practice,#explorations,#career-section,#about,#contact)::before { animation-play-state: running; }
+body.portfolio-upgrade.fusion-study :is(#works,#ai-practice,#explorations,#career-section,#about,#contact) > .wrap { position: relative; z-index: 1; }
+@keyframes fusion-section-drift {
+  from { opacity: .65; transform: translate3d(-12px,6px,0); }
+  to { opacity: 1; transform: translate3d(18px,-12px,0); }
+}
+body.portfolio-upgrade.fusion-study .experiment-entry a { color: var(--accent-text); }
+body.portfolio-upgrade.fusion-study [data-card-entry] { cursor: pointer !important; }
+body.portfolio-upgrade.fusion-study .supplementary-project:is(:hover,:focus-within) { border-color: #ff875d55; }
+body.portfolio-upgrade.fusion-study .contact-row { transition: transform .28s cubic-bezier(.2,.75,.2,1),border-color .18s ease,box-shadow .28s ease,background-color .18s ease; }
+body.portfolio-upgrade.fusion-study section[id] > .wrap { position: relative; }
+body.portfolio-upgrade.fusion-study .arrival-focus :is(.head .title,.about-story-title,.contact-title-block) { position: relative; }
+body.portfolio-upgrade.fusion-study .arrival-focus :is(.head .title,.about-story-title,.contact-title-block)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -9px;
+  width: 52px;
+  height: 2px;
+  border-radius: 999px;
+  background: #ff875d;
+  pointer-events: none;
+  box-shadow: 0 0 10px #e8450a55;
+  animation: fusion-arrival-glow 2.2s ease-out both;
+}
+@keyframes fusion-arrival-glow {
+  0% { opacity: 0; }
+  14%,55% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@media(hover:none) {
+  body.portfolio-upgrade.fusion-study .business-project-grid .business-project:hover { transform: none; border-color: var(--rule); box-shadow: var(--surface-shadow); }
+  body.portfolio-upgrade.fusion-study .business-project::before { display: none; }
+  body.portfolio-upgrade.fusion-study .contact-row:hover { transform: none; border-color: var(--rule); box-shadow: inset 0 1px 0 #ffffff0a; }
+  body.portfolio-upgrade.fusion-study :is(.business-project,.selected-case-screen a,.contact-row):hover::after { opacity: 0; }
+  body.portfolio-upgrade.fusion-study :is(.business-project,.selected-case-screen a,.contact-row):focus-within::after { opacity: .65; }
+  body.portfolio-upgrade.fusion-study :is([data-card-entry],.contact-row,.selected-case-screen a):active {
+    transform: none;
+    border-color: #ff875d99;
+    box-shadow: inset 0 0 0 1px #ff875d55,inset 0 0 40px #e8450a12;
+  }
+  body.portfolio-upgrade.fusion-study .business-project-grid .business-project:active { transform: none; border-color: #ff875d99; box-shadow: inset 0 0 0 1px #ff875d55; }
+  body.portfolio-upgrade.fusion-study #ai-practice .selected-case-screen a:active {
+    border-color: #ff875d99;
+    box-shadow: inset 0 0 0 1px #ff875d55,inset 0 0 40px #e8450a12;
+  }
+  body.portfolio-upgrade.fusion-study .business-project:hover .project-responsibility { background-color: #0b0c131c; border-left-color: #ff875d55; }
+  body.portfolio-upgrade.fusion-study .business-project:hover .project-responsibility dt { color: #f5d4c6; }
+}
+
+@media(max-width:760px) {
+  body.portfolio-upgrade.fusion-study .fusion-ambient::before,
+  body.portfolio-upgrade.fusion-study .fusion-ambient::after { opacity: .55; }
+  body.portfolio-upgrade.fusion-study .hero-grid { min-height: auto; }
+  body.portfolio-upgrade.fusion-study .personal-portrait { width: 100%; margin: 0; justify-self: stretch; }
+  body.portfolio-upgrade.fusion-study .personal-portrait img { max-height: none; }
+  body.portfolio-upgrade.fusion-study .personal-portrait::before { display: none; }
+  body.portfolio-upgrade.fusion-study .personal-portrait-note { position: static; padding: 0; border: 0; background: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+  body.portfolio-upgrade.fusion-study :is(#works,#ai-practice,#explorations,#career-section,#about,#contact)::before { background-size: 100% 100%; animation-duration: 42s; }
+  body.portfolio-upgrade.fusion-study .fusion-meteor {
+    top: 84px;
+    left: 88%;
+    width: 64px;
+    animation-name: fusion-meteor-mobile;
+  }
+  body.portfolio-upgrade.fusion-study .fusion-meteor-b { display:none; }
+  body.portfolio-upgrade.fusion-study .hero-results-grid strong { font-size: 26px; }
+  body.portfolio-upgrade.fusion-study .hero-results-grid strong span { margin-left: 2px; }
+}
+@keyframes fusion-meteor-mobile {
+  0% { opacity: 0; transform: translate3d(0,-4px,0) rotate(-18deg); }
+  2% { opacity: .4; }
+  8% { opacity: .2; }
+  11%,100% { opacity: 0; transform: translate3d(-55px,10px,0) rotate(-18deg); }
+}
+@media(max-width:360px) {
+  body.portfolio-upgrade.fusion-study .hero-results-grid strong { font-size: 24px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  html:has(body.fusion-study) { scroll-behavior: auto !important; }
+  body.portfolio-upgrade.fusion-study *,
+  body.portfolio-upgrade.fusion-study *::before,
+  body.portfolio-upgrade.fusion-study *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  body.portfolio-upgrade.fusion-study .fusion-meteor { display: none; }
+  body.portfolio-upgrade.fusion-study :is(.business-project,.contact-row,.selected-case-screen a)::after { background: linear-gradient(135deg,#ffb08b88,transparent 65%); }
+  body.portfolio-upgrade.fusion-study .business-project::before { background: none; }
+  body.portfolio-upgrade.fusion-study .hero::after { background: none; }
+  body.portfolio-upgrade.fusion-study .business-project:hover { transform: none !important; }
+  body.portfolio-upgrade.fusion-study .arrival-focus :is(.head .title,.about-story-title,.contact-title-block)::after { opacity: .7; }
+}
+
+/* ===== v2 refinements ===== */
+body.portfolio-upgrade.fusion-study .hero-role {
+  margin-top: 14px;
+  font-size: clamp(38px, 4.4vw, 56px);
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -.01em;
+}
+body.portfolio-upgrade.fusion-study .hero-role-divider { color: #ff875d; }
+
+
+body.portfolio-upgrade.fusion-study .career-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 14px; }
+body.portfolio-upgrade.fusion-study .career-tags span {
+  padding: 3px 9px;
+  border: 1px solid #ff875d55;
+  border-radius: 999px;
+  color: #ffc6ad;
+  font-size: 12px;
+  line-height: 1.6;
+  background: #e8450a14;
+}
+
+body.portfolio-upgrade.fusion-study .contact-row-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  color: #ff875d;
+  background: #e8450a1a;
+}
+body.portfolio-upgrade.fusion-study .contact-row-icon svg { display: block; }
+body.portfolio-upgrade.fusion-study #copy-email { border-color: #ff875d77; background: linear-gradient(90deg,#e8450a1f,transparent 70%); }
+
+body.portfolio-upgrade.fusion-study .cursor-glow { display: none !important; }
+
+/* ===== v2 hero: 成果面板 + 头像 ===== */
+body.portfolio-upgrade.fusion-study { --cyan: #4fd8e0; --cyan-soft: #4fd8e033; }
+body.portfolio-upgrade.fusion-study .hero-grid {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  min-height: auto;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  align-items: center;
+}
+body.portfolio-upgrade.fusion-study .hero-id { display: flex; align-items: center; gap: 14px; margin: 6px 0 4px; }
+body.portfolio-upgrade.fusion-study .hero-avatar {
+  flex: none;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 22%;
+  box-shadow: 0 0 0 2px #ff875d, 0 0 0 5px #ff875d2e, 0 8px 24px #0c0c1866;
+}
+body.portfolio-upgrade.fusion-study .hero-id-text { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; }
+body.portfolio-upgrade.fusion-study .hero-hello { font-size: 17px; color: #c5c6d0; }
+body.portfolio-upgrade.fusion-study .hero-name { font-size: 26px; font-weight: 800; color: #fff; }
+body.portfolio-upgrade.fusion-study .hero-city { font-size: 14px; color: #9fa1ae; }
+body.portfolio-upgrade.fusion-study .hero-role {
+  margin: 10px 0 0;
+  font-size: clamp(38px, 4.4vw, 56px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -.01em;
+}
+body.portfolio-upgrade.fusion-study .hero-role-divider { color: #ff875d; }
+
+body.portfolio-upgrade.fusion-study .hero-board {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 14px;
+  padding: 22px;
+  border: 1px solid #ff875d44;
+  border-radius: 20px;
+  background: linear-gradient(160deg, #26201f, #1c1d24 62%);
+  box-shadow: 0 0 0 1px #ffffff0d inset, 0 0 60px #e8450a22, 0 24px 60px #0c0c1855;
+}
+body.portfolio-upgrade.fusion-study .hero-board-head { display: grid; gap: 2px; }
+body.portfolio-upgrade.fusion-study .hero-board-head .kicker { margin: 0; color: #ff875d; font-size: 12px; }
+body.portfolio-upgrade.fusion-study .hero-board-head strong { font-size: 15px; color: #e3e4eb; font-weight: 700; }
+body.portfolio-upgrade.fusion-study .hero-board-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+body.portfolio-upgrade.fusion-study .hero-board-stats .hero-result-item {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  padding: 16px 12px 14px;
+  border: 1px solid #ff875d33;
+  border-radius: 14px;
+  background: #e8450a10;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+body.portfolio-upgrade.fusion-study .hero-board-stats .hero-result-number {
+  display: block;
+  color: #ff9a6e;
+  font-size: clamp(34px, 3.6vw, 50px);
+  font-weight: 800;
+  line-height: 1.05;
+  white-space: nowrap;
+  text-shadow: 0 0 26px #ef773e66;
+}
+body.portfolio-upgrade.fusion-study .hero-board-stats .hero-result-number span { margin-left: 2px; font-size: .38em; font-weight: 700; }
+body.portfolio-upgrade.fusion-study .hero-board-stats .hero-result-item > span { color: #c5c6d0; font-size: 12.5px; line-height: 1.55; }
+body.portfolio-upgrade.fusion-study .hero-board-stats .hero-result-item:hover {
+  transform: translateY(-3px) scale(1.03);
+  border-color: #ff875dcc;
+  box-shadow: 0 0 0 1px #ff875d66, 0 10px 34px #e8450a44;
+}
+
+body.portfolio-upgrade.fusion-study .hero-ai-card {
+  position: relative;
+  display: grid;
+  gap: 5px;
+  padding: 14px 16px;
+  border: 1px solid var(--cyan-soft);
+  border-radius: 14px;
+  background: linear-gradient(120deg, #4fd8e01c, #4fd8e006 70%);
+  color: #d9eef0;
+  text-decoration: none;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+body.portfolio-upgrade.fusion-study .hero-ai-tag { color: var(--cyan); font-size: 12px; font-weight: 700; letter-spacing: .04em; }
+body.portfolio-upgrade.fusion-study .hero-ai-card strong { font-size: 16px; color: #fff; }
+body.portfolio-upgrade.fusion-study .hero-ai-card > span:nth-of-type(2) { font-size: 13px; line-height: 1.6; color: #b9c9cb; }
+body.portfolio-upgrade.fusion-study .hero-ai-go { color: var(--cyan); font-size: 13px; font-weight: 600; }
+body.portfolio-upgrade.fusion-study .hero-ai-card:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: #4fd8e0cc;
+  box-shadow: 0 0 0 1px #4fd8e066, 0 10px 34px #4fd8e038;
+}
+
+body.portfolio-upgrade.fusion-study .hero-practice {
+  margin: 14px 0 0;
+  padding: 10px 14px;
+  border-left: 3px solid var(--cyan);
+  border-radius: 0 10px 10px 0;
+  background: linear-gradient(90deg, #4fd8e01c, transparent 90%);
+  color: #e6f6f7;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@media (max-width: 860px) {
+  body.portfolio-upgrade.fusion-study .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+}
+@media (max-width: 560px) {
+  body.portfolio-upgrade.fusion-study .hero-avatar { width: 64px; height: 64px; }
+  body.portfolio-upgrade.fusion-study .hero-name { font-size: 22px; }
+  body.portfolio-upgrade.fusion-study .hero-board { padding: 16px; border-radius: 16px; }
+  body.portfolio-upgrade.fusion-study .hero-board-stats { gap: 7px; }
+  body.portfolio-upgrade.fusion-study .hero-board-stats .hero-result-item { padding: 12px 8px; }
+  body.portfolio-upgrade.fusion-study .hero-board-stats .hero-result-number { font-size: 28px; }
+  body.portfolio-upgrade.fusion-study .hero-board-stats .hero-result-item > span { font-size: 11.5px; }
+}
+@media (hover: none) {
+  body.portfolio-upgrade.fusion-study .hero-board-stats .hero-result-item:hover,
+  body.portfolio-upgrade.fusion-study .hero-ai-card:hover { transform: none; }
+}
+
+/* hero fixes */
+body.portfolio-upgrade.fusion-study .hero-board-stats { grid-template-columns: minmax(0,.82fr) minmax(0,.82fr) minmax(0,1.36fr); }
+body.portfolio-upgrade.fusion-study .hero-board-stats .hero-result-number { font-size: clamp(28px, 2.9vw, 44px); }
+body.portfolio-upgrade.fusion-study .hero-board-stats .hero-result-item { padding: 16px 10px 14px 14px; }
+body.portfolio-upgrade.fusion-study .hero-board-stats .hero-result-item > span { text-wrap: balance; }
+body.portfolio-upgrade.fusion-study .hero-ctas { margin-top: 22px; }
+@media (max-width: 560px) {
+  body.portfolio-upgrade.fusion-study .hero-board-stats .hero-result-number { font-size: 24px; }
+  body.portfolio-upgrade.fusion-study .hero-board-stats .hero-result-item { padding: 12px 8px; }
+}
+
+/* ===== v2 step 2: desktop hover — lift, 2% scale, glow ring, dim siblings ===== */
+@media (hover:hover) and (min-width:761px) {
+  body.portfolio-upgrade.fusion-study :is(.business-project-grid .business-project,.contact-row) {
+    transition: transform .3s cubic-bezier(.2,.75,.2,1), box-shadow .3s ease, border-color .2s ease, opacity .3s ease;
+  }
+  body.portfolio-upgrade.fusion-study .business-project-grid .business-project:hover,
+  body.portfolio-upgrade.fusion-study .contact-row:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: #ff875dcc;
+    box-shadow: inset 0 1px 0 #ffffff24, 0 0 0 1px #ff875d55, 0 18px 48px #e8450a30, 0 0 36px #e8450a26;
+    z-index: 2;
+  }
+  body.portfolio-upgrade.fusion-study :is(.business-project-grid,.contact-actions):has(> :is(.business-project,.contact-row):hover) > :is(.business-project,.contact-row):not(:hover) {
+    opacity: .58;
+  }
+}
+
+/* ===== v2 step 3: about layout + stronger data numbers ===== */
+@media (min-width:761px) {
+  body.portfolio-upgrade.fusion-study .about-layout {
+    max-width: none;
+    grid-template-columns: minmax(0,1fr) clamp(240px,24vw,300px);
+    gap: clamp(40px,6vw,88px);
+    align-items: center;
+  }
+  body.portfolio-upgrade.fusion-study .about-story { max-width: 720px; }
+  body.portfolio-upgrade.fusion-study .about-story-title { font-size: 30px; margin-bottom: 14px; }
+  body.portfolio-upgrade.fusion-study .about-portrait {
+    margin: 0;
+    aspect-ratio: 1042 / 1220;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    background: var(--panel);
+    box-shadow: var(--surface-shadow), 0 0 60px #e8450a1a;
+  }
+  body.portfolio-upgrade.fusion-study .about-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+}
+@media (max-width:760px) { body.portfolio-upgrade.fusion-study .about-portrait { display: none; } }
+
+body.portfolio-upgrade.fusion-study :is(.hero-result-number,.project-results > div strong,.supplementary-results strong,.card-modal-kpi b,.career-kpi-tag b) {
+  color: #ffb894;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  text-shadow: 0 0 22px #ff6a2a66, 0 1px 0 #00000040;
+}
+body.portfolio-upgrade.fusion-study .project-results > div strong { font-size: 1.8em; line-height: 1.15; }
+body.portfolio-upgrade.fusion-study .supplementary-results strong { font-size: 1.25em; }
+body.portfolio-upgrade.fusion-study .card-modal-kpi b { font-size: 26px; }
+body.portfolio-upgrade.fusion-study .career-kpi-tag b { font-size: 28px; }
+body.portfolio-upgrade.fusion-study .project-results > div strong span { color: #ffc9ad; font-weight: 600; text-shadow: none; }
+body.portfolio-upgrade.fusion-study .project-results > div > span { color: var(--quiet); font-size: 12.5px; }
+body.portfolio-upgrade.fusion-study .project-results > div {
+  background: linear-gradient(180deg,#0000002e,#0000001a);
+  border-color: #ff875d44;
+}
+body.portfolio-upgrade.fusion-study .hero-board-stats .hero-result-number { color: #ffb894; text-shadow: 0 0 26px #ff6a2a77, 0 1px 0 #00000040; }
+
+/* ===== v2 step 4: AI 网关未公开标注 + 相邻 AI 卡间距 ===== */
+body.portfolio-upgrade.fusion-study #ai-practice .selected-case + .selected-case { margin-top: 0; padding-top: 38px; border-top: 1px solid var(--rule); }
+
+/* ===== v2 step 6: AI 实践两层结构（内容生产与审核 / 自研工具） ===== */
+body.portfolio-upgrade.fusion-study .ai-tier-title {
+  display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px;
+  margin: 44px 0 14px; color: var(--ink); font-size: 20px; font-weight: 700; line-height: 1.5;
+}
+body.portfolio-upgrade.fusion-study .ai-tier-title:first-of-type { margin-top: 40px; }
+body.portfolio-upgrade.fusion-study #ai-practice .selected-case-body > .selected-case-role { padding-bottom: 22px; }
+body.portfolio-upgrade.fusion-study .ai-tier-title span { color: var(--accent-text); font-size: 14px; font-weight: 700; letter-spacing: .08em; }
+body.portfolio-upgrade.fusion-study .ai-tier-title small { color: var(--quiet); font-size: 13px; font-weight: 400; }
+
+body.portfolio-upgrade.fusion-study .ai-flow {
+  display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 14px 0 0; padding: 0; list-style: none;
+}
+body.portfolio-upgrade.fusion-study .ai-flow li {
+  position: relative; padding: 4px 12px; border: 1px solid #ffffff30; border-radius: 999px;
+  color: #dfe5dc; font-size: 13px; line-height: 1.6; white-space: nowrap;
+}
+body.portfolio-upgrade.fusion-study .ai-flow li + li::before {
+  content: '\2192'; position: absolute; left: -18px; top: 50%; transform: translateY(-52%);
+  color: #ff875d; font-size: 13px;
+}
+
+body.portfolio-upgrade.fusion-study .ai-tool-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; align-items: stretch; }
+body.portfolio-upgrade.fusion-study .ai-tool-card {
+  display: flex; flex-direction: column; min-width: 0; padding: 22px;
+  border: 1px solid var(--rule); border-radius: 12px;
+  background: linear-gradient(145deg,#ffffff06,transparent),var(--soft);
+  box-shadow: inset 0 1px 0 #ffffff0d,0 12px 30px #08091020;
+}
+body.portfolio-upgrade.fusion-study .ai-tool-card .project-card-meta { margin: 0 0 8px; color: var(--muted); font-size: 13px; }
+body.portfolio-upgrade.fusion-study .ai-tool-card h3 { margin: 0 0 12px; color: var(--ink); font-size: 22px; line-height: 1.4; }
+body.portfolio-upgrade.fusion-study .ai-tool-card p { margin: 0 0 18px; color: var(--muted); font-size: 15px; line-height: 1.8; }
+body.portfolio-upgrade.fusion-study .ai-tool-shot { display: block; margin-bottom: 18px; }
+body.portfolio-upgrade.fusion-study .ai-tool-shot img {
+  display: block; width: 100%; height: auto; aspect-ratio: 1180/430; object-fit: contain;
+  border: 1px solid #ffffff30; border-radius: 8px;
+}
+body.portfolio-upgrade.fusion-study .ai-tool-card-code .project-card-meta { color: #4fd8e0; }
+body.portfolio-upgrade.fusion-study .ai-tool-link { margin-top: auto; color: #4fd8e0; font-size: 14px; font-weight: 700; text-decoration: none; }
+body.portfolio-upgrade.fusion-study .ai-tool-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width:760px) {
+  body.portfolio-upgrade.fusion-study .ai-tool-grid { grid-template-columns: 1fr; }
+  body.portfolio-upgrade.fusion-study .ai-tier-title { margin-top: 32px; }
+}
+
+/* ===== v2 step 5: 业务项目四卡一排，放不下时左右滑动 ===== */
+@media (min-width:761px) {
+  body.portfolio-upgrade.fusion-study .business-project-grid {
+    display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    padding: 20px 14px 64px; margin: -20px -14px -64px; scroll-padding-inline: 14px;
+  }
+  body.portfolio-upgrade.fusion-study .business-project-grid::-webkit-scrollbar { display: none; }
+  body.portfolio-upgrade.fusion-study .business-project-grid > .business-project { flex: 0 0 calc((100% - 112px) / 3); scroll-snap-align: start; }
+  body.portfolio-upgrade.fusion-study .business-project-grid { padding-right: 72px; margin-right: -72px; }
+  body.portfolio-upgrade.fusion-study #biz-grid { position: relative; }
+  body.portfolio-upgrade.fusion-study .biz-scroll-nav { position: absolute; inset: 0; z-index: 6; pointer-events: none; }
+  body.portfolio-upgrade.fusion-study .biz-scroll-nav[hidden] { display: none; }
+  body.portfolio-upgrade.fusion-study .biz-scroll-btn {
+    position: absolute; top: 64%; width: 56px; height: 56px; margin-top: -28px; border-radius: 50%;
+    border: 1px solid #ffb894aa; background: var(--accent); color: #fff; font-size: 26px; line-height: 1; cursor: pointer;
+    pointer-events: auto; box-shadow: 0 10px 28px #e8450a55, 0 0 0 4px #1e1f2599;
+    transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+  }
+  body.portfolio-upgrade.fusion-study .biz-scroll-btn:hover:not(:disabled) { transform: scale(1.1); box-shadow: 0 12px 34px #e8450a88, 0 0 0 4px #1e1f2599; }
+  body.portfolio-upgrade.fusion-study .biz-scroll-btn:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+  body.portfolio-upgrade.fusion-study .biz-scroll-btn:disabled { opacity: 0; pointer-events: none; }
+}
+@media (max-width:760px) { body.portfolio-upgrade.fusion-study .biz-scroll-nav { display: none; } }
+
+/* ===== v2 step 7: 板块级层级 ===== */
+body.portfolio-upgrade.fusion-study .sec-mark { display:flex; align-items:center; gap:16px; margin:0 0 22px; }
+body.portfolio-upgrade.fusion-study .sec-mark b { color:var(--accent-text); font-size:15px; font-weight:800; letter-spacing:.14em; font-variant-numeric:tabular-nums; }
+body.portfolio-upgrade.fusion-study .sec-mark i { display:block; flex:1; height:1px; background:linear-gradient(90deg,var(--accent) 0,var(--rule) 120px,var(--rule)); }
+body.portfolio-upgrade.fusion-study :is(#works,#ai-practice,#career-section) .head .title,
+body.portfolio-upgrade.fusion-study #works .head-full .title,
+body.portfolio-upgrade.fusion-study .about-story-title { font-size:40px; line-height:1.25; letter-spacing:-.01em; }
+body.portfolio-upgrade.fusion-study #ai-practice > .wrap > .head { padding-top:0; }
+body.portfolio-upgrade.fusion-study #career-section { background:var(--soft); }
+body.portfolio-upgrade.fusion-study #about { background:var(--paper); }
+body.portfolio-upgrade.fusion-study .contact { background:var(--soft); }
+body.portfolio-upgrade.fusion-study #ai-practice { padding:64px 0 72px; border-top:1px solid #e8450a55; border-bottom:1px solid #e8450a55; }
+body.portfolio-upgrade.fusion-study .ai-tier-title { margin:56px 0 22px; padding-left:16px; border-left:4px solid var(--accent); font-size:26px; line-height:1.35; }
+body.portfolio-upgrade.fusion-study .ai-tier-title:first-of-type { margin-top:44px; }
+body.portfolio-upgrade.fusion-study .ai-tier-title small { font-size:14px; }
+body.portfolio-upgrade.fusion-study #ai-practice .selected-case-ai h3 { font-size:22px; }
+body.portfolio-upgrade.fusion-study #ai-practice .ai-tool-card h3 { font-size:20px; }
+body.portfolio-upgrade.fusion-study.warm #ai-practice { --ink:#f7f7fa; --muted:#c5c6cf; --quiet:#a6a8b5; --rule:#ffffff24; --soft:#272831; --accent-text:#ff875d; }
+@media (max-width:760px) {
+  body.portfolio-upgrade.fusion-study :is(#works,#ai-practice,#career-section) .head .title,
+  body.portfolio-upgrade.fusion-study #works .head-full .title,
+  body.portfolio-upgrade.fusion-study .about-story-title { font-size:30px; }
+  body.portfolio-upgrade.fusion-study .ai-tier-title { font-size:22px; margin-top:40px; }
+}
+/* 业务项目滑动按钮：移到卡片右下方并排 */
+body.portfolio-upgrade.fusion-study .biz-scroll-btn { top:auto; bottom:18px; margin-top:0; }
+body.portfolio-upgrade.fusion-study .biz-scroll-btn[data-dir="-1"] { right:76px; left:auto; }
+body.portfolio-upgrade.fusion-study .biz-scroll-btn[data-dir="1"] { right:8px; }
+
+body.portfolio-upgrade.fusion-study .ai-tool-actions { display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:auto; }
+body.portfolio-upgrade.fusion-study .ai-tool-actions .ai-tool-link { margin-top:0; }
+body.portfolio-upgrade.fusion-study .modal-tool-link { margin:14px 0 0; }
+body.portfolio-upgrade.fusion-study .modal-tool-link a { color: var(--accent-text); font-weight:600; }
+@media (max-width:760px) { .experiment-entry { flex-direction:column; align-items:flex-start; } }

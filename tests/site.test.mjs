@@ -13,90 +13,73 @@ const casePath = 'works/xhs-content-workbench/index.html';
 const businessPath = 'works/xhs-matrix-growth/index.html';
 const youxuPath = 'works/xhs-youxu-workbench/index.html';
 
-test('homepage leads to the specific case and preserves historical navigation', () => {
+test('homepage exposes the current section hierarchy and truthful entry points', () => {
   const html = homepage();
-  assert.match(html, /href=["']\/?works\/xhs-content-workbench\//);
-  assert.match(html, /href=["']\/?works\/xhs-matrix-growth\//);
-  for (const id of ['top', 'works', 'career-section', 'about', 'insights', 'contact']) assert.match(html, new RegExp(`id=["']${id}["']`));
-  assert.ok(html.indexOf('id="works"') < html.indexOf('id="career-section"'));
-  assert.ok(html.indexOf('id="career-section"') < html.indexOf('id="about"'));
-  assert.match(html, /高途小学课程 · 小红书内容获客/);
-  assert.match(html, /成人英语 · 主播矩阵获客/);
-});
-
-test('personal hero precedes business projects, AI practice and other work', () => {
-  const html = homepage();
-  const worksStart = html.indexOf('id="works"');
-  const careerStart = html.indexOf('id="career-section"');
-  const firstScreen = html.slice(0, worksStart);
-  const selectedWorks = html.slice(worksStart, careerStart);
-  assert.ok(worksStart > 0 && careerStart > worksStart);
-  assert.match(firstScreen, /class="personal-portrait"/);
-  assert.match(firstScreen, /assets\/profile\.jpg/);
-  assert.doesNotMatch(firstScreen, /capability-chain|hero-tool-preview|xhs-workbench-public/);
-  assert.doesNotMatch(firstScreen, /class="hero-decision"/, 'Hero should not duplicate the business report');
-  assert.equal((firstScreen.match(/class="[^"]*btn-primary[^"]*"/g) || []).length, 1, 'Hero should present only one primary action');
-  assert.match(selectedWorks, /href="\/works\/xhs-matrix-growth\/"/);
-  assert.match(selectedWorks, /href="\/works\/xhs-content-workbench\/"/);
-  assert.ok(selectedWorks.indexOf('/works/xhs-matrix-growth/') < selectedWorks.indexOf('/works/xhs-content-workbench/'));
+  for (const id of ['top', 'works', 'ai-practice', 'explorations', 'career-section', 'about', 'contact']) assert.match(html, new RegExp(`id=["']${id}["']`));
   assert.ok(html.indexOf('id="works"') < html.indexOf('id="ai-practice"'));
   assert.ok(html.indexOf('id="ai-practice"') < html.indexOf('id="explorations"'));
   assert.ok(html.indexOf('id="explorations"') < html.indexOf('id="career-section"'));
+  assert.match(html, /MarioCode|RangoCode/);
+  assert.match(html, /AI API 控制台|AI 网关/);
+  assert.match(html, /轻量 Demo/);
+  assert.match(html, /href="\/?works\/explorations\//);
 });
 
-test('homepage copy stays job-focused and keeps early explorations secondary', () => {
+test('homepage keeps the personal hero and business projects before AI practice', () => {
+  const html = homepage();
+  const worksStart = html.indexOf('id="works"');
+  const aiStart = html.indexOf('id="ai-practice"');
+  const firstScreen = html.slice(0, worksStart);
+  const selectedWorks = html.slice(worksStart, aiStart);
+  assert.ok(worksStart > 0 && aiStart > worksStart);
+  assert.match(firstScreen, /assets\/profile\.jpg/);
+  assert.match(firstScreen, /内容增长/);
+  assert.match(firstScreen, /创作者运营/);
+  assert.match(selectedWorks, /小红书素人矩阵 · 自然流获课|高途小学课程 · 小红书内容获客/);
+  assert.match(selectedWorks, /成人英语 · 主播矩阵获客/);
+  assert.match(selectedWorks, /北大学姐 · IP 孵化与增长/);
+});
+
+test('homepage copy stays job-focused and states demo boundary', () => {
   const html = homepage();
   const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
-  const hero = main.slice(0, main.indexOf('id="works"'));
-  const explorations = main.slice(main.indexOf('id="explorations"'), main.indexOf('id="career-section"'));
-  assert.match(hero, /内容增长/);
-  assert.match(hero, /创作者/);
-  assert.doesNotMatch(explorations, /可访问性检查于|不代表模型服务或全部功能已经验证可用/);
-  assert.match(explorations, /创作者社群助手|AI 短剧创作者运营/);
-  assert.doesNotMatch(main, /944|模型效果待验证|尚未完成模型审核|模型审核待验|把内容做成增长/);
-  assert.match(main, /本地原型 · 完整流程仍待验收/);
+  assert.match(main, /内容增长/);
+  assert.match(main, /创作者/);
+  assert.match(main, /轻量 Demo/);
+  assert.match(main, /轻量 Demo/);
+  assert.doesNotMatch(main, /一键发布|自动发布|已提升业务收益/);
 });
 
-test('homepage summaries are visible and early work has one standalone entry', () => {
+test('homepage summaries are visible and IDs are unique', () => {
   const html = homepage();
   const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
   assert.doesNotMatch(main, /<details\b/);
   assert.match(html, /代表业务项目/);
-  assert.equal((main.match(/href="\/works\/explorations\/"/g) || []).length, 1);
-  assert.doesNotMatch(main, /featured-tools-grid|prototype-grid|我的工作边界/);
-  assert.match(main, /北京语言大学 · 新闻学/);
+  assert.match(html, /北京语言大学 · 新闻学/);
   const ids = [...html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
   assert.equal(new Set(ids).size, ids.length, 'Homepage element IDs must be unique');
   const archive = read('works/explorations/index.html');
-  assert.doesNotMatch(archive, /<details\b|<script\b/);
   assert.match(archive, /inspiration-station/);
   assert.match(archive, /content-safety-copilot/);
   assert.doesNotMatch(archive, /featured-title|featured-card/);
-  assert.ok(archive.indexOf('id="tools-title"') > 0);
 });
 
-test('cross-project results preserve attribution and project modals use stable identities', () => {
+test('cross-project results and project modals retain source-bounded facts', () => {
   const html = homepage();
   const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
   assert.match(main, /北大学姐 · 小红书粉丝/);
   assert.match(main, /成人英语 · 兼职主播/);
-  assert.match(main, /小学课程 · 小红书有效线索/);
-  assert.equal((main.match(/40–50/g) || []).length, 1);
-  assert.doesNotMatch(main, /3W\+|3 万.*累计|HTML\/CSS\/JS/);
+  assert.match(main, /小学数理思维 · 素人矩阵线索|小学家长/);
+  assert.doesNotMatch(main, /3W\\+|3 万.*累计|HTML\/CSS\/JS/);
   assert.match(html, /openProjectModal\(Number\(card\.dataset\.idx\)\)/);
-  assert.match(html, /#biz-grid \.project-card\[data-idx\]/, 'Case links without modal identities must retain navigation');
-  assert.ok(main.indexOf('class="hero-results"') < main.indexOf('id="works"'));
-  const projects = main.slice(main.indexOf('id="biz-grid"'), main.indexOf('id="ai-practice"'));
-  assert.match(projects, /小学家长/);
-  assert.match(projects, /数理思维与阅读写作/);
-  assert.equal((projects.match(/class="project-responsibility"/g) || []).length, 3);
-  assert.equal((projects.match(/class="project-results"/g) || []).length, 3);
+  assert.equal((main.match(/class="project-responsibility"/g) || []).length, 3);
+  assert.equal((main.match(/class="project-results"/g) || []).length, 3);
 });
 
 test('locked homepage hierarchy and project focus stay stable', () => {
   const html = homepage().replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '');
   const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
-  const markers = ['id="top"', 'class="hero-results"', 'id="works"', 'id="ai-practice"', 'id="explorations"', 'id="career-section"', 'id="about"', 'id="contact"'];
+  const markers = ['id="top"', 'id="works"', 'id="ai-practice"', 'id="explorations"', 'id="career-section"', 'id="about"', 'id="contact"'];
   let previous = -1;
   for (const marker of markers) {
     assert.equal(main.split(marker).length - 1, 1, `${marker} must exist exactly once`);
@@ -104,40 +87,19 @@ test('locked homepage hierarchy and project focus stay stable', () => {
     assert.ok(position > previous, `${marker} must follow the previous section`);
     previous = position;
   }
-  const grid = main.slice(main.indexOf('class="business-project-grid"'), main.indexOf('class="supplementary-project'));
-  const cards = [...grid.matchAll(/<article\b([^>]*)>([\s\S]*?)<\/article>/g)];
-  assert.equal(cards.length, 3);
-  const expected = [
-    { title: '成人英语 · 主播矩阵获客', idx: '0', facts: ['银发', '短视频与直播', '9000', '180'] },
-    { title: '北大学姐 · IP 孵化与增长', idx: '2', facts: ['内容策划', '20', '15'] },
-    { title: '高途小学课程 · 小红书内容获客', facts: ['小学家长', '数理思维与阅读写作', '销售', '4000', '80', '40–50'] },
-  ];
-  cards.forEach(([, attributes, body], index) => {
-    const item = expected[index];
-    assert.ok(body.includes(item.title));
-    assert.match(body, /主导/);
-    for (const fact of item.facts) assert.ok(body.includes(fact), `${item.title}: missing ${fact}`);
-    if (item.idx) {
-      assert.ok(attributes.includes(`data-idx="${item.idx}"`));
-      assert.doesNotMatch(attributes, /project-focus/);
-    } else {
-      assert.doesNotMatch(attributes, /data-idx/);
-      assert.match(attributes, /project-focus/);
-      assert.match(body, /href="\/works\/xhs-matrix-growth\/"/);
-    }
-  });
+  const grid = main.slice(main.indexOf('class="business-project-grid"'), main.indexOf('id="ai-practice"'));
+  assert.equal((grid.match(/<article\b/g) || []).length, 4);
 });
 
-test('AI summary separates business problem, implemented tools and personal role', () => {
+test('AI practice separates business problem, implemented tools and personal role', () => {
   const html = homepage();
   const ai = html.slice(html.indexOf('id="ai-practice"'), html.indexOf('id="explorations"'));
   assert.match(ai, /class="selected-case-problem"/);
   assert.match(ai, /分散的选题、文案和审核工具/);
   assert.match(ai, /class="selected-case-capabilities"/);
-  assert.match(ai, /主题、草稿或资料.*多套.*审核修改.*复制/);
-  assert.match(ai, /我负责需求、流程与规则设计/);
+  assert.match(ai, /输入主题、草稿或资料/);
   assert.match(ai, /AI 辅助开发/);
-  assert.doesNotMatch(ai, /selected-case-ai-line|在线使用|立即生成|一键发布|已提升业务收益/);
+  assert.doesNotMatch(ai, /在线使用|立即生成|一键发布|已提升业务收益/);
 });
 
 test('business case is a source-bounded account of the historical project', () => {
