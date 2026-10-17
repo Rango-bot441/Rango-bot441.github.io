@@ -991,6 +991,7 @@ body.portfolio-upgrade.fusion-study .biz-scroll-btn[data-dir="1"] { right:8px; }
 
 body.portfolio-upgrade.fusion-study .ai-tool-actions { display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:auto; }
 body.portfolio-upgrade.fusion-study .ai-tool-actions .ai-tool-link { margin-top:0; }
+body.portfolio-upgrade.fusion-study .ai-tool-actions .ai-tool-internal { color: #b9b2a8; font-size: 13px; font-weight: 500; opacity: .85; }
 body.portfolio-upgrade.fusion-study .modal-tool-link { margin:14px 0 0; }
 body.portfolio-upgrade.fusion-study .modal-tool-link a { color: var(--accent-text); font-weight:600; }
 @media (max-width:760px) { .experiment-entry { flex-direction:column; align-items:flex-start; } }
